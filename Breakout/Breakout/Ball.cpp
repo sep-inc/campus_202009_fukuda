@@ -18,6 +18,8 @@ void Ball::Init(float pos_x, float pos_y, bool enable, Kind kind)
 	m_radius = m_size.width / 2.0f;
 	m_vec.x = -m_speed;
 	m_vec.y = -m_speed;
+	m_circle_center.x = m_pos.x + m_radius;
+	m_circle_center.y = m_pos.y + m_radius;
 }
 
 void Ball::Update()
@@ -31,6 +33,7 @@ void Ball::Update()
 		// 壁との当たり判定
 		HitWall();
 		// ブロックとの当たり判定
+		HitBlock();
 		// バーとの当たり判定
 		// 移動関数
 		Move();
@@ -63,33 +66,31 @@ void Ball::HitWall()
 
 void Ball::HitBlock()
 {
-	// 必要な値の定義
-	Vec2 circle_center;
-	circle_center.x = m_pos.x + m_radius;
-	circle_center.y = m_pos.y + m_radius;
+	// 円の中心座標更新
+	m_circle_center.x = m_pos.x + m_radius;
+	m_circle_center.y = m_pos.y + m_radius;
 	for (int i = 0; i < BLOCK_NUM_X; i++) {
 		for (int j = 0; j < BLOCK_NUM_Y; j++) {
-			// 左上、右上、左下、右下
-			Vec2 rect_vertex1, rect_vertex2, rect_vertex3, rect_vertex4;
-			rect_vertex1.x = g_block_array.m_block_array[i][j].GetBlockPos().x;
-			rect_vertex1.y = g_block_array.m_block_array[i][j].GetBlockPos().y;
-			rect_vertex2.x = g_block_array.m_block_array[i][j].GetBlockPos().x + BLOCK_WIDTH;
-			rect_vertex2.y = g_block_array.m_block_array[i][j].GetBlockPos().y + BLOCK_HEIGHT;
-			// if (HitRectVertexHitBox()) {			// 頂点判定
-			// 	m_vec.x = -m_vec.x;
-			// 	m_vec.y = -m_vec.y;
-			// }
-			if (circle_center.x > rect_vertex1.x &&
-				circle_center.x < rect_vertex2.x &&
-				circle_center.y > rect_vertex1.y - m_radius &&
-				circle_center.y < rect_vertex2.y + m_radius) {	// 左右判定
-				m_vec.x = -m_vec.x;
-			}
-			else if (circle_center.x > rect_vertex1.x - m_radius &&
-				circle_center.x < rect_vertex2.x + m_radius &&
-				circle_center.y > rect_vertex1.y &&
-				circle_center.y < rect_vertex2.y) {		// 上下判定
-				m_vec.y = -m_vec.y;
+			if (g_block_array.m_block_array[i][j].GetDrawFlag()) {
+				// 左上、右上、左下、右下
+				Vec2 rect_vertex1, rect_vertex2;
+				rect_vertex1.x = g_block_array.m_block_array[i][j].GetBlockPos().x;
+				rect_vertex1.y = g_block_array.m_block_array[i][j].GetBlockPos().y;
+				rect_vertex2.x = g_block_array.m_block_array[i][j].GetBlockPos().x + BLOCK_WIDTH;
+				rect_vertex2.y = g_block_array.m_block_array[i][j].GetBlockPos().y + BLOCK_HEIGHT;
+				if (HitRectVertexHitBox(rect_vertex1, rect_vertex2)) {			// 頂点判定
+					m_vec.x = -m_vec.x;
+					m_vec.y = -m_vec.y;
+					g_block_array.m_block_array[i][j].IsDelete();
+				}
+				else if (HitRectUpDownHitBox(rect_vertex1, rect_vertex2)) {	// 上下判定
+					m_vec.y = -m_vec.y;
+					g_block_array.m_block_array[i][j].IsDelete();
+				}
+				else if (HitRectLeftRightHitBox(rect_vertex1, rect_vertex2)) {		// 左右判定
+					m_vec.x = -m_vec.x;
+					g_block_array.m_block_array[i][j].IsDelete();
+				}
 			}
 		}
 	}
@@ -101,58 +102,50 @@ void Ball::Move()
 	m_pos.y += m_vec.y;
 }
 
-// bool Ball::HitRectLeftRightHitBox()
-// {
-// 	
-// 	
-// 	return false;
-// }
-// 
-// bool Ball::HitRectUpDownHitBox()
-// {
-// 	return false;
-// }
-// 
-// bool Ball::HitRectVertexHitBox()
-// {
-// 	return false;
-// }
 
-// bool Ball::CalcCircleAndRectHitBox()
-// {
-// 	if (circle_center.x > rect_vertex1.x &&
-// 		circle_center.x < rect_vertex2.x &&
-// 		circle_center.y > rect_vertex1.y - circle_radius &&
-// 		circle_center.y < rect_vertex2.y + circle_radius) {
-// 		return true;
-// 	}
-// 	else if (circle_center.x > rect_vertex1.x - circle_radius &&
-// 		circle_center.x < rect_vertex2.x + circle_radius &&
-// 		circle_center.y > rect_vertex1.y &&
-// 		circle_center.y < rect_vertex2.y) {
-// 		return true;
-// 	}
-// 	else if ((rect_vertex1.x - circle_center.x) * (rect_vertex1.x - circle_center.x)
-// 		+ (rect_vertex1.y - circle_center.y) * (rect_vertex1.y - circle_center.y)
-// 		< circle_radius * circle_radius) {
-// 		return true;
-// 	}
-// 	else if ((rect_vertex2.x - circle_center.x) * (rect_vertex2.x - circle_center.x)
-// 		+ (rect_vertex1.y - circle_center.y) * (rect_vertex1.y - circle_center.y)
-// 		< circle_radius * circle_radius) {
-// 		return true;
-// 	}
-// 	else if ((rect_vertex2.x - circle_center.x) * (rect_vertex2.x - circle_center.x)
-// 		+ (rect_vertex2.y - circle_center.y) * (rect_vertex2.y - circle_center.y)
-// 		< circle_radius * circle_radius) {
-// 		return true;
-// 	}
-// 	else if ((rect_vertex1.x - circle_center.x) * (rect_vertex1.x - circle_center.x)
-// 		+ (rect_vertex2.y - circle_center.y) * (rect_vertex2.y - circle_center.y)
-// 		< circle_radius * circle_radius) {
-// 		return true;
-// 	}
-// 	else {
-// 		return false;
-// 	}
-// }
+bool Ball::HitRectVertexHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos)
+{
+	if ((vertex1_pos.x - m_circle_center.x) * (vertex1_pos.x - m_circle_center.x)
+		+ (vertex1_pos.y - m_circle_center.y) * (vertex1_pos.y - m_circle_center.y)
+		< m_radius * m_radius) {
+		return true;
+	}
+	else if ((vertex2_pos.x - m_circle_center.x) * (vertex2_pos.x - m_circle_center.x)
+		+ (vertex1_pos.y - m_circle_center.y) * (vertex1_pos.y - m_circle_center.y)
+		< m_radius * m_radius) {
+		return true;
+	}
+	else if ((vertex2_pos.x - m_circle_center.x) * (vertex2_pos.x - m_circle_center.x)
+		+ (vertex2_pos.y - m_circle_center.y) * (vertex2_pos.y - m_circle_center.y)
+		< m_radius * m_radius) {
+		return true;
+	}
+	else if ((vertex1_pos.x - m_circle_center.x) * (vertex1_pos.x - m_circle_center.x)
+		+ (vertex2_pos.y - m_circle_center.y) * (vertex2_pos.y - m_circle_center.y)
+		< m_radius * m_radius) {
+		return true;
+	}
+	return false;
+}
+
+bool Ball::HitRectUpDownHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos)
+{
+	if (m_circle_center.x >= vertex1_pos.x &&
+		m_circle_center.x <= vertex2_pos.x &&
+		m_circle_center.y >= vertex1_pos.y - m_radius &&
+		m_circle_center.y <= vertex2_pos.y + m_radius) {
+		return true;
+	}
+	return false;
+}
+
+bool Ball::HitRectLeftRightHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos)
+{
+	if (m_circle_center.x >= vertex1_pos.x - m_radius &&
+		m_circle_center.x <= vertex2_pos.x + m_radius &&
+		m_circle_center.y >= vertex1_pos.y &&
+		m_circle_center.y <= vertex2_pos.y) {
+		return true;
+	}
+	return false;
+}

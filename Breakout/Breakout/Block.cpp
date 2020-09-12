@@ -30,6 +30,11 @@ Vec2 Block::GetBlockPos()
 	return m_pos;
 }
 
+bool Block::GetDrawFlag()
+{
+	return m_enable;
+}
+
 void Block::IsDelete()
 {
 	m_enable = false;

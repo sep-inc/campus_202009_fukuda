@@ -28,17 +28,19 @@ private:
 
 	// 矩形と円との当たり判定計算関数
 	// 矩形の頂点とヒット
-	bool HitRectLeftRightHitBox();
-	// 矩形の左右とヒット
-	bool HitRectUpDownHitBox();
+	bool HitRectVertexHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos);
 	// 矩形の上下とヒット
-	bool HitRectVertexHitBox();
-	bool CalcCircleAndRectHitBox();
-
+	bool HitRectUpDownHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos);
+	// 矩形の左右とヒット
+	bool HitRectLeftRightHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos);
+	
+	
+	
 private:
-	float m_radius;		// 半径
-	Size m_size;		// サイズ
-	Vec2 m_vec;			// ベクトル座標
+	float m_radius;			// 半径
+	Size m_size;			// サイズ
+	Vec2 m_vec;				// ベクトル座標
+	Vec2 m_circle_center;	// 円の中心座標
 
 };
 

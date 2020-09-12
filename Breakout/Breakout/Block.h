@@ -13,7 +13,10 @@ public:
 	void Init(float pos_x, float pos_y, bool enable, Kind kind)override;
 	// 描画バッファへ書き込む関数
 	void SetUpDrawBuffer();
+	// 座標取得関数
 	Vec2 GetBlockPos();
+	// 表示フラグ取得関数
+	bool GetDrawFlag();
 	// 描画フラグをオフにする関数
 	void IsDelete();
 
