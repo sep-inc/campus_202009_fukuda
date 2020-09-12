@@ -35,6 +35,7 @@ void Ball::Update()
 		// ブロックとの当たり判定
 		HitBlock();
 		// バーとの当たり判定
+		HitBar();
 		// 移動関数
 		Move();
 		break;
@@ -66,9 +67,6 @@ void Ball::HitWall()
 
 void Ball::HitBlock()
 {
-	// 円の中心座標更新
-	m_circle_center.x = m_pos.x + m_radius;
-	m_circle_center.y = m_pos.y + m_radius;
 	for (int i = 0; i < BLOCK_NUM_X; i++) {
 		for (int j = 0; j < BLOCK_NUM_Y; j++) {
 			if (g_block_array.m_block_array[i][j].GetDrawFlag()) {
@@ -96,10 +94,34 @@ void Ball::HitBlock()
 	}
 }
 
+void Ball::HitBar()
+{
+	Vec2 rect_vertex1, rect_vertex2;
+	rect_vertex1.x = g_bar.GetBarPos().x;
+	rect_vertex1.y = g_bar.GetBarPos().y;
+	rect_vertex2.x = g_bar.GetBarPos().x + BLOCK_WIDTH;
+	rect_vertex2.y = g_bar.GetBarPos().y + BLOCK_HEIGHT;
+
+	if (HitRectVertexHitBox(rect_vertex1, rect_vertex2)) {			// 頂点判定
+		m_vec.x = -m_vec.x;
+		m_vec.y = -m_vec.y;
+	}
+	else if (HitRectUpDownHitBox(rect_vertex1, rect_vertex2)) {	// 上下判定
+		m_vec.y = -m_vec.y;
+	}
+	else if (HitRectLeftRightHitBox(rect_vertex1, rect_vertex2)) {		// 左右判定
+		m_vec.x = -m_vec.x;
+	}
+}
+
 void Ball::Move()
 {
 	m_pos.x += m_vec.x;
 	m_pos.y += m_vec.y;
+
+	// 円の中心座標更新
+	m_circle_center.x = m_pos.x + m_radius;
+	m_circle_center.y = m_pos.y + m_radius;
 }
 
 
@@ -107,22 +129,22 @@ bool Ball::HitRectVertexHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos)
 {
 	if ((vertex1_pos.x - m_circle_center.x) * (vertex1_pos.x - m_circle_center.x)
 		+ (vertex1_pos.y - m_circle_center.y) * (vertex1_pos.y - m_circle_center.y)
-		< m_radius * m_radius) {
+		<= m_radius * m_radius) {
 		return true;
 	}
 	else if ((vertex2_pos.x - m_circle_center.x) * (vertex2_pos.x - m_circle_center.x)
 		+ (vertex1_pos.y - m_circle_center.y) * (vertex1_pos.y - m_circle_center.y)
-		< m_radius * m_radius) {
+		<= m_radius * m_radius) {
 		return true;
 	}
 	else if ((vertex2_pos.x - m_circle_center.x) * (vertex2_pos.x - m_circle_center.x)
 		+ (vertex2_pos.y - m_circle_center.y) * (vertex2_pos.y - m_circle_center.y)
-		< m_radius * m_radius) {
+		<= m_radius * m_radius) {
 		return true;
 	}
 	else if ((vertex1_pos.x - m_circle_center.x) * (vertex1_pos.x - m_circle_center.x)
 		+ (vertex2_pos.y - m_circle_center.y) * (vertex2_pos.y - m_circle_center.y)
-		< m_radius * m_radius) {
+		<= m_radius * m_radius) {
 		return true;
 	}
 	return false;

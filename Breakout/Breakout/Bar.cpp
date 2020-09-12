@@ -38,6 +38,11 @@ void Bar::Update()
 	}
 }
 
+Vec2 Bar::GetBarPos()
+{
+	return m_pos;
+}
+
 void Bar::SetUpDrawBuffer()
 {
 	g_drawer.SetBlankBuffer(m_pos.x, m_pos.y, m_kind, m_size.width, m_size.height);

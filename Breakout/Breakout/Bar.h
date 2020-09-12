@@ -13,6 +13,7 @@ public:
 	void Init(float pos_x, float pos_y, bool enable, Kind kind)override;
 	// ステップ更新関数
 	void Update()override;
+	Vec2 GetBarPos();
 	// 描画バッファへ書き込む関数
 	void SetUpDrawBuffer()override;
 
