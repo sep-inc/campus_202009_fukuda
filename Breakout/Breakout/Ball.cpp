@@ -129,22 +129,22 @@ bool Ball::HitRectVertexHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos)
 {
 	if ((vertex1_pos.x - m_circle_center.x) * (vertex1_pos.x - m_circle_center.x)
 		+ (vertex1_pos.y - m_circle_center.y) * (vertex1_pos.y - m_circle_center.y)
-		<= m_radius * m_radius) {
+		== m_radius * m_radius) {
 		return true;
 	}
 	else if ((vertex2_pos.x - m_circle_center.x) * (vertex2_pos.x - m_circle_center.x)
 		+ (vertex1_pos.y - m_circle_center.y) * (vertex1_pos.y - m_circle_center.y)
-		<= m_radius * m_radius) {
+		== m_radius * m_radius) {
 		return true;
 	}
 	else if ((vertex2_pos.x - m_circle_center.x) * (vertex2_pos.x - m_circle_center.x)
 		+ (vertex2_pos.y - m_circle_center.y) * (vertex2_pos.y - m_circle_center.y)
-		<= m_radius * m_radius) {
+		== m_radius * m_radius) {
 		return true;
 	}
 	else if ((vertex1_pos.x - m_circle_center.x) * (vertex1_pos.x - m_circle_center.x)
 		+ (vertex2_pos.y - m_circle_center.y) * (vertex2_pos.y - m_circle_center.y)
-		<= m_radius * m_radius) {
+		== m_radius * m_radius) {
 		return true;
 	}
 	return false;
