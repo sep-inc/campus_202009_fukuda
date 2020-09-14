@@ -3,7 +3,8 @@
 #include "Global.h"
 
 
-Block::Block()
+Block::Block():
+	m_size{}
 {
 }
 

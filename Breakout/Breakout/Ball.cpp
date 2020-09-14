@@ -1,7 +1,8 @@
 #include "Ball.h"
 #include "Global.h"
 
-Ball::Ball()
+Ball::Ball():
+	m_circle_center{}
 {
 }
 
@@ -76,6 +77,7 @@ void Ball::HitBlock()
 				rect_vertex1.y = g_block_array.m_block_array[i][j].GetBlockPos().y;
 				rect_vertex2.x = g_block_array.m_block_array[i][j].GetBlockPos().x + BLOCK_WIDTH;
 				rect_vertex2.y = g_block_array.m_block_array[i][j].GetBlockPos().y + BLOCK_HEIGHT;
+
 				if (HitRectVertexHitBox(rect_vertex1, rect_vertex2)) {			// 頂点判定
 					m_vec.x = -m_vec.x;
 					m_vec.y = -m_vec.y;
@@ -154,6 +156,7 @@ bool Ball::HitRectVertexHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos)
 
 bool Ball::HitRectUpDownHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos)
 {
+	// 矩形の上底、下底との当たり判定
 	if (m_circle_center.x >= vertex1_pos.x &&
 		m_circle_center.x <= vertex2_pos.x &&
 		m_circle_center.y >= vertex1_pos.y - m_radius &&
@@ -165,6 +168,7 @@ bool Ball::HitRectUpDownHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos)
 
 bool Ball::HitRectLeftRightHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos)
 {
+	// 矩形の左右の辺との当たり判定
 	if (m_circle_center.x >= vertex1_pos.x - m_radius &&
 		m_circle_center.x <= vertex2_pos.x + m_radius &&
 		m_circle_center.y >= vertex1_pos.y &&

@@ -1,7 +1,8 @@
 #include "Bar.h"
 #include "Global.h"
 
-Bar::Bar()
+Bar::Bar():
+	m_size{}
 {
 }
 

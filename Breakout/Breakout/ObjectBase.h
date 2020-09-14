@@ -22,6 +22,7 @@ public:
 		STEP_RUN,			// •\Ž¦—pˆ—
 		STEP_END,			// ‰ð•ú
 
+		STEP_NONE,
 		MAX_STEP
 	};
 

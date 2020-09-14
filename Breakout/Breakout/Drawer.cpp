@@ -2,7 +2,8 @@
 #include <string.h>
 #include <cstdio>
 
-Drawer::Drawer()
+Drawer::Drawer():
+	m_blank_buffer{}
 {
 }
 
@@ -62,13 +63,13 @@ void Drawer::BufferClear()
 void Drawer::SetDrawBuffer(float x, float y, Kind kind ,float width,float height)
 {
 	// バッファに書き込む用の座標にする
-	int buffer_x = x / UNIT_X + 1;
-	int buffer_y = y / UNIT_Y + 1;
+	int buffer_x = static_cast<int>(x) / UNIT_X + 1;
+	int buffer_y = static_cast<int>(y) / UNIT_Y + 1;
 
 	// サイズ指定があるか、ないかの分岐
 	if (width != 0 && height != 0) {
-		int buffer_x_num = width / UNIT_X;
-		int buffer_y_num = height / UNIT_Y;
+		int buffer_x_num = static_cast<int>(width) / UNIT_X;
+		int buffer_y_num = static_cast<int>(height) / UNIT_Y;
 		for (int iy = 0; iy < buffer_y_num; iy++) {
 			for (int ix = 0; ix < buffer_x_num; ix++) {
 				m_draw_array[buffer_x + ix][buffer_y + iy].m_kind = kind;

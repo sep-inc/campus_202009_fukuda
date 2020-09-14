@@ -2,6 +2,10 @@
 #include <cstdio>
 #include <cstdlib>
 
+/*
+	バーの追尾処理、それに伴った当たり判定の設計を今後変更予定
+*/
+
 int main() {
 	g_drawer.Init();
 
@@ -22,4 +26,5 @@ int main() {
 		g_drawer.DrawTable();
 	}
 
+	return 0;
 }
