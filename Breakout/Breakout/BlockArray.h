@@ -13,8 +13,6 @@ public:
 	void Init();
 	// ステップ更新関数
 	void Update();
-	// ブロック配列の座標取得
-	// Vec2 GetBlockArrayPos();
 	// ブロック配置関数
 	void SetUpBlocks();
 	// 各ブロックの描画バッファへ書き込む関数を呼び出す関数

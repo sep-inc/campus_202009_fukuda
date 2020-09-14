@@ -45,7 +45,7 @@ Vec2 Bar::GetBarPos()
 
 void Bar::SetUpDrawBuffer()
 {
-	g_drawer.SetBlankBuffer(m_pos.x, m_pos.y, m_kind, m_size.width, m_size.height);
+	g_drawer.SetDrawBuffer(m_pos.x, m_pos.y, m_kind, m_size.width, m_size.height);
 }
 
 

@@ -26,7 +26,7 @@ private:
 	// 移動関数
 	void Move();
 
-	// 矩形と円との当たり判定計算関数
+	// 矩形と円との当たり判定計算関数群
 	// 矩形の頂点とヒット
 	bool HitRectVertexHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos);
 	// 矩形の上下とヒット

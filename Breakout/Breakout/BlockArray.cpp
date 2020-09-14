@@ -32,6 +32,7 @@ void BlockArray::Update()
 
 void BlockArray::SetUpBlocks()
 {	
+	// ブロックをBlockArray配列の中に配置する
 	float fy = BLOCK_INITIAL_Y_POS;
 	for (int y = 0; y < BLOCK_NUM_Y; y++) {
 		float fx = BLOCK_INITIAL_X_POS;

@@ -26,7 +26,7 @@ public:
 	// フレーム配列と仮想座標配列の合成
 	void ComposeMap();
 	// 描画バッファへ書き込む関数 ※サイズ指定は自由
-	void SetBlankBuffer(float x, float y, Kind kind, float width = 0.f , float height = 0.f);
+	void SetDrawBuffer(float x, float y, Kind kind, float width = 0.f , float height = 0.f);
 
 private:
 	// 描画用パラメータ

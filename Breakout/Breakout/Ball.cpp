@@ -48,7 +48,7 @@ void Ball::Update()
 
 void Ball::SetUpDrawBuffer()
 {
-	g_drawer.SetBlankBuffer(m_pos.x, m_pos.y, m_kind);
+	g_drawer.SetDrawBuffer(m_pos.x, m_pos.y, m_kind);
 }
 
 void Ball::HitWall()
@@ -70,7 +70,7 @@ void Ball::HitBlock()
 	for (int i = 0; i < BLOCK_NUM_X; i++) {
 		for (int j = 0; j < BLOCK_NUM_Y; j++) {
 			if (g_block_array.m_block_array[i][j].GetDrawFlag()) {
-				// 左上、右上、左下、右下
+				// vertex1 = 矩形の左上座標　vertex2 = 矩形の右下座標
 				Vec2 rect_vertex1, rect_vertex2;
 				rect_vertex1.x = g_block_array.m_block_array[i][j].GetBlockPos().x;
 				rect_vertex1.y = g_block_array.m_block_array[i][j].GetBlockPos().y;
@@ -81,11 +81,11 @@ void Ball::HitBlock()
 					m_vec.y = -m_vec.y;
 					g_block_array.m_block_array[i][j].IsDelete();
 				}
-				else if (HitRectUpDownHitBox(rect_vertex1, rect_vertex2)) {	// 上下判定
+				else if (HitRectUpDownHitBox(rect_vertex1, rect_vertex2)) {		// 上下判定
 					m_vec.y = -m_vec.y;
 					g_block_array.m_block_array[i][j].IsDelete();
 				}
-				else if (HitRectLeftRightHitBox(rect_vertex1, rect_vertex2)) {		// 左右判定
+				else if (HitRectLeftRightHitBox(rect_vertex1, rect_vertex2)) {	// 左右判定
 					m_vec.x = -m_vec.x;
 					g_block_array.m_block_array[i][j].IsDelete();
 				}
@@ -96,6 +96,7 @@ void Ball::HitBlock()
 
 void Ball::HitBar()
 {
+	// vertex1 = 矩形の左上座標　vertex2 = 矩形の右下座標
 	Vec2 rect_vertex1, rect_vertex2;
 	rect_vertex1.x = g_bar.GetBarPos().x;
 	rect_vertex1.y = g_bar.GetBarPos().y;
@@ -127,6 +128,7 @@ void Ball::Move()
 
 bool Ball::HitRectVertexHitBox(Vec2 vertex1_pos, Vec2 vertex2_pos)
 {
+	// 矩形の各頂点との当たり判定を計算
 	if ((vertex1_pos.x - m_circle_center.x) * (vertex1_pos.x - m_circle_center.x)
 		+ (vertex1_pos.y - m_circle_center.y) * (vertex1_pos.y - m_circle_center.y)
 		== m_radius * m_radius) {

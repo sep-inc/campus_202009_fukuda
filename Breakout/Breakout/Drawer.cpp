@@ -13,9 +13,9 @@ Drawer::~Drawer()
 
 void Drawer::Init()
 {
+	// 初期化用バッファの初期化
 	memset(m_blank_buffer, 0, sizeof(m_blank_buffer));
-
-	// フレームの書き込み
+	// フレームの設定
 	for (int i = 0; i < DRAW_X; i++) {
 		m_blank_buffer[i][0].m_kind = Kind::FRAME;
 		m_blank_buffer[i][DRAW_Y - 1].m_kind = Kind::FRAME;
@@ -55,14 +55,17 @@ void Drawer::DrawTable()
 
 void Drawer::BufferClear()
 {
+	// 描画したバッファを初期化する
 	memcpy(m_draw_array, m_blank_buffer, sizeof(m_blank_buffer));
 }
 
-void Drawer::SetBlankBuffer(float x, float y, Kind kind ,float width,float height)
+void Drawer::SetDrawBuffer(float x, float y, Kind kind ,float width,float height)
 {
+	// バッファに書き込む用の座標にする
 	int buffer_x = x / UNIT_X + 1;
 	int buffer_y = y / UNIT_Y + 1;
 
+	// サイズ指定があるか、ないかの分岐
 	if (width != 0 && height != 0) {
 		int buffer_x_num = width / UNIT_X;
 		int buffer_y_num = height / UNIT_Y;

@@ -20,8 +20,9 @@ void Block::Init(float pos_x, float pos_y, bool enable, Kind kind)
 
 void Block::SetUpDrawBuffer()
 {
+	// •`‰æƒtƒ‰ƒO‚ªƒIƒ“‚Ìê‡‚Ì‚İ
 	if (m_enable == true) {
-		g_drawer.SetBlankBuffer(m_pos.x, m_pos.y, m_kind, m_size.width, m_size.height);
+		g_drawer.SetDrawBuffer(m_pos.x, m_pos.y, m_kind, m_size.width, m_size.height);
 	}
 }
 
