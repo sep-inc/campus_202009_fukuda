@@ -1,0 +1,4 @@
+*.h diff = sjis
+*.cpp diff = sjis
+
+$ git config diff.sjis.textconv "iconv -f sjis"
