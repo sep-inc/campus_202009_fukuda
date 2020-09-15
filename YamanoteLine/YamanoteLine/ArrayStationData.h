@@ -9,6 +9,8 @@ public:
 	ArrayStationData();
 	~ArrayStationData(); 
 
+	// ‰Šú‰»ŠÖ”
+	void Init();
 	// XVŠÖ”
 	void Update();
 

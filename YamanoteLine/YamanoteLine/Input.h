@@ -8,6 +8,8 @@ public:
 	Input();
 	~Input();
 
+	// 初期化関数
+	void Init();
 	// 更新関数
 	void Update();
 	// 出発駅名取得関数
@@ -24,9 +26,10 @@ private:
 	void WaitInput();
 
 private:
-	Step m_step;				// 現在のステップ
 	char m_departure_station;	// 出発駅名
 	char m_arrival_station;		// 到着駅名
+	Step m_step;				// 現在のステップ
+	
 
 };
 

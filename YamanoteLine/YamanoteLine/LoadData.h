@@ -9,6 +9,8 @@ public:
 	LoadData();
 	~LoadData();
 
+	// ‰Šú‰»ŠÖ”
+	void Init();
 	// XVŠÖ”
 	void Update();
 
