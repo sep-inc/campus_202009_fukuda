@@ -6,10 +6,11 @@
 #include "Input.h"
 #include "LoadData.h"
 
-extern ArrayStationData* g_array_station_data;
-extern Drawer* g_drawer;
-extern Input* g_input;
-extern LoadData* g_load_data;
+// ƒOƒ[ƒoƒ‹•Ï”ŒQ
+extern ArrayStationData g_array_station_data;
+extern Drawer g_drawer;
+extern Input g_input;
+extern LoadData g_load_data;
 
 
 #endif

@@ -1,10 +1,14 @@
 #include "ArrayStationData.h"
+#include "Global.h"
+#include <cstdio>
+#include <cstring>
 
 ArrayStationData::ArrayStationData():
 	m_station_data_array{},
-	m_departure_station('\0'),
-	m_arrival_station('\0'),
-	m_step(Step::STEP_INITIALIZE)
+	m_departure_station{},
+	m_departure_station_data_id(0),
+	m_arrival_station{},
+	m_arrival_station_data_id(0)
 {
 }
 
@@ -12,31 +16,87 @@ ArrayStationData::~ArrayStationData()
 {
 }
 
-void ArrayStationData::Init()
-{
-}
-
 void ArrayStationData::Update()
 {
-	switch (m_step) {
-	case Step::STEP_INITIALIZE:
-		Init();
-		m_step = Step::STEP_UPDATE;
-		break;
-	case Step::STEP_UPDATE:
-		// çXêVèàóù
-		break;
-	case Step::STEP_END:
-		break;
-	default:
-		break;
+	g_drawer.SetClockWiseTime(CalcClockWiseTime());
+	g_drawer.SetCounterClockWiseTime(CalcCounterClockWiseTime());
+}
+
+void ArrayStationData::SetLoadData(LoadDataParam *data, int data_size)
+{
+	for (int i = 0; i < data_size; i++) {
+		// âwñºäiî[èàóù
+		strcpy(m_station_data_array[i].m_station_name, data[i].m_station_name);
+		// âEó◊ÇÃâwÇ÷ÇÃéûä‘äiî[èàóù
+		m_station_data_array[i].m_right_station_time = data[i].m_right_station_time;
+		// ç∂ó◊ÇÃâwÇ÷ÇÃéûä‘äiî[èàóù
+		if (i == 0) {
+			m_station_data_array[i].m_left_station_time = data[data_size - 1].m_right_station_time;
+		}
+		else {
+			m_station_data_array[i].m_left_station_time = m_station_data_array[i - 1].m_right_station_time;
+		}
 	}
 }
 
-void ArrayStationData::CalcClockWiseTime()
+bool ArrayStationData::SetDepartureStation(char* name)
 {
+	// ì¸óÕÇ≥ÇÍÇΩâwñºÇ™ÉfÅ[É^Ç…Ç†ÇÍÇŒtrueÇï‘Ç∑
+	for (int i = 0; i < MAX_DATA_NUM; i++) {
+		if (strcmp(name, m_station_data_array[i].m_station_name) == 0) {
+			strcpy(m_departure_station, name);
+			m_departure_station_data_id = i;
+			return true;
+		}
+	}
+	return false;
 }
 
-void ArrayStationData::CalCounterClockWiseTime()
+bool ArrayStationData::SetArrivalStation(char* name)
 {
+	// èoî≠âwÇ∆ìØÇ∂âwñºÇ™ì¸óÕÇ≥ÇÍÇΩèÍçá
+	if (strcmp(name, m_departure_station) == 0) {
+		return false;
+	}
+	// ì¸óÕÇ≥ÇÍÇΩâwñºÇ™ÉfÅ[É^Ç…Ç†ÇÍÇŒtrueÇï‘Ç∑
+	for (int i = 0; i < MAX_DATA_NUM; i++) {
+		if (strcmp(name, m_station_data_array[i].m_station_name) == 0) {
+			strcpy(m_arrival_station, name);
+			m_arrival_station_data_id = i;
+			return true;
+		}
+	}
+	return false;
+}
+
+int ArrayStationData::CalcClockWiseTime()
+{
+	int sum_time = 0;
+	int start_id = m_departure_station_data_id;
+
+	while (start_id != m_arrival_station_data_id) {
+		sum_time += m_station_data_array[start_id].m_right_station_time;
+		start_id++;
+		if (start_id == MAX_DATA_NUM) {
+			start_id = 0;
+		}
+	}
+	
+	return sum_time;
+}
+
+int ArrayStationData::CalcCounterClockWiseTime()
+{
+	int sum_time = 0;
+	int start_id = m_departure_station_data_id;
+
+	while (start_id != m_arrival_station_data_id) {
+		sum_time += m_station_data_array[start_id].m_left_station_time;
+		start_id--;
+		if (start_id < 0) {
+			start_id = MAX_DATA_NUM - 1;
+		}
+	}
+
+	return sum_time;
 }

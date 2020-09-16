@@ -22,6 +22,7 @@ private:
 	// ブロックとの当たり判定関数
 	void HitBlock();
 	// バーとの当たり判定関数
+	// 実際の計算はブロックに持たせて、bool関数で返すように
 	void HitBar();
 	// 移動関数
 	void Move();
