@@ -1,4 +1,8 @@
 ﻿#include "Global.h"
+#include <conio.h>
+
+// ESCのキーコード
+#define ESC (0x1B)
 
 
 int main() {
@@ -11,6 +15,12 @@ int main() {
 		g_array_station_data.Update();
 		// 結果出力
 		g_drawer.Draw();
+
+		printf("ESCキー：終了　その他のキー：続ける\n");
+		if (getch() == ESC) {
+			break;
+		}
 	}
+	
 	return 0;
 }
