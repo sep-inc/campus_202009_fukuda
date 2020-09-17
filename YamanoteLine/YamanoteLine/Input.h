@@ -8,7 +8,7 @@ public:
 	Input();
 	~Input();
 
-	// “ü—ÍŠÖ”
+	// “ü—Íˆ—
 	void InputName();
 };
 

@@ -5,6 +5,8 @@
 #include <cstdio>
 #include <vector>
 
+// ※ファイル読み込み処理は現在実装していない
+
 // ファイル読み込みクラス
 class LoadData {
 public:

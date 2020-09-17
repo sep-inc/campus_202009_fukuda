@@ -16,7 +16,8 @@ int main() {
 		// 結果出力
 		g_drawer.Draw();
 
-		printf("ESCキー：終了　その他のキー：続ける\n");
+		// 続けるか終了するかの判定
+		printf("\nESCキー：終了　その他のキー：続ける\n");
 		if (getch() == ESC) {
 			break;
 		}

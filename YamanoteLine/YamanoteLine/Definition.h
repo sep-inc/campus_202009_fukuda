@@ -7,16 +7,9 @@
 // 駅名の最大文字数
 #define MAX_STATION_NAME_NUM 32
 
+// 中央線の時間
+#define CHUO_LINE_TIME 12
 
-// 処理ステップ
-enum class Step :int {
-	STEP_NONE,
-	STEP_INITIALIZE,	// 初期化ステップ
-	STEP_UPDATE,		// 更新ステップ
-	STEP_END,			// 破棄ステップ
-
-	STEP_MAX
-};
 
 // 駅データ構造体
 struct StationData {
