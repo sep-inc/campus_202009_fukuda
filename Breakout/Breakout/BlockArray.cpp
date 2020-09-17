@@ -1,7 +1,7 @@
 #include "BlockArray.h"
 
 BlockArray::BlockArray():
-	m_step(ObjectBase::Step::STEP_NONE)
+	m_step(ObjectBase::Step::STEP_INITIALIZE)
 {
 }
 
