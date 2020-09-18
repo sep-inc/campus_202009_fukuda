@@ -1,6 +1,9 @@
 #ifndef DEFINITION_H_
 #define DEFINITION_H_
 
+// ESCのキーコード
+#define ESC (0x1B)
+
 // 読み込むデータの数　※動的にサイズを確保する処理ができ次第、消す
 #define MAX_DATA_NUM 29
 

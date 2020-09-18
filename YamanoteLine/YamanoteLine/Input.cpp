@@ -1,6 +1,7 @@
 #include "Input.h"
 #include "Global.h"
 #include <cstdio>
+#include <conio.h>
 
 Input::Input()
 {
@@ -41,4 +42,13 @@ void Input::InputName()
 			break;
 		}
 	}
+}
+
+bool Input::InputContinueOrEnd()
+{
+	printf("\nESCキー：終了　その他のキー：続ける\n");
+	if (getch() == ESC) {
+		return true;
+	}
+	return false;
 }

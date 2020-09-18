@@ -10,6 +10,9 @@ public:
 
 	// “ü—Íˆ—
 	void InputName();
+
+	// ‘±sˆ—
+	bool InputContinueOrEnd();
 };
 
 #endif
