@@ -1,11 +1,14 @@
 ﻿#include "Global.h"
+#include <csignal>
 
+// Ctrl + Cでプログラムを終了する関数
+void signal_handle(int); 
 
 int main() {
+	signal(SIGINT, signal_handle);
 	// データの読み込み
 	g_load_data.Load();
 	while (true) {
-		
 		// 駅名入力
 		g_input.InputName();
 		// データの計算処理
@@ -20,4 +23,9 @@ int main() {
 	}
 	
 	return 0;
+}
+
+void signal_handle(int) {
+	printf("\nプログラム終了\n");
+	exit(0);
 }
