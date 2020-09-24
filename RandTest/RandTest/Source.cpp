@@ -31,8 +31,8 @@ void CreateRandomArray(Data data[]) {
 	}
 	// データテーブルの要素をランダムに入れ替える
 	for (int i = 0; i < RAND_MAX; i++) {
-		int rand1 = rand() % 100;
-		int rand2 = rand() % 100;
+		int rand1 = rand() % RAND_MAX;
+		int rand2 = rand() % RAND_MAX;
 		Swap(&data_table[rand1], &data_table[rand2]);
 	}
 	// ランダムなデータテーブルの先頭から10個をデータ配列に代入
