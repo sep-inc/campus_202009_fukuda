@@ -6,6 +6,8 @@
 void SignalHandle(int);
 
 int main() {
+	signal(SIGINT, SignalHandle);
+
 	// 描画クラスの初期化
 	g_drawer.Init();
 
