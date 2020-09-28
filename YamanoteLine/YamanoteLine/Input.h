@@ -1,0 +1,18 @@
+#ifndef INPUT_H_
+#define INPUT_H_
+
+#include "Definition.h"
+
+class Input {
+public:
+	Input();
+	~Input();
+
+	// “ü—Íˆ—
+	void InputName();
+
+	// ‘±sˆ—
+	bool InputContinueOrEnd();
+};
+
+#endif
