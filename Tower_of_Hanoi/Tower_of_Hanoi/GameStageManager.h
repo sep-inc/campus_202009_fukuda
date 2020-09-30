@@ -40,7 +40,6 @@ public:
 	*/
 	bool SetInputPileNums(int source_num, int destination_num);
 
-
 	/**
 	* @brief ゲームクリア判定関数
 	*
@@ -48,10 +47,29 @@ public:
 	*/
 	bool IsClear();
 
+	/**
+	* @brief 描画マップセット関数
+	* 描画マップを描画クラスのSet関数でセットする
+	*/
+	void SetDrawMap();
+
+	/**
+	* @brief 描画時の外枠を作成する関数
+	* ゲーム開始時に描画クラスの初期化用バッファにセットする
+	*/
+	void CreateDrawMapFrame();
+
+	/**
+	* @brief ゲームマップを描画用マップに変換する関数
+	*/
+	void ConvertDrawMap();
+
 
 private:
 	//! 杭配列　左の要素：杭番号　右の要素 : 杭の要素番号
 	DiskType m_piles[PILE_NUM][PILE_SIZE];	
+	//! 描画用マップ
+	DrawType m_draw_map[DRAW_BUFFER_WIDTH][DRAW_BUFFER_HEIGHT];
 	
 	Step m_step;	//! 現在のステップ
 

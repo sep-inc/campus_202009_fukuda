@@ -97,3 +97,15 @@ bool GameStageManager::IsClear()
 	}
 	return true;
 }
+
+void GameStageManager::SetDrawMap()
+{
+}
+
+void GameStageManager::CreateDrawMapFrame()
+{
+}
+
+void GameStageManager::ConvertDrawMap()
+{
+}
