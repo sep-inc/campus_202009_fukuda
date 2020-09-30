@@ -16,8 +16,8 @@
 #define PILE_NUM 3
 
 //! 描画バッファのサイズ
-#define DRAW_BUFFER_WIDTH  21
-#define DRAW_BUFFER_HEIGHT 7
+#define DRAW_BUFFER_WIDTH  19
+#define DRAW_BUFFER_HEIGHT 6
 
 
 //! 処理ステップの種類
@@ -44,7 +44,10 @@ enum class DiskType :uint8_t {
 enum class DrawType :uint8_t {
 	Type_Empty,		//! 空白
 	Type_Pile,		//! 杭
-	Type_Disk		//! 円盤
+	Type_Disk,		//! 円盤
+	Type_Number1,	//! 1
+	Type_Number2,	//! 2
+	Type_Number3	//! 3
 };
 
 

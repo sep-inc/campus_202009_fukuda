@@ -8,6 +8,7 @@
 
 
 #include "Definition.h"
+#include <string>
 
 /**
 * @class Drawer.h
@@ -37,6 +38,11 @@ public:
 	void Print();
 
 	/**
+	* @brief バッファクリア関数
+	*/
+	void BufferClear();
+
+	/**
 	* @brief 描画バッファにデータをセットする関数
 	*/
 	void SetDrawBuffer(int x, int y, DrawType type);
@@ -58,6 +64,8 @@ private:
 
 	//! 描画用バッファ
 	DrawType m_draw_buffer[DRAW_BUFFER_WIDTH][DRAW_BUFFER_HEIGHT];
+
+	std::string m_draw_string;
 };
 
 #endif

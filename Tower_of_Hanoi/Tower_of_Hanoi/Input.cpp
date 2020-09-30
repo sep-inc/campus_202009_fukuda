@@ -25,7 +25,7 @@ int Input::SelectSourcePile()
 		while (getchar() != '\n');
 		// 入力された値が1、２、３のいずれかなら値を返す
 		if (tmp == '1'|| tmp == '2' || tmp == '3') {
-			return tmp;
+			return atoi(&tmp);
 		}
 		// 例外処理
 		else {
@@ -53,7 +53,7 @@ int Input::SelectDestinationPile(int source_pile_num)
 			printf("入力した値が不正です\n");
 		}
 		else {
-			return tmp;
+			return atoi(&tmp);
 		}
 	}
 }

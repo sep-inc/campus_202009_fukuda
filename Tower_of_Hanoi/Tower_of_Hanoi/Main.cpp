@@ -14,7 +14,8 @@ int main() {
 	while (true) {
 		ObjectManager::Instance()->m_p_player->UpdateStep();
 		ObjectManager::Instance()->m_p_game_stage_manager->UpdateStep();
-
+		ObjectManager::Instance()->m_p_drawer->Run();
+		getchar();
 		system("cls");
 	}
 

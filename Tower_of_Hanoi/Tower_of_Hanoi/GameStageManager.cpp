@@ -1,9 +1,11 @@
 #include "GameStageManager.h"
+#include "ObjectManager.h"
 
 
 GameStageManager::GameStageManager():
 	m_step(Step::Step_Initialize),
-	m_piles{DiskType::Disk_Empty}
+	m_piles{DiskType::Disk_Empty},
+	m_draw_map{DrawType::Type_Empty}
 {
 }
 
@@ -17,11 +19,18 @@ void GameStageManager::UpdateStep()
 	switch (m_step)
 	{
 	case Step::Step_Initialize:
+		// 初期化
 		Init();
+		// 描画マップの初期化
+		CreateDrawMapFrame();
 		m_step = Step::Step_Update;
 		break;
 	case Step::Step_Update:
-		
+		// 描画マップへ変換
+		// ConvertDrawMap();
+		// 描画マップのセット
+		// SetDrawMap();
+		// 勝敗判定処理
 		break;
 	case Step::Step_End:
 		break;
@@ -54,7 +63,7 @@ bool GameStageManager::SetInputPileNums(int source_num, int destination_num)
 		}
 	}
 	// 移動元に円盤がなかった場合
-	if (m_piles[source_num][source_pile_index] == DiskType::Disk_Empty) {
+	if (m_piles[source_pile_num][source_pile_index] == DiskType::Disk_Empty) {
 		return false;
 	}
 
@@ -100,12 +109,48 @@ bool GameStageManager::IsClear()
 
 void GameStageManager::SetDrawMap()
 {
+	// 描画クラスへ描画マップをセットする
+	for (int x = 0; x < DRAW_BUFFER_WIDTH; x++) {
+		for (int y = 0; y < DRAW_BUFFER_HEIGHT; y++) {
+			ObjectManager::Instance()->m_p_drawer->SetDrawBuffer(x, y, m_draw_map[x][y]);
+		}
+	}
 }
 
 void GameStageManager::CreateDrawMapFrame()
 {
+	// 杭番号
+	m_draw_map[3][5] = DrawType::Type_Number1;
+	m_draw_map[9][5] = DrawType::Type_Number2;
+	m_draw_map[15][5] = DrawType::Type_Number3;
+	// 左端の杭
+	for (int x = 1; x <= 5; x++) {
+		for (int y = 2; y <= 4; y++) {
+			m_draw_map[x][y] = DrawType::Type_Pile;
+		}
+	}
+	// 真ん中の杭
+	for (int x = 7; x <= 11; x++) {
+		for (int y = 2; y <= 4; y++) {
+			m_draw_map[x][y] = DrawType::Type_Pile;
+		}
+	}
+	// 右端の杭
+	for (int x = 13; x <= 17; x++) {
+		for (int y = 2; y <= 4; y++) {
+			m_draw_map[x][y] = DrawType::Type_Pile;
+		}
+	}
+
+	// Frameの情報を描画クラスの初期化バッファへ書き込む
+	for (int x = 0; x < DRAW_BUFFER_WIDTH; x++) {
+		for (int y = 0; y < DRAW_BUFFER_HEIGHT; y++) {
+			ObjectManager::Instance()->m_p_drawer->SetBlankBuffer(x, y, m_draw_map[x][y]);
+		}
+	}
 }
 
 void GameStageManager::ConvertDrawMap()
 {
+	
 }
