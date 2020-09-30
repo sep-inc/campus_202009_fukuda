@@ -70,7 +70,9 @@ bool GameStageManager::SetInputPileNums(int source_num, int destination_num)
 	m_piles[destination_pile_num][destination_pile_index] = m_piles[source_pile_num][source_pile_index];
 	m_piles[source_pile_num][source_pile_index] = DiskType::Disk_Empty;
 
+	// ˆÚ“®æ‚Ì‰~”Õ‚Ì•À‚Ñ‘Ö‚¦
 	while (destination_pile_index < PILE_SIZE - 1) {
+		// ‰º‚É‚ ‚é’†g‚æ‚èã‚Ì’†g‚ªd‚½‚¢‚È‚ç“ü‚ê‘Ö‚¦‚é
 		if (static_cast<int>(m_piles[destination_pile_num][destination_pile_index]) > 
 			static_cast<int>(m_piles[destination_pile_num][destination_pile_index + 1])) {
 			DiskType tmp = m_piles[destination_pile_num][destination_pile_index + 1];
