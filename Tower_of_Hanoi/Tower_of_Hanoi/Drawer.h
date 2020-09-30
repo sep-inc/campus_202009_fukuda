@@ -20,6 +20,23 @@ public:
 	~Drawer();
 
 	/**
+	* @brief 初期化関数
+	*/
+	void Init();
+
+	/**
+	* @brief 描画処理をまとめた関数
+	* Mainではこの関数のみを呼び出す
+	*/
+	void Run();
+
+	/**
+	* @brief 描画関数
+	* 連結した文字列を描画する
+	*/
+	void Print();
+
+	/**
 	* @brief 描画バッファにデータをセットする関数
 	*/
 	void SetDrawBuffer(int x, int y, DrawType type);
