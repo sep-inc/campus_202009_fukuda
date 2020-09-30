@@ -5,7 +5,8 @@
 
 Drawer::Drawer():
 	m_blank_buffer{DrawType::Type_Empty},
-	m_draw_buffer{DrawType::Type_Empty}
+	m_draw_buffer{DrawType::Type_Empty},
+	m_is_game_clear(false)
 {
 	Init();
 }
@@ -29,12 +30,21 @@ void Drawer::Run()
 	Print();
 	// 描画バッファのクリア
 	BufferClear();
+	// クリア判定
+	PrintClear();
 }
 
 void Drawer::Print()
 {
 	// 文字列の描画処理
 	std::cout << m_draw_string.c_str() << std::flush;
+}
+
+void Drawer::PrintClear()
+{
+	if (m_is_game_clear == true) {
+		printf("ゲームクリア\n");
+	}
 }
 
 void Drawer::BufferClear()
@@ -86,3 +96,10 @@ void Drawer::LinkDrawBuffer()
 		m_draw_string += "\n";
 	}
 }
+
+void Drawer::IsClear()
+{
+	m_is_game_clear = true;
+}
+
+

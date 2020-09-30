@@ -37,6 +37,8 @@ public:
 	*/
 	void Print();
 
+	void PrintClear();
+
 	/**
 	* @brief バッファクリア関数
 	*/
@@ -58,6 +60,9 @@ public:
 	*/
 	void LinkDrawBuffer();
 
+	void IsClear();
+
+
 private:
 	//! 初期化用バッファ
 	DrawType m_blank_buffer[DRAW_BUFFER_WIDTH][DRAW_BUFFER_HEIGHT];
@@ -66,6 +71,8 @@ private:
 	DrawType m_draw_buffer[DRAW_BUFFER_WIDTH][DRAW_BUFFER_HEIGHT];
 
 	std::string m_draw_string;
+
+	bool m_is_game_clear;
 };
 
 #endif

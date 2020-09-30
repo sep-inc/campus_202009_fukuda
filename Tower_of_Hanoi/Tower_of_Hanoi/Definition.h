@@ -8,7 +8,6 @@
 * @brief 定義をまとめたヘッダ
 */
 
-
 //! 杭のサイズ
 #define PILE_SIZE 3
 
@@ -18,6 +17,18 @@
 //! 描画バッファのサイズ
 #define DRAW_BUFFER_WIDTH  19
 #define DRAW_BUFFER_HEIGHT 6
+
+//! 描画バッファ上での左杭のX座標
+#define LEFT_PILE_POS_X 1
+
+//! 描画バッファ上での真ん中杭のX座標
+#define CENTER_PILE_POS_X 7
+
+//! 描画バッファ上での右杭のX座標
+#define RIGHT_PILE_POS_X 13
+
+//! 描画バッファ上での杭のY座標
+#define PILE_POS_Y 2
 
 
 //! 処理ステップの種類

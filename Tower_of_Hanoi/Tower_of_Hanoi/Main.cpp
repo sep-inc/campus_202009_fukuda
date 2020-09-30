@@ -16,7 +16,6 @@ int main() {
 		ObjectManager::Instance()->m_p_game_stage_manager->UpdateStep();
 		ObjectManager::Instance()->m_p_drawer->Run();
 		getchar();
-		system("cls");
 	}
 
 	ObjectManager::Instance()->DeleteObjects();

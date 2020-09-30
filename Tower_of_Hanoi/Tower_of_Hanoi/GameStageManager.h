@@ -64,6 +64,8 @@ public:
 	*/
 	void ConvertDrawMap();
 
+	void ClearDrawMap();
+
 
 private:
 	//! 杭配列　左の要素：杭番号　右の要素 : 杭の要素番号

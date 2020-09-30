@@ -7,6 +7,7 @@ GameStageManager::GameStageManager():
 	m_piles{DiskType::Disk_Empty},
 	m_draw_map{DrawType::Type_Empty}
 {
+	
 }
 
 
@@ -26,10 +27,14 @@ void GameStageManager::UpdateStep()
 		m_step = Step::Step_Update;
 		break;
 	case Step::Step_Update:
+		if (IsClear()) {
+			ObjectManager::Instance()->m_p_drawer->IsClear();
+		}
 		// 描画マップへ変換
-		// ConvertDrawMap();
+		ConvertDrawMap();
 		// 描画マップのセット
-		// SetDrawMap();
+		SetDrawMap();
+		ClearDrawMap();
 		// 勝敗判定処理
 		break;
 	case Step::Step_End:
@@ -75,25 +80,22 @@ bool GameStageManager::SetInputPileNums(int source_num, int destination_num)
 		return true;
 	}
 
-	// 円盤の移動
-	m_piles[destination_pile_num][destination_pile_index] = m_piles[source_pile_num][source_pile_index];
-	m_piles[source_pile_num][source_pile_index] = DiskType::Disk_Empty;
-
-	// 移動先の円盤の並び替え
-	while (destination_pile_index < PILE_SIZE - 1) {
-		// 下にある中身より上の中身が重たいなら入れ替える
-		if (static_cast<int>(m_piles[destination_pile_num][destination_pile_index]) > 
-			static_cast<int>(m_piles[destination_pile_num][destination_pile_index + 1])) {
-			DiskType tmp = m_piles[destination_pile_num][destination_pile_index + 1];
-			m_piles[destination_pile_num][destination_pile_index + 1] = m_piles[destination_pile_num][destination_pile_index];
-			m_piles[destination_pile_num][destination_pile_index] = tmp;
-		}
-		else {
+	for (destination_pile_index = 0; destination_pile_index < PILE_SIZE; destination_pile_index++) {
+		if (m_piles[destination_pile_num][destination_pile_index] != DiskType::Disk_Empty) {
 			break;
 		}
 	}
 
-	return true;
+	if (static_cast<int>(m_piles[source_pile_num][source_pile_index]) < static_cast<int>(m_piles[destination_pile_num][destination_pile_index])
+		&& destination_pile_index != 0) {
+		m_piles[destination_pile_num][destination_pile_index - 1] = m_piles[source_pile_num][source_pile_index];
+		m_piles[source_pile_num][source_pile_index] = DiskType::Disk_Empty;
+		return true;
+	}
+	else {
+		return false;
+	}
+	
 }
 
 bool GameStageManager::IsClear()
@@ -112,7 +114,9 @@ void GameStageManager::SetDrawMap()
 	// 描画クラスへ描画マップをセットする
 	for (int x = 0; x < DRAW_BUFFER_WIDTH; x++) {
 		for (int y = 0; y < DRAW_BUFFER_HEIGHT; y++) {
-			ObjectManager::Instance()->m_p_drawer->SetDrawBuffer(x, y, m_draw_map[x][y]);
+			if (m_draw_map[x][y] != DrawType::Type_Empty) {
+				ObjectManager::Instance()->m_p_drawer->SetDrawBuffer(x, y, m_draw_map[x][y]);
+			}
 		}
 	}
 }
@@ -152,5 +156,114 @@ void GameStageManager::CreateDrawMapFrame()
 
 void GameStageManager::ConvertDrawMap()
 {
-	
+	// 左端の杭の描画情報セット
+	for (int i = 0; i < PILE_SIZE; i++) {
+		switch (m_piles[0][i]) {
+		case DiskType::Large_Disk:
+			m_draw_map[LEFT_PILE_POS_X][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[LEFT_PILE_POS_X + 1][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[LEFT_PILE_POS_X + 2][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[LEFT_PILE_POS_X + 3][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[LEFT_PILE_POS_X + 4][PILE_POS_Y + i] = DrawType::Type_Disk;
+			break;
+		case DiskType::Normal_Disk:
+			m_draw_map[LEFT_PILE_POS_X][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[LEFT_PILE_POS_X + 1][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[LEFT_PILE_POS_X + 2][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[LEFT_PILE_POS_X + 3][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[LEFT_PILE_POS_X + 4][PILE_POS_Y + i] = DrawType::Type_Pile;
+			break;
+		case DiskType::Small_Disk:
+			m_draw_map[LEFT_PILE_POS_X][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[LEFT_PILE_POS_X + 1][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[LEFT_PILE_POS_X + 2][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[LEFT_PILE_POS_X + 3][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[LEFT_PILE_POS_X + 4][PILE_POS_Y + i] = DrawType::Type_Pile;
+			break;
+		case DiskType::Disk_Empty:
+			m_draw_map[LEFT_PILE_POS_X][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[LEFT_PILE_POS_X + 1][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[LEFT_PILE_POS_X + 2][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[LEFT_PILE_POS_X + 3][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[LEFT_PILE_POS_X + 4][PILE_POS_Y + i] = DrawType::Type_Pile;
+			break;
+		}
+	}
+
+	// 中央の杭の描画情報セット
+	for (int i = 0; i < PILE_SIZE; i++) {
+		switch (m_piles[1][i]) {
+		case DiskType::Large_Disk:
+			m_draw_map[CENTER_PILE_POS_X][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[CENTER_PILE_POS_X + 1][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[CENTER_PILE_POS_X + 2][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[CENTER_PILE_POS_X + 3][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[CENTER_PILE_POS_X + 4][PILE_POS_Y + i] = DrawType::Type_Disk;
+			break;
+		case DiskType::Normal_Disk:
+			m_draw_map[CENTER_PILE_POS_X][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[CENTER_PILE_POS_X + 1][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[CENTER_PILE_POS_X + 2][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[CENTER_PILE_POS_X + 3][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[CENTER_PILE_POS_X + 4][PILE_POS_Y + i] = DrawType::Type_Pile;
+			break;
+		case DiskType::Small_Disk:
+			m_draw_map[CENTER_PILE_POS_X][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[CENTER_PILE_POS_X + 1][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[CENTER_PILE_POS_X + 2][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[CENTER_PILE_POS_X + 3][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[CENTER_PILE_POS_X + 4][PILE_POS_Y + i] = DrawType::Type_Pile;
+			break;
+		case DiskType::Disk_Empty:
+			m_draw_map[CENTER_PILE_POS_X][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[CENTER_PILE_POS_X + 1][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[CENTER_PILE_POS_X + 2][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[CENTER_PILE_POS_X + 3][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[CENTER_PILE_POS_X + 4][PILE_POS_Y + i] = DrawType::Type_Pile;
+			break;
+		}
+	}
+
+	// 右端の杭の描画情報セット
+	for (int i = 0; i < PILE_SIZE; i++) {
+		switch (m_piles[2][i]) {
+		case DiskType::Large_Disk:
+			m_draw_map[RIGHT_PILE_POS_X][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[RIGHT_PILE_POS_X + 1][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[RIGHT_PILE_POS_X + 2][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[RIGHT_PILE_POS_X + 3][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[RIGHT_PILE_POS_X + 4][PILE_POS_Y + i] = DrawType::Type_Disk;
+			break;
+		case DiskType::Normal_Disk:
+			m_draw_map[RIGHT_PILE_POS_X][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[RIGHT_PILE_POS_X + 1][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[RIGHT_PILE_POS_X + 2][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[RIGHT_PILE_POS_X + 3][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[RIGHT_PILE_POS_X + 4][PILE_POS_Y + i] = DrawType::Type_Pile;
+			break;
+		case DiskType::Small_Disk:
+			m_draw_map[RIGHT_PILE_POS_X][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[RIGHT_PILE_POS_X + 1][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[RIGHT_PILE_POS_X + 2][PILE_POS_Y + i] = DrawType::Type_Disk;
+			m_draw_map[RIGHT_PILE_POS_X + 3][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[RIGHT_PILE_POS_X + 4][PILE_POS_Y + i] = DrawType::Type_Pile;
+			break;
+		case DiskType::Disk_Empty:
+			m_draw_map[RIGHT_PILE_POS_X][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[RIGHT_PILE_POS_X + 1][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[RIGHT_PILE_POS_X + 2][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[RIGHT_PILE_POS_X + 3][PILE_POS_Y + i] = DrawType::Type_Pile;
+			m_draw_map[RIGHT_PILE_POS_X + 4][PILE_POS_Y + i] = DrawType::Type_Pile;
+			break;
+		}
+	}
+}
+
+void GameStageManager::ClearDrawMap()
+{
+	for (int x = 0; x < DRAW_BUFFER_WIDTH; x++) {
+		for (int y = 0; y < DRAW_BUFFER_HEIGHT; y++) {
+			m_draw_map[x][y] = DrawType::Type_Empty;
+		}
+	}
 }
