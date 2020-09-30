@@ -32,6 +32,7 @@ void GameStageManager::UpdateStep()
 
 void GameStageManager::Init()
 {
+	// 左端の杭に円盤をセットする
 	m_piles[0][0] = DiskType::Small_Disk;
 	m_piles[0][1] = DiskType::Normal_Disk;
 	m_piles[0][2] = DiskType::Large_Disk;
@@ -86,6 +87,7 @@ bool GameStageManager::SetInputPileNums(int source_num, int destination_num)
 
 bool GameStageManager::IsClear()
 {
+	// 右端の杭のすべてに円盤が入っていたらゲーム終了フラグを立てる
 	for (int i = 0; i < PILE_SIZE; i++) {
 		if (m_piles[2][i] == DiskType::Disk_Empty) {
 			return false;

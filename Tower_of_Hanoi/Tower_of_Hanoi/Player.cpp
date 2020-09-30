@@ -38,10 +38,11 @@ void Player::Input()
 		m_source_pile_num = ObjectManager::Instance()->m_p_input->SelectSourcePile();
 		// 移動先番号の入力
 		m_destination_pile_num = ObjectManager::Instance()->m_p_input->SelectDestinationPile(m_source_pile_num);
-		// 入力判定を行う
+		// 入力判定でtrueが返ってきたら、値のSet完了でループ終了
 		if (ObjectManager::Instance()->m_p_game_stage_manager->SetInputPileNums(m_source_pile_num, m_destination_pile_num)) {
 			break;
 		}
+		// 値がセットできなかったためループ続行
 		else {
 			printf("入力情報が不正です、もう一度入力してください\n");
 		}

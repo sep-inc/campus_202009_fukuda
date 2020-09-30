@@ -42,9 +42,9 @@ enum class DiskType :uint8_t {
 
 //! •`‰æƒ^ƒCƒv
 enum class DrawType :uint8_t {
-	Type_Empty,
-	Type_Pile,
-	Type_Disk
+	Type_Empty,		//! ‹ó”’
+	Type_Pile,		//! Y
+	Type_Disk		//! ‰~”Õ
 };
 
 
