@@ -30,12 +30,12 @@ void Drawer::Print()
 
 void Drawer::SetDrawBuffer(int x, int y, DrawType type)
 {
+	m_draw_buffer[x][y] = type;
 }
 
 void Drawer::SetBlankBuffer(int x, int y, DrawType type)
 {
-
-
+	m_blank_buffer[x][y] = type;
 }
 
 void Drawer::LinkDrawBuffer()
