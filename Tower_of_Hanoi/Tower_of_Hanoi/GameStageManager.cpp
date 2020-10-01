@@ -27,6 +27,7 @@ void GameStageManager::UpdateStep()
 		m_step = Step::Step_Update;
 		break;
 	case Step::Step_Update:
+		// Ÿ”s”»’èˆ—
 		if (IsClear()) {
 			ObjectManager::Instance()->m_p_drawer->IsClear();
 		}
@@ -35,7 +36,7 @@ void GameStageManager::UpdateStep()
 		// •`‰æƒ}ƒbƒv‚ÌƒZƒbƒg
 		SetDrawMap();
 		ClearDrawMap();
-		// Ÿ”s”»’èˆ—
+		
 		break;
 	case Step::Step_End:
 		break;
@@ -79,19 +80,22 @@ bool GameStageManager::SetInputPileNums(int source_num, int destination_num)
 		m_piles[source_pile_num][source_pile_index] = DiskType::Disk_Empty;
 		return true;
 	}
-
+	// ˆÚ“®æ‚ÌY‚Ì’†gŒŸõ
 	for (destination_pile_index = 0; destination_pile_index < PILE_SIZE; destination_pile_index++) {
+		// ‹ó‚¶‚á‚È‚¢êŠ‚ªŒ©‚Â‚©‚ê‚Îƒ‹[ƒvI—¹
 		if (m_piles[destination_pile_num][destination_pile_index] != DiskType::Disk_Empty) {
 			break;
 		}
 	}
-
+	// ˆÚ“®‚³‚¹‚é‰~”Õ‚ÆˆÚ“®æ‚É‚ ‚é‰~”Õ‚ğ”ä‚×AˆÚ“®æ‚Ì•û‚ª‘å‚«‚¯‚ê‚ÎˆÚ“®‚·‚é
 	if (static_cast<int>(m_piles[source_pile_num][source_pile_index]) < static_cast<int>(m_piles[destination_pile_num][destination_pile_index])
 		&& destination_pile_index != 0) {
+		// ‰~”Õ‚ÌˆÚ“®ˆ—
 		m_piles[destination_pile_num][destination_pile_index - 1] = m_piles[source_pile_num][source_pile_index];
 		m_piles[source_pile_num][source_pile_index] = DiskType::Disk_Empty;
 		return true;
 	}
+	// ˆÚ“®æ‚Ì•û‚ª¬‚³‚¢‰~”Õ‚È‚ç‚ÎˆÚ“®¸”s
 	else {
 		return false;
 	}

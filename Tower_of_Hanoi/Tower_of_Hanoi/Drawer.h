@@ -37,6 +37,9 @@ public:
 	*/
 	void Print();
 
+	/**
+	* @brief ゲームクリア時に表示する関数
+	*/
 	void PrintClear();
 
 	/**
@@ -60,6 +63,9 @@ public:
 	*/
 	void LinkDrawBuffer();
 
+	/**
+	* @brief クリアフラグ変更関数
+	*/
 	void IsClear();
 
 
@@ -70,8 +76,10 @@ private:
 	//! 描画用バッファ
 	DrawType m_draw_buffer[DRAW_BUFFER_WIDTH][DRAW_BUFFER_HEIGHT];
 
+	//! 描画バッファ連結変数
 	std::string m_draw_string;
 
+	//! クリアフラグ
 	bool m_is_game_clear;
 };
 

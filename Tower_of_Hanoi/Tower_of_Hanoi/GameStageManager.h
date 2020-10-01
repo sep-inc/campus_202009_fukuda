@@ -64,6 +64,9 @@ public:
 	*/
 	void ConvertDrawMap();
 
+	/**
+	* @brief 描画用マップをクリアする関数
+	*/
 	void ClearDrawMap();
 
 
