@@ -15,9 +15,7 @@ enum class ObjectType :uint8_t {
 	King,			//! 玉
 	Pawn,			//! 歩
 	GoldGeneral,	//! 金
-	Knight,			//! 桂馬
-
-	Max_Type
+	Knight			//! 桂馬
 };
 
 //! 描画バッファのサイズ
