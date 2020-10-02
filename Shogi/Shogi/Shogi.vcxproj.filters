@@ -5,59 +5,78 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="ヘッダー ファイル">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="ソース ファイル\Piece">
+      <UniqueIdentifier>{386d0559-df23-4dba-906b-3c6438a7aeb5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="リソース ファイル">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="ソース ファイル\Draw">
+      <UniqueIdentifier>{e6a600e0-4808-46a0-bfa8-eddea068b277}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Input">
+      <UniqueIdentifier>{a8d288a3-9b54-4276-be1f-6ffbd1bc0430}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="DrawerBase.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="ShogiDrawer.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="DrawerManager.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="PieceBase.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="PawnPiece.cpp">
+      <Filter>ソース ファイル\Piece</Filter>
     </ClCompile>
     <ClCompile Include="KingPiece.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="GoldGeneralPiece.cpp">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawerBase.cpp">
+      <Filter>ソース ファイル\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawerManager.cpp">
+      <Filter>ソース ファイル\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="ShogiDrawer.cpp">
+      <Filter>ソース ファイル\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>ソース ファイル\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="KnightPiece.cpp">
+      <Filter>ソース ファイル\Piece</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DrawerBase.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="ShogiDrawer.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Definition.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="DrawerManager.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="PieceBase.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="PawnPiece.h">
+      <Filter>ソース ファイル\Piece</Filter>
     </ClInclude>
     <ClInclude Include="KingPiece.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="GoldGeneralPiece.h">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawerBase.h">
+      <Filter>ソース ファイル\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawerManager.h">
+      <Filter>ソース ファイル\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="ShogiDrawer.h">
+      <Filter>ソース ファイル\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>ソース ファイル\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="KnightPiece.h">
+      <Filter>ソース ファイル\Piece</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
