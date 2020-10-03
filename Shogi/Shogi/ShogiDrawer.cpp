@@ -2,8 +2,8 @@
 #include <cstring>
 
 ShogiDrawer::ShogiDrawer():
-	m_blank_buffer{ObjectType::Type_None},
-	m_draw_buffer{ObjectType::Type_None}
+	m_blank_buffer{ObjectType::Type_Empty},
+	m_draw_buffer{ObjectType::Type_Empty}
 {
 }
 

@@ -132,6 +132,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PawnPiece.cpp" />
     <ClCompile Include="PieceBase.cpp" />
+    <ClCompile Include="ShogiBoard.cpp" />
     <ClCompile Include="ShogiDrawer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -144,6 +145,8 @@
     <ClInclude Include="KnightPiece.h" />
     <ClInclude Include="PawnPiece.h" />
     <ClInclude Include="PieceBase.h" />
+    <ClInclude Include="PlayerBase.h" />
+    <ClInclude Include="ShogiBoard.h" />
     <ClInclude Include="ShogiDrawer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
