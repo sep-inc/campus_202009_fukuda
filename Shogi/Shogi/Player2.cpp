@@ -26,10 +26,10 @@ void Player2::Init()
 {
 }
 
-void Player2::SelectPiece()
+Vec2 Player2::SelectPiece()
 {
 }
 
-void Player2::SelectMoveSquares()
+Vec2 Player2::SelectMoveSquares()
 {
 }

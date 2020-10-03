@@ -23,10 +23,10 @@ public:
 	virtual void Init() = 0;
 
 	//! どの駒を移動させるかの選択処理関数
-	virtual void SelectPiece() = 0;
+	virtual Vec2 SelectPiece() = 0;
 
 	//! どのマスへ移動させるかの選択処理関数
-	virtual void SelectMoveSquares() = 0;
+	virtual Vec2 SelectMoveSquares() = 0;
 
 	/**
 	* @brief 駒を移動させる関数

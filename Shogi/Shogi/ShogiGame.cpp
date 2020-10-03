@@ -1,5 +1,7 @@
 #include "ShogiGame.h"
 
+ShogiGame* ShogiGame::p_instance = 0;
+
 ShogiGame::ShogiGame():
 	m_p_player1(nullptr),
 	m_p_player2(nullptr),
@@ -16,6 +18,14 @@ ShogiGame::ShogiGame():
 
 ShogiGame::~ShogiGame()
 {
+}
+
+ShogiGame* ShogiGame::Instance()
+{
+	if (p_instance == 0) {
+		p_instance = new ShogiGame;
+	}
+	return p_instance;
 }
 
 void ShogiGame::Update()

@@ -21,8 +21,7 @@
 */
 class ShogiGame {
 public:
-	ShogiGame();
-	~ShogiGame();
+	static ShogiGame* Instance();
 
 	void Update();
 
@@ -30,7 +29,6 @@ public:
 
 	void DeleteObjects();
 
-private:
 	Player1* m_p_player1;
 	Player2* m_p_player2;
 	ShogiBoard* m_p_shogi_board;
@@ -39,6 +37,13 @@ private:
 	GoldGeneralPiece* m_p_gold_general_piece;
 	PawnPiece* m_p_pawn_piece;
 
+private:
+	ShogiGame();
+	~ShogiGame();
+
+	static ShogiGame* p_instance;
+
+private:
 	Step m_step;
 	int m_turn_counter;
 	bool m_is_game_finish;

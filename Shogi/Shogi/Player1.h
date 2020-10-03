@@ -31,13 +31,15 @@ public:
 
 	/**
 	* @brief どの駒を移動させるかの選択処理関数
+	* @brief 選んだ座標
 	*/
-	virtual void SelectPiece()override;
+	virtual Vec2 SelectPiece()override;
 
 	/**
 	* @brief どのマスへ移動させるかの選択処理関数
+	* @brief 選んだ座標
 	*/
-	virtual void SelectMoveSquares()override;
+	virtual Vec2 SelectMoveSquares()override;
 
 
 };
