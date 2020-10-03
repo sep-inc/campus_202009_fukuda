@@ -36,6 +36,7 @@ void ShogiBoard::SetPiece(Vec2 now_pos, Vec2 move_pos)
 
 bool ShogiBoard::KingExists(int turn_num)
 {
+	// 奇数ターンの判定
 	if (turn_num % 2 == 1) {
 		for (int x = 0; x < SHOGI_BOARD_WIDTH; x++) {
 			for (int y = 0; y < SHOGI_BOARD_HEIGHT; y++) {
@@ -45,6 +46,7 @@ bool ShogiBoard::KingExists(int turn_num)
 			}
 		}
 	}
+	// 偶数ターンの判定
 	else {
 		for (int x = 0; x < SHOGI_BOARD_WIDTH; x++) {
 			for (int y = 0; y < SHOGI_BOARD_HEIGHT; y++) {

@@ -132,8 +132,12 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="PawnPiece.cpp" />
     <ClCompile Include="PieceBase.cpp" />
+    <ClCompile Include="Player1.cpp" />
+    <ClCompile Include="Player2.cpp" />
+    <ClCompile Include="PlayerBase.cpp" />
     <ClCompile Include="ShogiBoard.cpp" />
     <ClCompile Include="ShogiDrawer.cpp" />
+    <ClCompile Include="ShogiGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Definition.h" />
@@ -145,9 +149,12 @@
     <ClInclude Include="KnightPiece.h" />
     <ClInclude Include="PawnPiece.h" />
     <ClInclude Include="PieceBase.h" />
+    <ClInclude Include="Player1.h" />
+    <ClInclude Include="Player2.h" />
     <ClInclude Include="PlayerBase.h" />
     <ClInclude Include="ShogiBoard.h" />
     <ClInclude Include="ShogiDrawer.h" />
+    <ClInclude Include="ShogiGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

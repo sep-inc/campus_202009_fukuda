@@ -17,6 +17,12 @@
     <Filter Include="ソース ファイル\ShogiBoard">
       <UniqueIdentifier>{b5a91e26-dafc-42d7-84ee-27ca239d3e26}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\Player">
+      <UniqueIdentifier>{241c4385-d61d-44d2-bb61-5fa2b3dfe190}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\ShogiGame">
+      <UniqueIdentifier>{e9127e8e-7c85-4d9b-bf3e-b1dd267e1551}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -51,6 +57,18 @@
     </ClCompile>
     <ClCompile Include="ShogiBoard.cpp">
       <Filter>ソース ファイル\ShogiBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="Player1.cpp">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Player2.cpp">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerBase.cpp">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="ShogiGame.cpp">
+      <Filter>ソース ファイル\ShogiGame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,8 +105,17 @@
     <ClInclude Include="ShogiBoard.h">
       <Filter>ソース ファイル\ShogiBoard</Filter>
     </ClInclude>
+    <ClInclude Include="Player1.h">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Player2.h">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClInclude>
     <ClInclude Include="PlayerBase.h">
-      <Filter>ソース ファイル</Filter>
+      <Filter>ソース ファイル\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="ShogiGame.h">
+      <Filter>ソース ファイル\ShogiGame</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
