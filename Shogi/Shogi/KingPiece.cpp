@@ -12,6 +12,8 @@ KingPiece::KingPiece()
 		{1,1,1}
 	};
 	memcpy(m_move_range, range, sizeof(range));
+
+	m_obj_type = ObjectType::King1;
 }
 
 

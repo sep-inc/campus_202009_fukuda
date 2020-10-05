@@ -11,6 +11,8 @@ GoldGeneralPiece::GoldGeneralPiece()
 		{0,1,0}
 	};
 	memcpy(m_move_range, range, sizeof(range));
+
+	m_obj_type = ObjectType::GoldGeneral1;
 }
 
 

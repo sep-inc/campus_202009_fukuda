@@ -33,12 +33,23 @@ void ShogiGame::Update()
 		m_step = Step::Update;
 		break;
 	case Step::Update:
-		m_p_player1->Update();
-		m_p_player2->Update();
+	{
+		PlayerBase* player = nullptr;
+		if (m_turn_counter % 2 == 1) {
+			PlayerBase* player = m_p_player1;
+		}
+		else {
+			PlayerBase* player = m_p_player2;
+		}
+		player->Update();
+		m_turn_counter++;
 		/* Ÿ”s”»’èˆ— */
-		
+		if (player->IsTakeKing()) {
+			// ƒQ[ƒ€I—¹ˆ—
+		}
 		/* •`‰æˆ— */
 		break;
+	}
 	case Step::End:
 		DeleteObjects();
 		break;

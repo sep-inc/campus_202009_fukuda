@@ -2,7 +2,8 @@
 
 PieceBase::PieceBase():
 	m_range_center_pos{0},
-	m_move_range{}
+	m_move_range{},
+	m_obj_type(ObjectType::Type_Empty)
 {
 }
 

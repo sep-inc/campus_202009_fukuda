@@ -34,12 +34,17 @@ public:
 	*/
 	void MovePiece();
 
+	/**
+	* @brief 王の駒を取っているかを返す関数
+	* @return 王を取っていたらtrue
+	*/
+	bool IsTakeKing();
 
 protected:
 	Step m_step;		//! 現在のステップ
 	Vec2 m_select_pos;	//! 選択した駒の座標
 	Vec2 m_move_pos;	//! 駒の移動先の座標
-
+	ObjectType m_take_piece;	//! 直前に取った駒
 };
 
 #endif

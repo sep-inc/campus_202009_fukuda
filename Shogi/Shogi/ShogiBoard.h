@@ -7,6 +7,7 @@
 */
 
 #include "Definition.h"
+#include "PieceBase.h"
 
 /**
 * @class ShogiBoard
@@ -28,7 +29,7 @@ public:
 	* @param pos 調べたいマス目の座標
 	* @return マスの中身
 	*/
-	ObjectType GetContens(Vec2 pos);
+	PieceBase* GetContens(Vec2 pos);
 
 	/**
 	* @brief 駒をセットする関数
@@ -44,17 +45,10 @@ public:
 	*/
 	bool KingExists(int turn_num);
 
-	/**
-	* @brief 将棋盤を反転させる関数
-	* ターン切り替え時に使用
-	*/
-	void ReverseBoard();
-
-
 
 private:
 	//! 将棋盤配列
-	ObjectType m_shogi_board[SHOGI_BOARD_WIDTH][SHOGI_BOARD_HEIGHT];
+	PieceBase* m_shogi_board[SHOGI_BOARD_WIDTH][SHOGI_BOARD_HEIGHT];
 
 };
 

@@ -12,6 +12,8 @@ PawnPiece::PawnPiece()
 		{0,0,0}
 	};
 	memcpy(m_move_range, range, sizeof(range));
+
+	m_obj_type = ObjectType::Pawn1;
 }
 
 PawnPiece::~PawnPiece()

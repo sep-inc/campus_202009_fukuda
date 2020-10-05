@@ -11,6 +11,8 @@ KnightPiece::KnightPiece()
 		{0,0,0}
 	};
 	memcpy(m_move_range, range, sizeof(range));
+
+	m_obj_type = ObjectType::Knight1;
 }
 
 
