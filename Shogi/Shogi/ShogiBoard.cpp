@@ -15,7 +15,7 @@ void ShogiBoard::InitBoard()
 	// èâä˙îzíuçÏê¨
 	ObjectType init_board[SHOGI_BOARD_WIDTH][SHOGI_BOARD_HEIGHT] = {
 		{ObjectType::Type_Empty,	ObjectType::Pawn2,			ObjectType::Type_Empty,		ObjectType::Pawn1,		ObjectType::Knight1},
-		{ObjectType::King2,			ObjectType::Pawn2,			ObjectType::Type_Empty ,	ObjectType::Pawn1,		ObjectType::GoldGeneral1},
+		{ObjectType::King2,			ObjectType::Pawn2,			ObjectType::Type_Empty,		ObjectType::Pawn1,		ObjectType::GoldGeneral1},
 		{ObjectType::GoldGeneral2,	ObjectType::Pawn2,			ObjectType::Type_Empty,		ObjectType::Pawn1,		ObjectType::King1},
 		{ObjectType::Knight2,		ObjectType::Pawn2,			ObjectType::Type_Empty,		ObjectType::Pawn1,		ObjectType::Type_Empty}
 	};

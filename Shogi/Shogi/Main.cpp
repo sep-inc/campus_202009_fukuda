@@ -8,8 +8,7 @@ void SignalHandle(int);
 int main() {
 	signal(SIGINT, SignalHandle);
 
-	ShogiGame shogi;
-	shogi.Update();
+	ShogiGame::Instance()->Update();
 
 	return 0;
 }

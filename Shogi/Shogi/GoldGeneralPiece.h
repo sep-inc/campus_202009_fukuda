@@ -17,20 +17,6 @@ class GoldGeneralPiece :public PieceBase
 public:
 	GoldGeneralPiece();
 	~GoldGeneralPiece();
-
-	/**
-	* @brief w’è‚³‚ê‚½”ÍˆÍ‚É‹î‚ª“®‚¯‚é‚©‚ğ”»•Ê‚·‚éŠÖ”
-	*/
-	bool CanMove(Vec2 now_pos, Vec2 move_pos)override;
-
-private:
-	//! ‹î‚Ì“®‚¯‚é”ÍˆÍ 1 = ˆÚ“®‰Â”\
-	int m_move_range[MOVE_RANGE_WIDTH][MOVE_RANGE_HEIGHT] = {
-		{1,1,1},
-		{1,0,1},
-		{0,1,0}
-	};
-
 };
 
 #endif

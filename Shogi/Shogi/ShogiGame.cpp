@@ -6,10 +6,7 @@ ShogiGame::ShogiGame():
 	m_p_player1(nullptr),
 	m_p_player2(nullptr),
 	m_p_shogi_board(nullptr),
-	m_p_king_piece(nullptr),
-	m_p_knight_piece(nullptr),
-	m_p_gold_general_piece(nullptr),
-	m_p_pawn_piece(nullptr),
+	m_p_pieces(nullptr),
 	m_step(Step::Initialize),
 	m_turn_counter(1),
 	m_is_game_finish(false)
@@ -39,7 +36,7 @@ void ShogiGame::Update()
 		m_p_player1->Update();
 		m_p_player2->Update();
 		/* èüîsîªíËèàóù */
-
+		
 		/* ï`âÊèàóù */
 		break;
 	case Step::End:
@@ -56,14 +53,8 @@ void ShogiGame::CreateObjects()
 		m_p_player2 = new Player2;
 	if (m_p_shogi_board == nullptr)
 		m_p_shogi_board = new ShogiBoard;
-	if (m_p_king_piece == nullptr)
-		m_p_king_piece = new KingPiece;
-	if (m_p_knight_piece == nullptr)
-		m_p_knight_piece = new KnightPiece;
-	if (m_p_gold_general_piece == nullptr)
-		m_p_gold_general_piece = new GoldGeneralPiece;
-	if (m_p_pawn_piece == nullptr)
-		m_p_pawn_piece = new PawnPiece;
+	if (m_p_pieces == nullptr)
+		m_p_pieces = new PieceData;
 }
 
 void ShogiGame::DeleteObjects()
@@ -80,21 +71,9 @@ void ShogiGame::DeleteObjects()
 		delete m_p_shogi_board;
 		m_p_shogi_board = nullptr;
 	}
-	if (m_p_king_piece != nullptr) {
-		delete m_p_king_piece;
-		m_p_king_piece = nullptr;
+	if (m_p_pieces != nullptr) {
+		delete m_p_pieces;
+		m_p_pieces = nullptr;
 	}
-	if (m_p_knight_piece != nullptr) {
-		delete m_p_knight_piece;
-		m_p_knight_piece = nullptr;
-	}
-	if (m_p_gold_general_piece != nullptr) {
-		delete m_p_gold_general_piece;
-		m_p_gold_general_piece = nullptr;
-	}
-	if (m_p_pawn_piece != nullptr) {
-		delete m_p_pawn_piece;
-		m_p_pawn_piece = nullptr;
-	}
-		
+	
 }

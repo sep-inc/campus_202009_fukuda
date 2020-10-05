@@ -20,10 +20,11 @@ public:
 	/**
 	* @brief w’è‚³‚ê‚½”ÍˆÍ‚É‹î‚ª“®‚¯‚é‚©‚ğ”»•Ê‚·‚éŠÖ”
 	*/
-	virtual bool CanMove(Vec2 now_pos, Vec2 move_pos) = 0;
+	bool CanMove(Vec2 now_pos, Vec2 move_pos);
 
 protected:
 	Vec2 m_range_center_pos;
+	int m_move_range[MOVE_RANGE_WIDTH][MOVE_RANGE_HEIGHT];
 };
 
 #endif

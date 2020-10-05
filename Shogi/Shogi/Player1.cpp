@@ -20,6 +20,8 @@ void Player1::Update()
 		m_step = Step::Update;
 		break;
 	case Step::Update:
+		m_select_pos = SelectPiece();
+		m_move_pos = SelectMoveSquares();
 		break;
 	case Step::End:
 		break;
@@ -65,8 +67,11 @@ Vec2 Player1::SelectPiece()
 			printf("入力が不正です、もう一度入力してください\n");
 		}
 
-		if (ShogiGame::Instance()->m_p_shogi_board->GetContens(pos)) {
-
+		if (ShogiGame::Instance()->m_p_shogi_board->GetContens(pos) != ObjectType::Type_Empty) {
+			return pos;
+		}
+		else {
+			printf("指定した場所に駒はありません、もう一度場所を入力してください\n");
 		}
 	}
 	

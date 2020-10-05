@@ -70,6 +70,21 @@
     <ClCompile Include="ShogiGame.cpp">
       <Filter>ソース ファイル\ShogiGame</Filter>
     </ClCompile>
+    <ClCompile Include="PieceData.cpp">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="PawnPiece2.cpp">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="KingPiece2.cpp">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="GoldGeneralPiece2.cpp">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="KnightPiece2.cpp">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Definition.h">
@@ -116,6 +131,21 @@
     </ClInclude>
     <ClInclude Include="ShogiGame.h">
       <Filter>ソース ファイル\ShogiGame</Filter>
+    </ClInclude>
+    <ClInclude Include="PieceData.h">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="PawnPiece2.h">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="KingPiece2.h">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="GoldGeneralPiece2.h">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="KnightPiece2.h">
+      <Filter>ソース ファイル\Piece</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

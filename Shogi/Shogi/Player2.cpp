@@ -1,4 +1,8 @@
 #include "Player2.h"
+#include "ShogiGame.h"
+#include "Input.h"
+#include <cstdio>
+#include <cstdlib>
 
 Player2::Player2()
 {
@@ -28,6 +32,7 @@ void Player2::Init()
 
 Vec2 Player2::SelectPiece()
 {
+	
 }
 
 Vec2 Player2::SelectMoveSquares()
