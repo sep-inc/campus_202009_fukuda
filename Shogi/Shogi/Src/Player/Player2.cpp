@@ -12,10 +12,6 @@ Player2::~Player2()
 {
 }
 
-void Player2::Init()
-{
-}
-
 // Vec2 Player2::SelectPiece()
 // {
 // 	Vec2 pos;

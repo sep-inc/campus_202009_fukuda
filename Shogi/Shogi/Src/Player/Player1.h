@@ -17,11 +17,6 @@ public:
 	Player1();
 	~Player1();
 
-	/**
-	* @brief ‰Šú‰»ŠÖ”
-	*/
-	void Init()override;
-
 };
 
 #endif

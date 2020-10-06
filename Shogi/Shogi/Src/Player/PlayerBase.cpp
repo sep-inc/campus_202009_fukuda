@@ -35,6 +35,13 @@ void PlayerBase::Update()
 	}
 }
 
+void PlayerBase::Init()
+{
+	m_select_pos = {};
+	m_move_pos = {};
+	m_take_piece = ObjectType::Type_Empty;
+}
+
 Vec2 PlayerBase::SelectPiece()
 {
 	Vec2 pos;

@@ -17,11 +17,6 @@ public:
 	Player2();
 	~Player2();
 
-	/**
-	* @brief ‰Šú‰»ŠÖ”
-	*/
-	void Init()override;
-
 	// /**
 	// * @brief ‚Ç‚Ì‹î‚ğˆÚ“®‚³‚¹‚é‚©‚Ì‘I‘ğˆ—ŠÖ”
 	// * @return ‘I‚ñ‚¾À•W

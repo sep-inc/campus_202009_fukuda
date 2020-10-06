@@ -20,7 +20,7 @@ public:
 	//! ˆ—XV
 	virtual void Update();
 	//! ‰Šú‰»ŠÖ”
-	virtual void Init() = 0;
+	virtual void Init();
 
 	/**
 	* @brief ‚Ç‚Ì‹î‚ğˆÚ“®‚³‚¹‚é‚©‚Ì‘I‘ğˆ—ŠÖ”

@@ -11,7 +11,3 @@ Player1::Player1()
 Player1::~Player1()
 {
 }
-
-void Player1::Init()
-{
-}
