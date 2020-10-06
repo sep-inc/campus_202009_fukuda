@@ -18,15 +18,21 @@ public:
 	~PlayerBase();
 
 	//! 処理更新
-	virtual void Update() = 0;
+	virtual void Update();
 	//! 初期化関数
 	virtual void Init() = 0;
 
-	//! どの駒を移動させるかの選択処理関数
-	virtual Vec2 SelectPiece() = 0;
+	/**
+	* @brief どの駒を移動させるかの選択処理関数
+	* @brief 選んだ座標
+	*/
+	virtual Vec2 SelectPiece();
 
-	//! どのマスへ移動させるかの選択処理関数
-	virtual Vec2 SelectMoveSquares() = 0;
+	/**
+	* @brief どのマスへ移動させるかの選択処理関数
+	* @brief 選んだ座標
+	*/
+	virtual Vec2 SelectMoveSquares();
 
 	/**
 	* @brief 駒を移動させる関数

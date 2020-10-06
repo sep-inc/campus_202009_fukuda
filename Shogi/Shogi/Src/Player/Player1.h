@@ -17,29 +17,10 @@ public:
 	Player1();
 	~Player1();
 
-
-	/**
-	* @brief 処理更新関数
-	*/
-	void Update()override;
-
 	/**
 	* @brief 初期化関数
 	*/
 	void Init()override;
-
-	/**
-	* @brief どの駒を移動させるかの選択処理関数
-	* @brief 選んだ座標
-	*/
-	virtual Vec2 SelectPiece()override;
-
-	/**
-	* @brief どのマスへ移動させるかの選択処理関数
-	* @brief 選んだ座標
-	*/
-	virtual Vec2 SelectMoveSquares()override;
-
 
 };
 
