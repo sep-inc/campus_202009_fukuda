@@ -3,6 +3,10 @@
 #include "KnightPiece.h"
 #include "PawnPiece.h"
 #include "GoldGeneralPiece.h"
+#include "KingPiece2.h"
+#include "PawnPiece2.h"
+#include "KnightPiece2.h"
+#include "GoldGeneralPiece2.h"
 
 PieceData::PieceData():
 	m_p_king1(nullptr),
@@ -34,13 +38,13 @@ void PieceData::CreatePieces()
 		m_p_gold_general1 = new GoldGeneralPiece;
 
 	if (m_p_king2 == nullptr)
-		m_p_king2 = new KingPiece;
+		m_p_king2 = new KingPiece2;
 	if (m_p_knight2 == nullptr)
-		m_p_knight2 = new KnightPiece;
+		m_p_knight2 = new KnightPiece2;
 	if (m_p_pawn2 == nullptr)
-		m_p_pawn2 = new PawnPiece;
+		m_p_pawn2 = new PawnPiece2;
 	if (m_p_gold_general2 == nullptr)
-		m_p_gold_general2 = new GoldGeneralPiece;
+		m_p_gold_general2 = new GoldGeneralPiece2;
 }
 
 void PieceData::DeletePieces()

@@ -16,12 +16,12 @@ Drawer::~Drawer()
 void Drawer::Init()
 {
 	// 初期化用バッファの初期化
-	m_blank_buffer[0][0] = DrawType::HalfWidthSpace;
-	m_blank_buffer[1][0] = DrawType::HalfWidthSpace;
-	m_blank_buffer[0][1] = DrawType::HalfWidthSpace;
-	m_blank_buffer[0][3] = DrawType::HalfWidthSpace;
-	m_blank_buffer[0][5] = DrawType::HalfWidthSpace;
-	m_blank_buffer[0][7] = DrawType::HalfWidthSpace;
+	m_blank_buffer[0][0] = DrawType::HalfWidthSpace2;
+	m_blank_buffer[1][0] = DrawType::HalfWidthSpace2;
+	m_blank_buffer[0][1] = DrawType::HalfWidthSpace2;
+	m_blank_buffer[0][3] = DrawType::HalfWidthSpace2;
+	m_blank_buffer[0][5] = DrawType::HalfWidthSpace2;
+	m_blank_buffer[0][7] = DrawType::HalfWidthSpace2;
 	m_blank_buffer[3][0] = DrawType::HalfWidthSpace2;
 	m_blank_buffer[5][0] = DrawType::HalfWidthSpace2;
 	m_blank_buffer[7][0] = DrawType::HalfWidthSpace2;

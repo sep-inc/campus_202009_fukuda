@@ -1,4 +1,5 @@
 #include "Drawer.h"
+#include <iostream>
 
 Drawer* Drawer::p_instance = 0;
 
@@ -34,13 +35,13 @@ void Drawer::Run()
 
 void Drawer::DrawMapString()
 {
-	m_map_string.c_str();
+	std::cout << m_map_string.c_str() << std::flush;
 }
 
 void Drawer::DrawResultString()
 {
 	if (m_result_string != "") {
-		m_result_string.c_str();
+		std::cout << m_result_string.c_str() << std::endl;
 	}
 }
 

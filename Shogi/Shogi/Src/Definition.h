@@ -34,6 +34,13 @@ enum class ObjectType :uint8_t {
 	Knight2			//! 桂馬2
 };
 
+//! プレイヤータイプ
+enum class PlayerType :uint8_t {
+	Type_None,
+	Player1,
+	Player2
+};
+
 //! ゲーム終了結果の種類
 enum class ResultType :uint8_t {
 	Result_None,	//! 結果無し

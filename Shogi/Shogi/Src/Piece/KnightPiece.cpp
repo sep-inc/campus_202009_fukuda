@@ -13,6 +13,10 @@ KnightPiece::KnightPiece()
 	memcpy(m_move_range, range, sizeof(range));
 
 	m_obj_type = ObjectType::Knight1;
+
+	m_draw_string = "Œj";
+
+	m_owner = PlayerType::Player1;
 }
 
 

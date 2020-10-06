@@ -6,6 +6,7 @@
 
 Player1::Player1()
 {
+	m_my_type = PlayerType::Player1;
 }
 
 Player1::~Player1()

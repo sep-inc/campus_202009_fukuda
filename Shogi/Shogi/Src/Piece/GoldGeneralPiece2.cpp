@@ -14,6 +14,10 @@ GoldGeneralPiece2::GoldGeneralPiece2()
 	memcpy(m_move_range, range, sizeof(range));
 
 	m_obj_type = ObjectType::GoldGeneral2;
+
+	m_draw_string = "‹Ø";
+
+	m_owner = PlayerType::Player2;
 }
 
 GoldGeneralPiece2::~GoldGeneralPiece2()

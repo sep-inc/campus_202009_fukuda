@@ -7,6 +7,7 @@
 */
 
 #include "../Definition.h"
+#include <string>
 
 /**
 * @class PieceBase
@@ -28,10 +29,22 @@ public:
 	*/
 	inline ObjectType GetObjectType()const { return m_obj_type; }
 
+	/**
+	* @brief ©g‚Ì•ÛÒ‚ğ•Ô‚·ŠÖ”
+	*/
+	inline PlayerType GetMyOwner()const { return m_owner; }
+
+	/**
+	* @brief •`‰æ•¶šæ“¾ŠÖ”
+	*/
+	std::string GetDrawString() { return m_draw_string.c_str(); }
+
 protected:
 	Vec2 m_range_center_pos;
 	int m_move_range[MOVE_RANGE_WIDTH][MOVE_RANGE_HEIGHT];
 	ObjectType m_obj_type;
+	std::string m_draw_string;
+	PlayerType m_owner;		//! ©g‚Ì•Û—LÒ
 };
 
 #endif

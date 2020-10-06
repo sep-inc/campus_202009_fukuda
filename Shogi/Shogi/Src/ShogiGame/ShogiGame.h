@@ -11,6 +11,7 @@
 #include "../Player/Player2.h"
 #include "../ShogiBoard/ShogiBoard.h"
 #include "../Piece/PieceData.h"
+#include <string>
 /**
 * @class ShogiGame
 * @brief 将棋ゲーム本体のクラス
@@ -42,7 +43,20 @@ public:
 	*/
 	bool IsGameFinish();
 
+	/**
+	* @brief 将棋盤を文字列に連結する関数
+	*/
+	void LinkShogiBoard();
+
+	/**
+	* @brief Drawerクラスに描画情報をセットする関数
+	*/
 	void SetShogiBoard();
+
+	/**
+	* @brief Drawerクラスにリザルト情報をセットする関数
+	*/
+	std::string SetResult(ObjectType type);
 
 	//! オブジェクトのポインタ変数群
 	Player1* m_p_player1;
@@ -60,6 +74,7 @@ private:
 	Step m_step;			//! 現在のステップ
 	int m_turn_counter;		//! ターン経過数
 	bool m_is_game_finish;	//! ゲーム終了フラグ
+	std::string m_shogi_board_string;	// 描画用の将棋盤を連結した文字列
 
 };
 

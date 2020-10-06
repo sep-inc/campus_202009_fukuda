@@ -1,13 +1,15 @@
 #include "PlayerBase.h"
 #include "../ShogiGame/ShogiGame.h"
 #include "../Input/Input.h"
+#include "../Piece/PieceBase.h"
 #include <cstdio>
 
 PlayerBase::PlayerBase():
 	m_step(Step::Initialize),
 	m_select_pos{},
 	m_move_pos{},
-	m_take_piece(ObjectType::Type_Empty)
+	m_take_piece(ObjectType::Type_Empty),
+	m_my_type(PlayerType::Type_None)
 {
 }
 
@@ -64,22 +66,30 @@ Vec2 PlayerBase::SelectPiece()
 				pos.m_x = 2;
 				break;
 			}
+			else if (tmp == 'D') {
+				pos.m_x = 3;
+				break;
+			}
 			printf("入力が不正です、もう一度入力してください\n");
 		}
-
 		while (true) {
 			printf("移動させる駒の行を選択 : ");
 			// 入力処理
 			pos.m_y = Input::Instance()->InputNum();
-			if (pos.m_y == 1 || pos.m_y == 2 || pos.m_y == 3) {
+			if (pos.m_y == 1 || pos.m_y == 2 || pos.m_y == 3 || pos.m_y == 4 || pos.m_y == 5) {
 				pos.m_y--;
 				break;
 			}
 			printf("入力が不正です、もう一度入力してください\n");
 		}
-
+		
 		if (ShogiGame::Instance()->m_p_shogi_board->GetContens(pos) != nullptr) {
-			return pos;
+			if (ShogiGame::Instance()->m_p_shogi_board->GetContens(pos)->GetMyOwner() == m_my_type) {
+				return pos;
+			}
+			else {
+				printf("指定した駒は相手の駒です、もう一度駒を選択してください\n");
+			}
 		}
 		else {
 			printf("指定した場所に駒はありません、もう一度場所を入力してください\n");
@@ -93,7 +103,7 @@ Vec2 PlayerBase::SelectMoveSquares()
 	while (true) {
 		// x軸の入力
 		while (true) {
-			printf("移動させる駒の列を選択 : ");
+			printf("移動させるマスの列を選択 : ");
 			// 入力処理
 			char tmp = Input::Instance()->InputChar();
 			if (tmp == 'A') {
@@ -108,14 +118,18 @@ Vec2 PlayerBase::SelectMoveSquares()
 				pos.m_x = 2;
 				break;
 			}
+			else if (tmp == 'D') {
+				pos.m_x = 3;
+				break;
+			}
 			printf("入力が不正です、もう一度入力してください\n");
 		}
 
 		while (true) {
-			printf("移動させる駒の行を選択 : ");
+			printf("移動させるマスの行を選択 : ");
 			// 入力処理
 			pos.m_y = Input::Instance()->InputNum();
-			if (pos.m_y == 1 || pos.m_y == 2 || pos.m_y == 3) {
+			if (pos.m_y == 1 || pos.m_y == 2 || pos.m_y == 3 || pos.m_y == 4 || pos.m_y == 5) {
 				pos.m_y--;
 				break;
 			}
@@ -124,7 +138,10 @@ Vec2 PlayerBase::SelectMoveSquares()
 
 		// 選択した移動先に移動できるかの判定
 		if (ShogiGame::Instance()->m_p_shogi_board->GetContens(m_select_pos)->CanMove(m_select_pos, pos) == true) {
-			m_take_piece = ShogiGame::Instance()->m_p_shogi_board->GetContens(m_select_pos)->GetObjectType();
+			PieceBase* take_piece = ShogiGame::Instance()->m_p_shogi_board->GetContens(pos);
+			if (take_piece != nullptr) {
+				m_take_piece = take_piece->GetObjectType();
+			}
 			return pos;
 		}
 		else {
@@ -136,13 +153,4 @@ Vec2 PlayerBase::SelectMoveSquares()
 void PlayerBase::MovePiece()
 {
 	ShogiGame::Instance()->m_p_shogi_board->SetPiece(m_select_pos, m_move_pos);
-}
-
-bool PlayerBase::IsTakeKing()
-{
-	// 取った駒の変数に王が入っていればtrue
-	if (m_take_piece == ObjectType::King1 || m_take_piece == ObjectType::King2) {
-		return true;
-	}
-	return false;
 }
