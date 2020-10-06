@@ -1,5 +1,5 @@
 #include "ShogiBoard.h"
-#include "ShogiGame.h"
+#include "../ShogiGame/ShogiGame.h"
 #include <cstring>
 
 ShogiBoard::ShogiBoard():

@@ -6,7 +6,7 @@
 * @brief PieceBaseクラスのヘッダ
 */
 
-#include "Definition.h"
+#include "../Definition.h"
 
 /**
 * @class PieceBase

@@ -6,7 +6,7 @@
 * @brief PlayerBaseクラスのヘッダ
 */
 
-#include "Definition.h"
+#include "../Definition.h"
 
 /**
 * @class PlayerBase

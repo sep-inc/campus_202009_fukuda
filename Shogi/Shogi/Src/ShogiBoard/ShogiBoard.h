@@ -6,8 +6,8 @@
 * @brief ShogiBoardクラスのヘッダ
 */
 
-#include "Definition.h"
-#include "PieceBase.h"
+#include "../Definition.h"
+#include "../Piece/PieceBase.h"
 
 /**
 * @class ShogiBoard

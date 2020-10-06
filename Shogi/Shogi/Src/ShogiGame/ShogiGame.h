@@ -6,11 +6,11 @@
 * @brief ShogiGameクラスのヘッダ
 */
 
-#include "Definition.h"
-#include "Player1.h"
-#include "Player2.h"
-#include "ShogiBoard.h"
-#include "PieceData.h"
+#include "../Definition.h"
+#include "../Player/Player1.h"
+#include "../Player/Player2.h"
+#include "../ShogiBoard/ShogiBoard.h"
+#include "../Piece/PieceData.h"
 /**
 * @class ShogiGame
 * @brief 将棋ゲーム本体のクラス

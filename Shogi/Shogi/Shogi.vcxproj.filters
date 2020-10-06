@@ -25,127 +25,127 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="Src\Main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="PieceBase.cpp">
-      <Filter>ソース ファイル\Piece</Filter>
-    </ClCompile>
-    <ClCompile Include="PawnPiece.cpp">
-      <Filter>ソース ファイル\Piece</Filter>
-    </ClCompile>
-    <ClCompile Include="KingPiece.cpp">
-      <Filter>ソース ファイル\Piece</Filter>
-    </ClCompile>
-    <ClCompile Include="GoldGeneralPiece.cpp">
-      <Filter>ソース ファイル\Piece</Filter>
-    </ClCompile>
-    <ClCompile Include="DrawerBase.cpp">
-      <Filter>ソース ファイル\Draw</Filter>
-    </ClCompile>
-    <ClCompile Include="DrawerManager.cpp">
-      <Filter>ソース ファイル\Draw</Filter>
-    </ClCompile>
-    <ClCompile Include="ShogiDrawer.cpp">
-      <Filter>ソース ファイル\Draw</Filter>
-    </ClCompile>
-    <ClCompile Include="Input.cpp">
-      <Filter>ソース ファイル\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="KnightPiece.cpp">
-      <Filter>ソース ファイル\Piece</Filter>
-    </ClCompile>
-    <ClCompile Include="ShogiBoard.cpp">
-      <Filter>ソース ファイル\ShogiBoard</Filter>
-    </ClCompile>
-    <ClCompile Include="Player1.cpp">
-      <Filter>ソース ファイル\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="Player2.cpp">
-      <Filter>ソース ファイル\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerBase.cpp">
-      <Filter>ソース ファイル\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="ShogiGame.cpp">
+    <ClCompile Include="Src\ShogiGame\ShogiGame.cpp">
       <Filter>ソース ファイル\ShogiGame</Filter>
     </ClCompile>
-    <ClCompile Include="PieceData.cpp">
+    <ClCompile Include="Src\ShogiBoard\ShogiBoard.cpp">
+      <Filter>ソース ファイル\ShogiBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Player\PlayerBase.cpp">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Player\Player2.cpp">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Player\Player1.cpp">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Piece\GoldGeneralPiece.cpp">
       <Filter>ソース ファイル\Piece</Filter>
     </ClCompile>
-    <ClCompile Include="PawnPiece2.cpp">
+    <ClCompile Include="Src\Piece\GoldGeneralPiece2.cpp">
       <Filter>ソース ファイル\Piece</Filter>
     </ClCompile>
-    <ClCompile Include="KingPiece2.cpp">
+    <ClCompile Include="Src\Piece\KingPiece.cpp">
       <Filter>ソース ファイル\Piece</Filter>
     </ClCompile>
-    <ClCompile Include="GoldGeneralPiece2.cpp">
+    <ClCompile Include="Src\Piece\KingPiece2.cpp">
       <Filter>ソース ファイル\Piece</Filter>
     </ClCompile>
-    <ClCompile Include="KnightPiece2.cpp">
+    <ClCompile Include="Src\Piece\KnightPiece.cpp">
       <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Piece\KnightPiece2.cpp">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Piece\PawnPiece.cpp">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Piece\PawnPiece2.cpp">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Piece\PieceBase.cpp">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Piece\PieceData.cpp">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Input\Input.cpp">
+      <Filter>ソース ファイル\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\DrawerBase.cpp">
+      <Filter>ソース ファイル\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\DrawerManager.cpp">
+      <Filter>ソース ファイル\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\ShogiDrawer.cpp">
+      <Filter>ソース ファイル\Draw</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Definition.h">
+    <ClInclude Include="Src\Definition.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="PieceBase.h">
-      <Filter>ソース ファイル\Piece</Filter>
-    </ClInclude>
-    <ClInclude Include="PawnPiece.h">
-      <Filter>ソース ファイル\Piece</Filter>
-    </ClInclude>
-    <ClInclude Include="KingPiece.h">
-      <Filter>ソース ファイル\Piece</Filter>
-    </ClInclude>
-    <ClInclude Include="GoldGeneralPiece.h">
-      <Filter>ソース ファイル\Piece</Filter>
-    </ClInclude>
-    <ClInclude Include="DrawerBase.h">
-      <Filter>ソース ファイル\Draw</Filter>
-    </ClInclude>
-    <ClInclude Include="DrawerManager.h">
-      <Filter>ソース ファイル\Draw</Filter>
-    </ClInclude>
-    <ClInclude Include="ShogiDrawer.h">
-      <Filter>ソース ファイル\Draw</Filter>
-    </ClInclude>
-    <ClInclude Include="Input.h">
-      <Filter>ソース ファイル\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="KnightPiece.h">
-      <Filter>ソース ファイル\Piece</Filter>
-    </ClInclude>
-    <ClInclude Include="ShogiBoard.h">
-      <Filter>ソース ファイル\ShogiBoard</Filter>
-    </ClInclude>
-    <ClInclude Include="Player1.h">
-      <Filter>ソース ファイル\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="Player2.h">
-      <Filter>ソース ファイル\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerBase.h">
-      <Filter>ソース ファイル\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="ShogiGame.h">
+    <ClInclude Include="Src\ShogiGame\ShogiGame.h">
       <Filter>ソース ファイル\ShogiGame</Filter>
     </ClInclude>
-    <ClInclude Include="PieceData.h">
+    <ClInclude Include="Src\ShogiBoard\ShogiBoard.h">
+      <Filter>ソース ファイル\ShogiBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Player\PlayerBase.h">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Player\Player2.h">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Player\Player1.h">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Piece\GoldGeneralPiece.h">
       <Filter>ソース ファイル\Piece</Filter>
     </ClInclude>
-    <ClInclude Include="PawnPiece2.h">
+    <ClInclude Include="Src\Piece\GoldGeneralPiece2.h">
       <Filter>ソース ファイル\Piece</Filter>
     </ClInclude>
-    <ClInclude Include="KingPiece2.h">
+    <ClInclude Include="Src\Piece\KingPiece.h">
       <Filter>ソース ファイル\Piece</Filter>
     </ClInclude>
-    <ClInclude Include="GoldGeneralPiece2.h">
+    <ClInclude Include="Src\Piece\KingPiece2.h">
       <Filter>ソース ファイル\Piece</Filter>
     </ClInclude>
-    <ClInclude Include="KnightPiece2.h">
+    <ClInclude Include="Src\Piece\KnightPiece.h">
       <Filter>ソース ファイル\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Piece\KnightPiece2.h">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Piece\PawnPiece.h">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Piece\PawnPiece2.h">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Piece\PieceBase.h">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Piece\PieceData.h">
+      <Filter>ソース ファイル\Piece</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Input\Input.h">
+      <Filter>ソース ファイル\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\DrawerBase.h">
+      <Filter>ソース ファイル\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\DrawerManager.h">
+      <Filter>ソース ファイル\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\ShogiDrawer.h">
+      <Filter>ソース ファイル\Draw</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

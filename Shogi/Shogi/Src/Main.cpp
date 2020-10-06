@@ -1,4 +1,4 @@
-#include "ShogiGame.h"
+#include "ShogiGame/ShogiGame.h"
 #include <cstdlib>
 #include <csignal>
 

@@ -7,7 +7,7 @@
 */
 
 #include "DrawerBase.h"
-#include "Definition.h"
+#include "../Definition.h"
 
 /**
 * @class ShogiDrawer

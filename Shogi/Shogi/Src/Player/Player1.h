@@ -6,7 +6,6 @@
 * @brief Player1クラスのヘッダ
 */
 
-
 #include "PlayerBase.h"
 
 /**
