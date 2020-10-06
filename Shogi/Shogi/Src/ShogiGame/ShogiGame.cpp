@@ -33,9 +33,9 @@ void ShogiGame::Update()
 	case Step::Initialize:
 		// オブジェクトの生成
 		CreateObjects();
-		// LinkShogiBoard();
-		// SetShogiBoard();
 		m_p_shogi_board->InitBoard();
+		LinkShogiBoard();
+		SetShogiBoard();
 		m_step = Step::Update;
 		break;
 	case Step::Update:
@@ -64,6 +64,7 @@ void ShogiGame::Update()
 		SetShogiBoard();
 		if (m_is_game_finish) {
 			Drawer::Instance()->SetResultString(SetResult(take_piece));
+			m_step = Step::End;
 		}
 		
 		break;
@@ -71,6 +72,8 @@ void ShogiGame::Update()
 	case Step::End:
 		// オブジェクトの破棄
 		DeleteObjects();
+
+
 		break;
 	}
 }
@@ -111,7 +114,7 @@ void ShogiGame::DeleteObjects()
 bool ShogiGame::IsGameFinish()
 {
 	if (m_is_game_finish == true) {
-		true;
+		return true;
 	}
 	return false;
 }

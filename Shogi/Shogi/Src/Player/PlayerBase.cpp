@@ -5,7 +5,6 @@
 #include <cstdio>
 
 PlayerBase::PlayerBase():
-	m_step(Step::Initialize),
 	m_select_pos{},
 	m_move_pos{},
 	m_take_piece(ObjectType::Type_Empty),
@@ -19,23 +18,12 @@ PlayerBase::~PlayerBase()
 
 void PlayerBase::Update()
 {
-	switch (m_step) {
-	case Step::Initialize:
-		// 初期化処理
-		Init();
-		m_step = Step::Update;
-		break;
-	case Step::Update:
-		// 移動させる駒の選択
-		m_select_pos = SelectPiece();
-		// 移動先の場所選択
-		m_move_pos = SelectMoveSquares();
-		// 将棋盤に情報をセット
-		MovePiece();
-		break;
-	case Step::End:
-		break;
-	}
+	// 移動させる駒の選択
+	m_select_pos = SelectPiece();
+	// 移動先の場所選択
+	m_move_pos = SelectMoveSquares();
+	// 将棋盤に情報をセット
+	MovePiece();
 }
 
 void PlayerBase::Init()
@@ -141,6 +129,9 @@ Vec2 PlayerBase::SelectMoveSquares()
 			PieceBase* take_piece = ShogiGame::Instance()->m_p_shogi_board->GetContens(pos);
 			if (take_piece != nullptr) {
 				m_take_piece = take_piece->GetObjectType();
+			}
+			else {
+				m_take_piece = ObjectType::Type_Empty;
 			}
 			return pos;
 		}
