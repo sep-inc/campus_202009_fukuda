@@ -14,9 +14,7 @@ PawnPiece2::PawnPiece2()
 	memcpy(m_move_range, range, sizeof(range));
 
 	m_obj_type = ObjectType::Pawn2;
-
 	m_draw_string = "‚Ó";
-
 	m_owner = PlayerType::Player2;
 }
 

@@ -14,9 +14,7 @@ KingPiece2::KingPiece2()
 	memcpy(m_move_range, range, sizeof(range));
 
 	m_obj_type = ObjectType::King2;
-
 	m_draw_string = "‹Ê";
-
 	m_owner = PlayerType::Player2;
 }
 

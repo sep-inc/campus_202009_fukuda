@@ -8,10 +8,17 @@ public:
 	PieceData();
 	~PieceData();
 
+	/**
+	* @brief 各駒クラス生成関数
+	*/
 	void CreatePieces();
 
+	/**
+	* @brief 各駒クラス破棄関数
+	*/
 	void DeletePieces();
 	
+	// 各駒クラスのポインタ変数群
 	PieceBase* m_p_king1;
 	PieceBase* m_p_knight1;
 	PieceBase* m_p_pawn1;

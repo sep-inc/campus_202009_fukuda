@@ -17,18 +17,9 @@ public:
 	Player2();
 	~Player2();
 
-	// /**
-	// * @brief どの駒を移動させるかの選択処理関数
-	// * @return 選んだ座標
-	// */
-	// virtual Vec2 SelectPiece()override;
-	// 
-	// /**
-	// * @brief どのマスへ移動させるかの選択処理関数
-	// * @brief 選んだ座標
-	// */
-	// virtual Vec2 SelectMoveSquares()override;
-
+	/*
+		ランダム処理は今後追加
+	*/
 
 };
 
