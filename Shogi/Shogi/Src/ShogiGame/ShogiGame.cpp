@@ -29,12 +29,14 @@ void ShogiGame::Update()
 {
 	switch (m_step) {
 	case Step::Initialize:
+		// オブジェクトの生成
 		CreateObjects();
 		m_step = Step::Update;
 		break;
 	case Step::Update:
 	{
 		PlayerBase* player = nullptr;
+		// プレイヤー切り替え
 		if (m_turn_counter % 2 == 1) {
 			PlayerBase* player = m_p_player1;
 		}
@@ -42,15 +44,21 @@ void ShogiGame::Update()
 			PlayerBase* player = m_p_player2;
 		}
 		player->Update();
+		// ターン経過数加算
 		m_turn_counter++;
+
 		/* 勝敗判定処理 */
 		if (player->IsTakeKing()) {
 			// ゲーム終了処理
+			m_is_game_finish = true;
 		}
-		/* 描画処理 */
+
+		/* 描画クラスへ情報を渡す処理 */
+
 		break;
 	}
 	case Step::End:
+		// オブジェクトの破棄
 		DeleteObjects();
 		break;
 	}
@@ -87,4 +95,12 @@ void ShogiGame::DeleteObjects()
 		m_p_pieces = nullptr;
 	}
 	
+}
+
+bool ShogiGame::IsGameFinish()
+{
+	if (m_is_game_finish == true) {
+		true;
+	}
+	return false;
 }

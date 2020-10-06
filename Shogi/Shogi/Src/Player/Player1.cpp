@@ -20,8 +20,11 @@ void Player1::Update()
 		m_step = Step::Update;
 		break;
 	case Step::Update:
+		// 移動させる駒の選択
 		m_select_pos = SelectPiece();
+		// 移動先の場所選択
 		m_move_pos = SelectMoveSquares();
+		// 将棋盤に情報をセット
 		ShogiGame::Instance()->m_p_shogi_board->SetPiece(m_select_pos, m_move_pos);
 		break;
 	case Step::End:

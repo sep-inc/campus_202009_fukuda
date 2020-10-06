@@ -19,6 +19,8 @@ public:
 	DrawerBase();
 	virtual ~DrawerBase();
 
+	void Run();
+
 	void Print();
 
 	virtual void ClearBuffer() = 0;

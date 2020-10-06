@@ -38,13 +38,6 @@ public:
 	*/
 	void SetPiece(Vec2 now_pos, Vec2 move_pos);
 
-	/**
-	* @brief 王が存在しているかの判定関数
-	* @param turn_num ターン経過数
-	* @return 王が存在していたらtrue
-	*/
-	bool KingExists(int turn_num);
-
 
 private:
 	//! 将棋盤配列
