@@ -34,6 +34,13 @@ enum class ObjectType :uint8_t {
 	Knight2			//! 桂馬2
 };
 
+//! ゲーム終了結果の種類
+enum class ResultType :uint8_t {
+	Result_None,	//! 結果無し
+	Win_Player1,	//! プレイヤー1の勝利
+	Win_Player2		//! プレイヤー2の勝利
+};
+
 //! 描画バッファのサイズ
 #define DRAW_BUFFER_WIDTH  10
 #define DRAW_BUFFER_HEIGHT 12

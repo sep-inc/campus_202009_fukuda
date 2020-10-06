@@ -1,5 +1,5 @@
 #include "ShogiGame/ShogiGame.h"
-#include "Draw/DrawerManager.h"
+#include "Draw/Drawer.h"
 #include <cstdlib>
 #include <csignal>
 
@@ -13,7 +13,7 @@ int main() {
 		/* XVˆ— */
 		ShogiGame::Instance()->Update();
 		/* •`‰æˆ— */
-		DrawerManager::Instance()->GetDrawerInstance()->Run();
+		Drawer::Instance()->Run();
 		/* ƒQ[ƒ€I—¹ˆ— */
 		if (ShogiGame::Instance()->IsGameFinish()) {
 			break;

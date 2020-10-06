@@ -42,6 +42,8 @@ public:
 	*/
 	bool IsGameFinish();
 
+	void SetShogiBoard();
+
 	//! オブジェクトのポインタ変数群
 	Player1* m_p_player1;
 	Player2* m_p_player2;

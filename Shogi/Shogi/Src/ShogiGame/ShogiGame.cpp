@@ -1,4 +1,5 @@
 #include "ShogiGame.h"
+#include "../Draw/Drawer.h"
 
 ShogiGame* ShogiGame::p_instance = 0;
 
@@ -54,6 +55,7 @@ void ShogiGame::Update()
 		}
 
 		/* •`‰æƒNƒ‰ƒX‚Öî•ñ‚ğ“n‚·ˆ— */
+		
 
 		break;
 	}
@@ -103,4 +105,9 @@ bool ShogiGame::IsGameFinish()
 		true;
 	}
 	return false;
+}
+
+void ShogiGame::SetShogiBoard()
+{
+	
 }

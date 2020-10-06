@@ -19,6 +19,7 @@ void PlayerBase::Update()
 {
 	switch (m_step) {
 	case Step::Initialize:
+		// ‰Šú‰»ˆ—
 		Init();
 		m_step = Step::Update;
 		break;
