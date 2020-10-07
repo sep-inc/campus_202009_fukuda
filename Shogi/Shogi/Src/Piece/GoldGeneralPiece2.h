@@ -7,6 +7,10 @@ class GoldGeneralPiece2 :public PieceBase{
 public:
 	GoldGeneralPiece2();
 	~GoldGeneralPiece2();
+
+private:
+	//! ˆÚ“®‰Â”\”ÍˆÍ
+	static int range[MOVE_RANGE_WIDTH][MOVE_RANGE_HEIGHT];
 };
 
 #endif

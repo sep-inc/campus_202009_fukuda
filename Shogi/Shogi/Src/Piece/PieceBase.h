@@ -40,11 +40,13 @@ public:
 	std::string GetDrawString() { return m_draw_string.c_str(); }
 
 protected:
-	Vec2 m_range_center_pos;	//! 移動可能範囲の配列における中心位置
-	int m_move_range[MOVE_RANGE_WIDTH][MOVE_RANGE_HEIGHT];	//! 移動可能範囲
-	ObjectType m_obj_type;		//! 自身の種類
-	PlayerType m_owner;			//! 自身の保有者
-	std::string m_draw_string;	//! 自身の描画情報
+	int(*m_p_range)[MOVE_RANGE_HEIGHT];	//! 移動可能範囲の2次配列のポインタ
+	ObjectType m_obj_type;				//! 自身の種類
+	PlayerType m_owner;					//! 自身の保有者
+	std::string m_draw_string;			//! 自身の描画情報
+
+private:
+	static Vec2 m_range_center_pos;			//! 移動可能範囲の配列における中心位置
 };
 
 #endif

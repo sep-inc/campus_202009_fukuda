@@ -16,6 +16,10 @@ class PawnPiece2 : public PieceBase {
 public:
 	PawnPiece2();
 	~PawnPiece2();
+
+private:
+	//! ˆÚ“®‰Â”\”ÍˆÍ
+	static int range[MOVE_RANGE_WIDTH][MOVE_RANGE_HEIGHT];
 };
 
 #endif

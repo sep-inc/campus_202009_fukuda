@@ -126,6 +126,12 @@ bool ShogiGame::IsGameFinish()
 
 void ShogiGame::LinkShogiBoard()
 {
+	/*
+		char* draw[SHOGI_BOARD_WIDTH][SHOGI_BOARD_HEIGHT];
+		char a[] = "aa";
+		draw[0][2] = a;
+	*/
+	
 	// 1çsñ⁄
 	m_shogi_board_string = "  A    B    C    D  \n";
 	// 2çsñ⁄

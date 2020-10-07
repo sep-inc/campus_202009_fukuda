@@ -17,6 +17,10 @@ class KingPiece : public PieceBase
 public:
 	KingPiece();
 	~KingPiece();
+
+private:
+	//! ˆÚ“®‰Â”\”ÍˆÍ
+	static int range[MOVE_RANGE_WIDTH][MOVE_RANGE_HEIGHT];
 };
 
 #endif

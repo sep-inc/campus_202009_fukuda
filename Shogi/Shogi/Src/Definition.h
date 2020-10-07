@@ -57,7 +57,7 @@ enum class ResultType :uint8_t {
 #define SHOGI_BOARD_HEIGHT 5
 
 //! ‹î‚Ì“®‚¯‚é”ÍˆÍ‚ÌƒTƒCƒY
-#define MOVE_RANGE_WIDTH  3
+#define MOVE_RANGE_WIDTH  5
 #define MOVE_RANGE_HEIGHT 3
 
 #endif
