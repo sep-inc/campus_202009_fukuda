@@ -58,6 +58,12 @@ public:
 	*/
 	std::string SetResult(ObjectType type);
 
+	/**
+	* @brief 将棋盤初期化関数
+	* 将棋盤をゲーム開始状態にする
+	*/
+	void InitShogiBoard();
+
 	//! オブジェクトのポインタ変数群
 	Player1* m_p_player1;
 	Player2* m_p_player2;
@@ -74,7 +80,7 @@ private:
 	Step m_step;			//! 現在のステップ
 	int m_turn_counter;		//! ターン経過数
 	bool m_is_game_finish;	//! ゲーム終了フラグ
-	std::string m_shogi_board_string;	// 描画用の将棋盤を連結した文字列
+	std::string m_shogi_board_string;	//! 描画用の将棋盤を連結した文字列
 
 };
 

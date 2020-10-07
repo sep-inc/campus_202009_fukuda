@@ -35,7 +35,7 @@ void ShogiGame::Update()
 		CreateObjects();
 
 		// 将棋盤の初期化
-		m_p_shogi_board->InitBoard();
+		InitShogiBoard();
 
 		// 描画情報セット
 		LinkShogiBoard();
@@ -187,4 +187,22 @@ std::string ShogiGame::SetResult(ObjectType type)
 		result = "Player1の勝利\n";
 	}
 	return result.c_str();
+}
+
+void ShogiGame::InitShogiBoard()
+{
+	// 将棋盤の初期配置作成
+	PieceBase* init_board[SHOGI_BOARD_WIDTH][SHOGI_BOARD_HEIGHT] = {
+		{nullptr,							m_p_pieces->m_p_pawn2,		nullptr,	m_p_pieces->m_p_pawn1,		m_p_pieces->m_p_knight1},
+		{m_p_pieces->m_p_king2,				m_p_pieces->m_p_pawn2,		nullptr,	m_p_pieces->m_p_pawn1,		m_p_pieces->m_p_gold_general1},
+		{m_p_pieces->m_p_gold_general2,		m_p_pieces->m_p_pawn2,		nullptr,	m_p_pieces->m_p_pawn1,		m_p_pieces->m_p_king1},
+		{m_p_pieces->m_p_knight2,			m_p_pieces->m_p_pawn2,		nullptr,	m_p_pieces->m_p_pawn1,		nullptr}
+	};
+
+	// 将棋盤へセット
+	for (int x = 0; x < SHOGI_BOARD_WIDTH; x++) {
+		for (int y = 0; y < SHOGI_BOARD_HEIGHT; y++) {
+			m_p_shogi_board->SetPiece(x, y, init_board[x][y]);
+		}
+	}
 }

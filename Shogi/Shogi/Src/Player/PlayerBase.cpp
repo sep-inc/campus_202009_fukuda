@@ -153,5 +153,5 @@ Vec2 PlayerBase::SelectMoveSquares()
 
 void PlayerBase::MovePiece()
 {
-	ShogiGame::Instance()->m_p_shogi_board->SetPiece(m_select_pos, m_move_pos);
+	ShogiGame::Instance()->m_p_shogi_board->SetMovePiece(m_select_pos, m_move_pos);
 }
