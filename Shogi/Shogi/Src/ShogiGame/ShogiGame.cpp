@@ -11,7 +11,8 @@ ShogiGame::ShogiGame():
 	m_p_pieces(nullptr),
 	m_step(Step::Initialize),
 	m_turn_counter(1),
-	m_is_game_finish(false)
+	m_is_game_finish(false),
+	m_winner(PlayerType::Type_None)
 {
 }
 
@@ -59,19 +60,14 @@ void ShogiGame::Update()
 
 		/* 勝敗判定処理 */
 		ObjectType take_piece = player->GetTakePiece();
+		// 王を取っていた場合
 		if (take_piece == ObjectType::King1 || take_piece == ObjectType::King2) {
+			// 勝者をセット
+			m_winner = player->GetMyType();
 			// ゲーム終了処理
 			m_is_game_finish = true;
-		}
-
-		/* 描画情報のセット */
-		LinkShogiBoard();
-		SetShogiBoard();
-		if (m_is_game_finish) {
-			Drawer::Instance()->SetResultString(SetResult(take_piece));
 			m_step = Step::End;
 		}
-		
 		break;
 	}
 	case Step::End:
@@ -81,6 +77,19 @@ void ShogiGame::Update()
 
 		break;
 	}
+}
+
+void ShogiGame::SetDraw()
+{
+	// 描画用文字列への変換
+	LinkShogiBoard();
+	// 描画クラスへセット
+	SetShogiBoard();
+	// 勝敗が決まっていた場合、勝敗結果の文字列を描画クラスへセット
+	if (m_is_game_finish) {
+		Drawer::Instance()->SetResultString(SetResult(m_winner));
+	}
+
 }
 
 void ShogiGame::CreateObjects()
@@ -183,14 +192,14 @@ void ShogiGame::SetShogiBoard()
 	Drawer::Instance()->SetDrawMapString(m_shogi_board_string);
 }
 
-std::string ShogiGame::SetResult(ObjectType type)
+std::string ShogiGame::SetResult(PlayerType type)
 {
 	std::string result;
-	if (type == ObjectType::King1) {
-		result = "Player2の勝利\n";
-	}
-	else if (type == ObjectType::King2) {
+	if (type == PlayerType::Player1) {
 		result = "Player1の勝利\n";
+	}
+	else if (type == PlayerType::Player2) {
+		result = "Player2の勝利\n";
 	}
 	return result.c_str();
 }

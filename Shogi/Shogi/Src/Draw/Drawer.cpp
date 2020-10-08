@@ -23,29 +23,15 @@ Drawer* Drawer::Instance()
 	return p_instance;
 }
 
-void Drawer::Run()
+void Drawer::DrawBuffer()
 {
 	// ゲームマップの描画
 	DrawMapString();
 	// リザルト結果の描画
 	DrawResultString();
-	// 描画用文字列のクリア
-	ClearStrings();
 }
 
-void Drawer::DrawMapString()
-{
-	std::cout << m_map_string.c_str() << std::flush;
-}
-
-void Drawer::DrawResultString()
-{
-	if (m_result_string != "") {
-		std::cout << m_result_string.c_str() << std::endl;
-	}
-}
-
-void Drawer::ClearStrings()
+void Drawer::ClearBuffer()
 {
 	m_map_string.clear();
 	m_result_string.clear();
@@ -59,4 +45,16 @@ void Drawer::SetDrawMapString(std::string string)
 void Drawer::SetResultString(std::string string)
 {
 	m_result_string = string;
+}
+
+void Drawer::DrawMapString()
+{
+	std::cout << m_map_string.c_str() << std::flush;
+}
+
+void Drawer::DrawResultString()
+{
+	if (m_result_string != "") {
+		std::cout << m_result_string.c_str() << std::endl;
+	}
 }

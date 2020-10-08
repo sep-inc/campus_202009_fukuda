@@ -18,22 +18,12 @@ public:
 	/**
 	* @brief 描画処理まとめ関数
 	*/
-	void Run();
-
-	/**
-	* @brief ゲーム画面の描画関数
-	*/
-	void DrawMapString();
-
-	/**
-	* @brief ゲームのリザルト情報の描画関数
-	*/
-	void DrawResultString();
+	void DrawBuffer();
 
 	/**
 	* @brief 描画用文字列のクリア関数
 	*/
-	void ClearStrings();
+	void ClearBuffer();
 
 	/**
 	* @brief 描画用文字列に情報をセットする関数
@@ -45,6 +35,19 @@ public:
 	*/
 	void SetResultString(std::string string);
 
+
+private:
+	/**
+	* @brief ゲーム画面の描画関数
+	*/
+	void DrawMapString();
+
+	/**
+	* @brief ゲームのリザルト情報の描画関数
+	*/
+	void DrawResultString();
+
+	
 private:
 	Drawer();
 	~Drawer();

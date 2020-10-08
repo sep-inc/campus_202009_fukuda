@@ -46,6 +46,11 @@ public:
 	*/
 	inline ObjectType GetTakePiece()const { return m_take_piece; }
 
+	/**
+	* @brief 自身のタイプを返す関数
+	*/
+	inline PlayerType GetMyType()const { return m_my_type; }
+
 protected:
 	Vec2 m_select_pos;	//! 選択した駒の座標
 	Vec2 m_move_pos;	//! 駒の移動先の座標

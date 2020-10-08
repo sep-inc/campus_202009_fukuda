@@ -26,6 +26,12 @@ public:
 	void Update();
 
 	/**
+	* @brief 描画情報を作成、セットする関数
+	* MainでUpdate後に呼び出す
+	*/
+	void SetDraw();
+
+	/**
 	* @brief オブジェクト生成関数
 	*/
 	void CreateObjects();
@@ -56,7 +62,7 @@ public:
 	/**
 	* @brief Drawerクラスにリザルト情報をセットする関数
 	*/
-	std::string SetResult(ObjectType type);
+	std::string SetResult(PlayerType type);
 
 	/**
 	* @brief 将棋盤初期化関数
@@ -80,6 +86,7 @@ private:
 	Step m_step;			//! 現在のステップ
 	int m_turn_counter;		//! ターン経過数
 	bool m_is_game_finish;	//! ゲーム終了フラグ
+	PlayerType m_winner;
 	std::string m_shogi_board_string;	//! 描画用の将棋盤を連結した文字列
 
 };

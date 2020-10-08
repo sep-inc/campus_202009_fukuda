@@ -12,8 +12,15 @@ int main() {
 	while (true) {
 		/* 更新処理 */
 		ShogiGame::Instance()->Update();
+
 		/* 描画処理 */
-		Drawer::Instance()->Run();
+		// 描画バッファのクリア
+		Drawer::Instance()->ClearBuffer();
+		// 描画情報のセット
+		ShogiGame::Instance()->SetDraw();
+		// 描画
+		Drawer::Instance()->DrawBuffer();
+	
 		/* ゲーム終了処理 */
 		if (ShogiGame::Instance()->IsGameFinish()) {
 			break;
