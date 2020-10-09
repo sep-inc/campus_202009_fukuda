@@ -7,6 +7,18 @@
     <Filter Include="Src\Draw">
       <UniqueIdentifier>{020c73c5-870b-4ee2-b207-a4f7b838b02e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\GameMap">
+      <UniqueIdentifier>{d8fbd12b-ed97-4c04-9fe0-6bee27302f45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Input">
+      <UniqueIdentifier>{488ced5d-304d-4695-a89f-7c1e703e3d89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\TronGame">
+      <UniqueIdentifier>{2f86625f-0cf4-4fb8-aca7-a03f87bf8b3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Character">
+      <UniqueIdentifier>{b7fb4e43-e6de-4068-94f8-e45e0f396b60}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Main.cpp">
