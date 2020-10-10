@@ -36,6 +36,21 @@
     <ClCompile Include="Src\Input\Input.cpp">
       <Filter>Src\Input</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Character\CharacterBase.cpp">
+      <Filter>Src\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Character\Player.cpp">
+      <Filter>Src\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Character\Enemy.cpp">
+      <Filter>Src\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GameMap\GameMap.cpp">
+      <Filter>Src\GameMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\TronGame\TronGame.cpp">
+      <Filter>Src\TronGame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Draw\DrawerBase.h">
@@ -52,6 +67,21 @@
     </ClInclude>
     <ClInclude Include="Src\Input\Input.h">
       <Filter>Src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Character\CharacterBase.h">
+      <Filter>Src\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Character\Player.h">
+      <Filter>Src\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Character\Enemy.h">
+      <Filter>Src\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GameMap\GameMap.h">
+      <Filter>Src\GameMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\TronGame\TronGame.h">
+      <Filter>Src\TronGame</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
