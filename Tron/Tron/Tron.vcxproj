@@ -126,6 +126,7 @@
     <ClCompile Include="Src\Draw\DrawerBase.cpp" />
     <ClCompile Include="Src\Draw\DrawerManager.cpp" />
     <ClCompile Include="Src\Draw\TronDrawer.cpp" />
+    <ClCompile Include="Src\Input\Input.cpp" />
     <ClCompile Include="Src\Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +134,7 @@
     <ClInclude Include="Src\Draw\DrawerBase.h" />
     <ClInclude Include="Src\Draw\DrawerManager.h" />
     <ClInclude Include="Src\Draw\TronDrawer.h" />
+    <ClInclude Include="Src\Input\Input.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
