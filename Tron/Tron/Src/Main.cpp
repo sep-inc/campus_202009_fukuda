@@ -12,14 +12,17 @@ int main() {
 	// •`‰æƒNƒ‰ƒX‚Ì¶¬
 	DrawerManager::Instance()->CreateDrawer();
 
+	TronGame::Instance()->Update();
+
 	while (true) {
 		/* ƒQ[ƒ€‚ÌXV */
 		TronGame::Instance()->Update();
-
+	
 		/* •`‰æˆ— */
 		// •`‰æî•ñ‚ÌƒNƒŠƒA
 		DrawerManager::Instance()->m_p_drawer->BufferClear();
-		// •`‰æî•ñì¬
+		// •`‰æî•ñ‚ÌƒZƒbƒg
+		TronGame::Instance()->SetDrawMap();
 		// •`‰æ
 		DrawerManager::Instance()->m_p_drawer->Draw();
 	}

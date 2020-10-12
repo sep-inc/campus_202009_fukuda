@@ -38,6 +38,25 @@ public:
 	CharacterBase* m_p_enemy;
 	GameMap* m_p_game_map;
 
+
+	//! ゲーム終了判定関数
+	bool IsGameFinish();
+
+	//! ゲーム終了フラグ取得関数
+
+	/**
+	* @brief 初期化バッファへの書き込み関数
+	* ゲームの初期化時のみに行う
+	*/
+	void SetBlankMap();
+
+	/**
+	* @brief ゲームマップの書き込み関数
+	*/
+	void SetDrawMap();
+
+	
+
 private:
 	TronGame();
 	~TronGame();
@@ -53,6 +72,11 @@ private:
 	};
 
 	TronGameStep m_step;	//! 現在のステップ
+
+	bool m_cannot_move_player;	//! プレイヤーが動けなくなったかどうか
+	bool m_cannot_move_enemy;	//! エネミーが動けなくなったかどうか
+
+	bool m_is_game_finish;	//! ゲーム終了フラグ
 
 };
 

@@ -14,6 +14,7 @@ DrawerBase::~DrawerBase()
 
 void DrawerBase::Draw()
 {
+	LinkDrawBuffer();
 	printf("%s", m_draw_string.c_str());
 	if (m_result_string != "\0") {
 		printf("%s", m_result_string.c_str());
