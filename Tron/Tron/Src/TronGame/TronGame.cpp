@@ -42,6 +42,7 @@ void TronGame::Update()
 		SetBlankMap();
 		// ゲームマップのポインタをセット
 		m_p_player->SetGameMapPointer(m_p_game_map);
+		m_p_enemy->SetGameMapPointer(m_p_game_map);
 
 		m_step = TronGameStep::STEP_UPDATE;
 		break;
@@ -50,6 +51,9 @@ void TronGame::Update()
 		m_p_player->Update();
 		// 更新情報をゲームマップにセット、trueが返ってくればゲーム終了処理へ
 		m_cannot_move_player = m_p_game_map->SetMovePos(m_p_player->GetMovePos(), m_p_player->GetMyParam());
+
+		m_p_enemy->Update();
+		m_cannot_move_enemy = m_p_game_map->SetMovePos(m_p_enemy->GetMovePos(), m_p_enemy->GetMyParam());
 
 		if (m_cannot_move_player == true ||
 			m_cannot_move_enemy == true) {
