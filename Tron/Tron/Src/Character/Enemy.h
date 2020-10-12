@@ -14,6 +14,10 @@ public:
 	Enemy();
 	~Enemy()override;
 
+private:
+	void SelectMoveDirection()override;
+
+
 };
 
 #endif

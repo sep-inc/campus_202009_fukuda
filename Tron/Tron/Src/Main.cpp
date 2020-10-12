@@ -12,16 +12,18 @@ int main() {
 	// 描画クラスの生成
 	DrawerManager::Instance()->CreateDrawer();
 
-	TronGame::Instance()->Update();
-
 	while (true) {
-		// 出力画面のクリア
-		system("cls");
-
+		
 		/* ゲームの更新 */
 		TronGame::Instance()->Update();
-	
+
+		if (TronGame::Instance()->IsGameFinish()) {
+			break;
+		}
+
 		/* 描画処理 */
+		// 出力画面のクリア
+		system("cls");
 		// 描画情報のクリア
 		DrawerManager::Instance()->m_p_drawer->Clear();
 		// 描画情報のセット

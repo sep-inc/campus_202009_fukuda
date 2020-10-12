@@ -24,16 +24,32 @@ Input* Input::Instance()
 
 Vec2 Input::InputDirection()
 {
-	Vec2 pos;
+	Vec2 pos = {};
 	int key;
 	while (true) {
 		key = _getch();
 		if ((key == 0x00) || (key == 0xe0)) {
 			key = _getch();
-			if (key == LEFT_KEY)		{ pos.m_x = -1; }
-			else if (key == RIGHT_KEY)	{ pos.m_x = 1; }
-			else if (key == UP_KEY)		{ pos.m_y = -1; }
-			else if (key == DOWN_KEY)	{ pos.m_y = 1; }
+			if (key == LEFT_KEY)
+			{
+				pos.m_x = -1;
+				break;
+			}
+			else if (key == RIGHT_KEY)	
+			{
+				pos.m_x = 1;
+				break;
+			}
+			else if (key == UP_KEY)		
+			{
+				pos.m_y = -1;
+				break;
+			}
+			else if (key == DOWN_KEY)	
+			{ 
+				pos.m_y = 1;
+				break;
+			}
 		}
 	}
 	return pos;

@@ -1,12 +1,57 @@
 #include "GameMap.h"
 #include <cstring>
 
-GameMap::GameMap()
+GameMap::GameMap():
+	m_init_game_map{},
+	m_game_map{}
 {
 }
 
 GameMap::~GameMap()
 {
+}
+
+void GameMap::GetCanMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_MOVE_LIST_SIZE])
+{
+	// 要素数カウント用
+	int tmp = 0;
+	// 1マス上の検索
+	if (m_game_map[now_pos_.m_y - 1][now_pos_.m_x].m_type == ObjectType::TYPE_EMPTY) {
+		Vec2 pos = { now_pos_.m_x,now_pos_.m_y - 1 };
+		move_list_[tmp] = pos;
+		tmp++;
+	}
+	// 1マス下の検索
+	if (m_game_map[now_pos_.m_y + 1][now_pos_.m_x].m_type == ObjectType::TYPE_EMPTY) {
+		Vec2 pos = { now_pos_.m_x,now_pos_.m_y + 1 };
+		move_list_[tmp] = pos;
+		tmp++;
+	}
+	// 1マス左の検索
+	if (m_game_map[now_pos_.m_y][now_pos_.m_x - 1].m_type == ObjectType::TYPE_EMPTY) {
+		Vec2 pos = { now_pos_.m_x - 1,now_pos_.m_y };
+		move_list_[tmp] = pos;
+		tmp++;
+	}
+	// 1マス右の検索
+	if (m_game_map[now_pos_.m_y][now_pos_.m_x + 1].m_type == ObjectType::TYPE_EMPTY) {
+		Vec2 pos = { now_pos_.m_x + 1,now_pos_.m_y };
+		move_list_[tmp] = pos;
+		tmp++;
+	}
+}
+
+bool GameMap::SetMovePos(Vec2 move_pos_, CharacterParam chara_)
+{
+	m_game_map[move_pos_.m_y][move_pos_.m_x] = chara_;
+	if (m_game_map[move_pos_.m_y - 1][move_pos_.m_x].m_type == ObjectType::TYPE_EMPTY ||
+		m_game_map[move_pos_.m_y + 1][move_pos_.m_x].m_type == ObjectType::TYPE_EMPTY ||
+		m_game_map[move_pos_.m_y][move_pos_.m_x - 1].m_type == ObjectType::TYPE_EMPTY ||
+		m_game_map[move_pos_.m_y][move_pos_.m_x + 1].m_type == ObjectType::TYPE_EMPTY) 
+	{
+		return false;
+	}
+	return true;
 }
 
 void GameMap::ClearGameMap()
@@ -31,6 +76,16 @@ void GameMap::CreateInitGameMap()
 		m_init_game_map[0][i] = frame;
 		m_init_game_map[TRON_DRAW_BUFFER_HEIGHT - 1][i] = frame;
 	}
+
+	CharacterParam player;
+	player.m_type = ObjectType::PLAYER;
+	strcpy_s(player.m_draw_string, DRAW_STRING_SIZE, "■");
+	m_init_game_map[INIT_PLAYER_POS_Y][INIT_PLAYER_POS_X] = player;
+
+	CharacterParam enemy;
+	enemy.m_type = ObjectType::ENEMY;
+	strcpy_s(enemy.m_draw_string, DRAW_STRING_SIZE, "◆");
+	m_init_game_map[INIT_ENEMY_POS_Y][INIT_ENEMY_POS_X] = enemy;
 }
 
 char* GameMap::GetDrawString(Vec2 pos_)

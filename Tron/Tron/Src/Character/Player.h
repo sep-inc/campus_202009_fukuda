@@ -18,6 +18,9 @@ public:
 	Player();
 	~Player()override;
 
+private:
+	void SelectMoveDirection()override;
+
 };
 
 #endif

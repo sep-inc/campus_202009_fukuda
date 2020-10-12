@@ -19,10 +19,10 @@ public:
 	~GameMap();
 
 	//! 動ける場所を返す関数
-	void GetCanMovePos(Vec2 now_pos_);
+	void GetCanMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_MOVE_LIST_SIZE]);
 
 	//! 動いた先で、まだ動けるかの判定関数
-	bool SetMovePos();
+	bool SetMovePos(Vec2 move_pos_, CharacterParam chara_);
 
 	/**
 	* @brief ゲームマップを初期状態にする関数

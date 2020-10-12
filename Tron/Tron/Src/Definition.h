@@ -15,6 +15,16 @@
 //! 描画する文字列のサイズ
 #define DRAW_STRING_SIZE 8
 
+//! プレイヤーの初期位置
+#define INIT_PLAYER_POS_X 3
+#define INIT_PLAYER_POS_Y 3
+
+//! エネミーの初期位置
+#define INIT_ENEMY_POS_X 15
+#define INIT_ENEMY_POS_Y 8
+
+//! 移動可能範囲リストの配列のサイズ
+#define CAN_MOVE_LIST_SIZE 4
 
 
 //! ゲームの種類

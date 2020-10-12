@@ -18,6 +18,7 @@ TronGame::TronGame():
 
 TronGame::~TronGame()
 {
+	DestroyObjects();
 }
 
 TronGame* TronGame::Instance()
@@ -32,18 +33,33 @@ void TronGame::Update()
 {
 	switch (m_step) {
 	case TronGameStep::STEP_INITIALIZE:
+		// オブジェクト生成
 		CreateObjects();
 
-		//! マップの初期化
+		// マップの初期化
 		m_p_game_map->CreateInitGameMap();
 		m_p_game_map->ClearGameMap();
 		SetBlankMap();
+		// ゲームマップのポインタをセット
+		m_p_player->SetGameMapPointer(m_p_game_map);
 
+		m_step = TronGameStep::STEP_UPDATE;
 		break;
 	case TronGameStep::STEP_UPDATE:
+		// 更新処理
+		m_p_player->Update();
+		// 更新情報をゲームマップにセット、trueが返ってくればゲーム終了処理へ
+		m_cannot_move_player = m_p_game_map->SetMovePos(m_p_player->GetMovePos(), m_p_player->GetMyParam());
+
+		if (m_cannot_move_player == true ||
+			m_cannot_move_enemy == true) {
+			m_step = TronGameStep::STEP_END;
+		}
 		break;
 	case TronGameStep::STEP_END:
+		// オブジェクト破棄
 		DestroyObjects();
+		m_is_game_finish = true;
 		break;
 	}
 }

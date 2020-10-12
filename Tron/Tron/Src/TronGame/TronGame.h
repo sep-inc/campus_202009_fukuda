@@ -40,7 +40,7 @@ public:
 
 
 	//! ゲーム終了判定関数
-	bool IsGameFinish();
+	bool IsGameFinish() { return m_is_game_finish; }
 
 	//! ゲーム終了フラグ取得関数
 
