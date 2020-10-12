@@ -17,12 +17,7 @@ class TronDrawer : public DrawerBase
 public:
 	TronDrawer();
 	~TronDrawer()override;
-
-	/**
-	* @brief 描画用バッファのクリア関数
-	*/
-	void BufferClear()override;
-
+	
 	/**
 	* @brief 初期化用バッファのセット関数
 	* @param pos_ セットしたい位置
@@ -36,6 +31,13 @@ public:
 	* @param string_ セットする文字列
 	*/
 	void SetDrawBuffer(Vec2 pos_, char* string_)override;
+
+
+private:
+	/**
+	* @brief 描画用バッファのクリア関数
+	*/
+	void BufferClear()override;
 
 	/**
 	* @brief 描画バッファを連結して１つの文字列へ変換する関数

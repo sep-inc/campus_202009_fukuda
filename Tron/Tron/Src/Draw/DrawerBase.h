@@ -29,9 +29,6 @@ public:
 	*/
 	void Clear();
 
-	//! 描画バッファのクリア
-	virtual void BufferClear() = 0;
-
 	//! 初期化用バッファのセット関数
 	virtual void SetBlankBuffer(Vec2 pos_, char* string_) = 0;
 
@@ -43,6 +40,11 @@ public:
 	* @param result_ 出力する結果の文字列
 	*/
 	void SetResultString(std::string result_);
+
+
+protected:
+	//! 描画バッファのクリア
+	virtual void BufferClear() = 0;
 
 	//! 描画バッファを連結して１つの文字列へ変換する関数
 	virtual void LinkDrawBuffer() = 0;
