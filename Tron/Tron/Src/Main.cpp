@@ -28,6 +28,7 @@ int main() {
 		DrawerManager::Instance()->m_p_drawer->Clear();
 		// •`‰æî•ñ‚ÌƒZƒbƒg
 		TronGame::Instance()->SetDrawMap();
+		TronGame::Instance()->SetResult();
 		// •`‰æ
 		DrawerManager::Instance()->m_p_drawer->Draw();
 

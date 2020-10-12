@@ -44,6 +44,7 @@ void GameMap::GetCanMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_MOVE_LIST_SIZE])
 bool GameMap::SetMovePos(Vec2 move_pos_, CharacterParam chara_)
 {
 	m_game_map[move_pos_.m_y][move_pos_.m_x] = chara_;
+	// セットした座標から4方向を調べて、空の場所がなければfalse
 	if (m_game_map[move_pos_.m_y - 1][move_pos_.m_x].m_type == ObjectType::TYPE_EMPTY ||
 		m_game_map[move_pos_.m_y + 1][move_pos_.m_x].m_type == ObjectType::TYPE_EMPTY ||
 		m_game_map[move_pos_.m_y][move_pos_.m_x - 1].m_type == ObjectType::TYPE_EMPTY ||
@@ -77,11 +78,13 @@ void GameMap::CreateInitGameMap()
 		m_init_game_map[TRON_DRAW_BUFFER_HEIGHT - 1][i] = frame;
 	}
 
+	// プレイヤーの初期位置セット
 	CharacterParam player;
 	player.m_type = ObjectType::PLAYER;
 	strcpy_s(player.m_draw_string, DRAW_STRING_SIZE, "■");
 	m_init_game_map[INIT_PLAYER_POS_Y][INIT_PLAYER_POS_X] = player;
 
+	// エネミーの初期位置セット
 	CharacterParam enemy;
 	enemy.m_type = ObjectType::ENEMY;
 	strcpy_s(enemy.m_draw_string, DRAW_STRING_SIZE, "◆");

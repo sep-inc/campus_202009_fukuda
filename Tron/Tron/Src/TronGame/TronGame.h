@@ -39,10 +39,11 @@ public:
 	GameMap* m_p_game_map;
 
 
-	//! ゲーム終了判定関数
+	/**
+	* @brief ゲーム終了判定関数
+	* @return trueでゲーム終了
+	*/
 	bool IsGameFinish() { return m_is_game_finish; }
-
-	//! ゲーム終了フラグ取得関数
 
 	/**
 	* @brief 初期化バッファへの書き込み関数
@@ -55,7 +56,11 @@ public:
 	*/
 	void SetDrawMap();
 
-	
+	/**
+	* @brief 勝敗情報のセット関数
+	*/
+	void SetResult();
+
 
 private:
 	TronGame();
@@ -75,9 +80,7 @@ private:
 
 	bool m_cannot_move_player;	//! プレイヤーが動けなくなったかどうか
 	bool m_cannot_move_enemy;	//! エネミーが動けなくなったかどうか
-
-	bool m_is_game_finish;	//! ゲーム終了フラグ
-
+	bool m_is_game_finish;		//! ゲーム終了フラグ
 };
 
 

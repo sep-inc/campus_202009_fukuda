@@ -2,6 +2,7 @@
 #include "../Character/Player.h"
 #include "../Character/Enemy.h"
 #include "../Draw/DrawerManager.h"
+#include <string>
 
 TronGame* TronGame::p_instance = 0;
 
@@ -35,10 +36,10 @@ void TronGame::Update()
 	case TronGameStep::STEP_INITIALIZE:
 		// オブジェクト生成
 		CreateObjects();
-
 		// マップの初期化
 		m_p_game_map->CreateInitGameMap();
 		m_p_game_map->ClearGameMap();
+		// 初期化マップをセット
 		SetBlankMap();
 		// ゲームマップのポインタをセット
 		m_p_player->SetGameMapPointer(m_p_game_map);
@@ -47,18 +48,21 @@ void TronGame::Update()
 		m_step = TronGameStep::STEP_UPDATE;
 		break;
 	case TronGameStep::STEP_UPDATE:
-		// 更新処理
+		// プレイヤーの更新処理
 		m_p_player->Update();
 		// 更新情報をゲームマップにセット、trueが返ってくればゲーム終了処理へ
 		m_cannot_move_player = m_p_game_map->SetMovePos(m_p_player->GetMovePos(), m_p_player->GetMyParam());
-
+		// エネミーの更新処理
 		m_p_enemy->Update();
+		// 更新情報をゲームマップにセット、trueが返ってくればゲーム終了処理へ
 		m_cannot_move_enemy = m_p_game_map->SetMovePos(m_p_enemy->GetMovePos(), m_p_enemy->GetMyParam());
 
+		// 終了判定
 		if (m_cannot_move_player == true ||
 			m_cannot_move_enemy == true) {
 			m_step = TronGameStep::STEP_END;
 		}
+
 		break;
 	case TronGameStep::STEP_END:
 		// オブジェクト破棄
@@ -114,5 +118,19 @@ void TronGame::SetDrawMap()
 		for (pos.m_x = 1; pos.m_x < TRON_DRAW_BUFFER_WIDTH - 1; pos.m_x++) {
 			DrawerManager::Instance()->m_p_drawer->SetDrawBuffer(pos, m_p_game_map->GetDrawString(pos));
 		}
+	}
+}
+
+void TronGame::SetResult()
+{
+	if (m_cannot_move_player == true &&
+		m_cannot_move_enemy == true) {
+		DrawerManager::Instance()->m_p_drawer->SetResultString("引き分け");
+	}
+	else if (m_cannot_move_enemy == true) {
+		DrawerManager::Instance()->m_p_drawer->SetResultString("プレイヤーの勝利");
+	}
+	else if (m_cannot_move_player == true) {
+		DrawerManager::Instance()->m_p_drawer->SetResultString("エネミーの勝利");
 	}
 }
