@@ -8,7 +8,7 @@
 
 #include "CharacterBase.h"
 
-class Enemy : CharacterBase
+class Enemy : public CharacterBase
 {
 public:
 	Enemy();

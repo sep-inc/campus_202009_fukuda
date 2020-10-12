@@ -1,4 +1,5 @@
 #include "Draw/DrawerManager.h"
+#include "TronGame/TronGame.h"
 #include <cstdlib>
 #include <csignal>
 
@@ -12,7 +13,8 @@ int main() {
 	DrawerManager::Instance()->CreateDrawer();
 
 	while (true) {
-
+		/* ゲームの更新 */
+		TronGame::Instance()->Update();
 
 		/* 描画処理 */
 		// 描画情報のクリア

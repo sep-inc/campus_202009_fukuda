@@ -12,7 +12,7 @@
 * @class Player
 * @brief Playerˆ—ƒNƒ‰ƒX
 */
-class Player : CharacterBase
+class Player : public CharacterBase
 {
 public:
 	Player();
