@@ -19,6 +19,10 @@ public:
 	~Player()override;
 
 private:
+	/**
+	* @brief ˆÚ“®æ‘I‘ğŠÖ”
+	* “ü—Í‚É‰‚¶‚ÄAˆÚ“®æ‚ğ‘I‘ğ‚·‚é
+	*/
 	void SelectMoveDirection()override;
 
 };

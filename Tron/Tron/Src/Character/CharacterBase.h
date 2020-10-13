@@ -19,11 +19,14 @@ public:
 	CharacterBase();
 	virtual ~CharacterBase();
 
+	//! 初期化関数
+	virtual void Init(GameMap* map_);
+
 	/**
 	* @brief 更新関数
 	*/
 	virtual void Update();
-
+	
 	/**
 	* @brief 自身のパラメータを返す関数
 	* @return 自身のパラメータ
@@ -35,12 +38,6 @@ public:
 	* @return 移動する座標
 	*/
 	inline Vec2 GetMovePos()const { return m_current_pos; }
-
-	/**
-	* @brief ゲームマップのポインタを取得する関数
-	* @param ゲームマップのポインタ
-	*/
-	void SetGameMapPointer(GameMap* map_);
 
 
 protected:

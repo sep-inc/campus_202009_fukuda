@@ -11,25 +11,21 @@ GameMap::~GameMap()
 {
 }
 
+void GameMap::Init()
+{
+	// 初期マップの作成
+	CreateInitGameMap();
+	// ゲームマップを初期マップでクリア
+	ClearGameMap();
+}
+
 void GameMap::Draw(DrawerBase* drawer_)
 {
 	Vec2 pos;
 	// ゲームマップを描画バッファに書き込む
-	for (pos.m_y = 1; pos.m_y < TRON_DRAW_BUFFER_HEIGHT - 1; pos.m_y++) {
-		for (pos.m_x = 1; pos.m_x < TRON_DRAW_BUFFER_WIDTH - 1; pos.m_x++) {
-			drawer_->SetDrawBuffer(pos, m_game_map[pos.m_y][pos.m_x].m_draw_string);
-		}
-	}
-}
-
-void GameMap::InitDraw(DrawerBase* drawer_)
-{
-	Vec2 pos;
-	// 初期マップの情報を初期化バッファに書き込む
 	for (pos.m_y = 0; pos.m_y < TRON_DRAW_BUFFER_HEIGHT; pos.m_y++) {
 		for (pos.m_x = 0; pos.m_x < TRON_DRAW_BUFFER_WIDTH; pos.m_x++) {
-			drawer_->SetBlankBuffer(pos, m_game_map[pos.m_y][pos.m_x].m_draw_string);
-			// drawer_.SetBlankBuffer(pos, m_p_game_map->GetDrawString(pos));
+			drawer_->SetDrawBuffer(pos, m_game_map[pos.m_y][pos.m_x].m_draw_string);
 		}
 	}
 }
@@ -78,11 +74,6 @@ bool GameMap::SetMovePos(Vec2 move_pos_, CharacterParam chara_)
 	return true;
 }
 
-void GameMap::ClearGameMap()
-{
-	memcpy(m_game_map, m_init_game_map, sizeof(m_init_game_map));
-}
-
 void GameMap::CreateInitGameMap()
 {
 	// 壁情報の定義
@@ -113,4 +104,11 @@ void GameMap::CreateInitGameMap()
 	strcpy_s(enemy.m_draw_string, DRAW_STRING_SIZE, "◆");
 	m_init_game_map[INIT_ENEMY_POS_Y][INIT_ENEMY_POS_X] = enemy;
 }
+
+void GameMap::ClearGameMap()
+{
+	// ゲームマップに初期マップをコピーする
+	memcpy(m_game_map, m_init_game_map, sizeof(m_init_game_map));
+}
+
 

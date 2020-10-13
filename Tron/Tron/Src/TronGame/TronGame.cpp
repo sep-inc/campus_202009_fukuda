@@ -37,15 +37,10 @@ void TronGame::Update()
 		// オブジェクト生成
 		CreateObjects();
 
-		// マップの初期化
-		m_p_game_map->CreateInitGameMap();
-		m_p_game_map->ClearGameMap();
-		// 初期マップをセット
-		m_p_game_map->InitDraw(DrawerManager::Instance()->m_p_drawer);
-
-		// ゲームマップのポインタをセット
-		m_p_player->SetGameMapPointer(m_p_game_map);
-		m_p_enemy->SetGameMapPointer(m_p_game_map);
+		// 初期化処理
+		m_p_game_map->Init();
+		m_p_player->Init(m_p_game_map);
+		m_p_enemy->Init(m_p_game_map);
 
 		m_step = TronGameStep::STEP_UPDATE;
 		break;
@@ -74,6 +69,25 @@ void TronGame::Update()
 	}
 }
 
+void TronGame::Draw()
+{
+	m_p_game_map->Draw(DrawerManager::Instance()->m_p_drawer);
+}
+
+void TronGame::SetResult()
+{
+	if (m_cannot_move_player == true &&
+		m_cannot_move_enemy == true) {
+		DrawerManager::Instance()->m_p_drawer->SetResultString("引き分け");
+	}
+	else if (m_cannot_move_enemy == true) {
+		DrawerManager::Instance()->m_p_drawer->SetResultString("プレイヤーの勝利");
+	}
+	else if (m_cannot_move_player == true) {
+		DrawerManager::Instance()->m_p_drawer->SetResultString("エネミーの勝利");
+	}
+}
+
 void TronGame::CreateObjects()
 {
 	if (m_p_player == nullptr)
@@ -99,23 +113,4 @@ void TronGame::DestroyObjects()
 		m_p_game_map = nullptr;
 	}
 
-}
-
-void TronGame::Draw()
-{
-	m_p_game_map->Draw(DrawerManager::Instance()->m_p_drawer);
-}
-
-void TronGame::SetResult()
-{
-	if (m_cannot_move_player == true &&
-		m_cannot_move_enemy == true) {
-		DrawerManager::Instance()->m_p_drawer->SetResultString("引き分け");
-	}
-	else if (m_cannot_move_enemy == true) {
-		DrawerManager::Instance()->m_p_drawer->SetResultString("プレイヤーの勝利");
-	}
-	else if (m_cannot_move_player == true) {
-		DrawerManager::Instance()->m_p_drawer->SetResultString("エネミーの勝利");
-	}
 }

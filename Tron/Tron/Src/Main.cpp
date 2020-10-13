@@ -17,6 +17,7 @@ int main() {
 		/* ゲームの更新 */
 		TronGame::Instance()->Update();
 
+		// ゲーム終了判定
 		if (TronGame::Instance()->IsGameFinish()) {
 			break;
 		}

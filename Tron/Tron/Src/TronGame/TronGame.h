@@ -24,28 +24,6 @@ public:
 	void Update();
 
 	/**
-	* @brief オブジェクト生成関数
-	*/
-	void CreateObjects();
-
-	/**
-	* @brief オブジェクト破棄関数
-	*/
-	void DestroyObjects();
-
-	//! 各オブジェクトのポインタ変数群
-	CharacterBase* m_p_player;
-	CharacterBase* m_p_enemy;
-	GameMap* m_p_game_map;
-
-
-	/**
-	* @brief ゲーム終了判定関数
-	* @return trueでゲーム終了
-	*/
-	bool IsGameFinish() { return m_is_game_finish; }
-
-	/**
 	* @brief ゲームマップの書き込み関数
 	*/
 	void Draw();
@@ -55,12 +33,36 @@ public:
 	*/
 	void SetResult();
 
+	/**
+	* @brief ゲーム終了判定関数
+	* @return trueでゲーム終了
+	*/
+	inline bool IsGameFinish()const { return m_is_game_finish; }
+
+
+public:
+	//! 各オブジェクトのポインタ変数群
+	CharacterBase* m_p_player;
+	CharacterBase* m_p_enemy;
+	GameMap* m_p_game_map;
+
 
 private:
 	TronGame();
 	~TronGame();
 
+	/**
+	* @brief オブジェクト生成関数
+	*/
+	void CreateObjects();
+
+	/**
+	* @brief オブジェクト破棄関数
+	*/
+	void DestroyObjects();
+	
 	static TronGame* p_instance;
+
 
 private:
 	//! 処理ステップ

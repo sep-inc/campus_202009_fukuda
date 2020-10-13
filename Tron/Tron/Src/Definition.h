@@ -8,6 +8,8 @@
 
 #include <cinttypes>
 
+/* 定数群 */
+
 //! トロンの描画用バッファサイズ
 #define TRON_DRAW_BUFFER_WIDTH  20
 #define TRON_DRAW_BUFFER_HEIGHT 14
@@ -26,6 +28,8 @@
 //! 移動可能範囲リストの配列のサイズ
 #define CAN_MOVE_LIST_SIZE 4
 
+
+/* 列挙群 */
 
 //! ゲームの種類
 enum class GameType : uint8_t
@@ -47,6 +51,8 @@ enum class ObjectType : uint8_t
 	MAX_TYPE
 };
 
+
+/* 構造体群 */
 
 struct Vec2
 {

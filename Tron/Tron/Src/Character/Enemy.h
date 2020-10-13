@@ -14,7 +14,12 @@ public:
 	Enemy();
 	~Enemy()override;
 
+
 private:
+	/**
+	* @brief ˆÚ“®æ‘I‘ğŠÖ”
+	* ˆÚ“®‰Â”\æ‚ğƒ‰ƒ“ƒ_ƒ€‚ÅŒˆ‚ß‚é
+	*/
 	void SelectMoveDirection()override;
 
 
