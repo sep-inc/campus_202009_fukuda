@@ -27,11 +27,10 @@ int main() {
 		// 描画情報のクリア
 		DrawerManager::Instance()->m_p_drawer->Clear();
 		// 描画情報のセット
-		TronGame::Instance()->SetDrawMap();
+		TronGame::Instance()->Draw();
 		TronGame::Instance()->SetResult();
 		// 描画
 		DrawerManager::Instance()->m_p_drawer->Draw();
-
 	}
 
 	// 描画クラスの破棄

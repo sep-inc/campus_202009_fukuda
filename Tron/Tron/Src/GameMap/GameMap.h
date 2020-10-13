@@ -7,6 +7,7 @@
 */
 
 #include "../Definition.h"
+#include "../Draw/DrawerBase.h"
 
 /**
 * @class GameMap
@@ -17,6 +18,14 @@ class GameMap
 public:
 	GameMap();
 	~GameMap();
+
+	/**
+	* @brief 描画処理関数
+	* @param drawer_ 描画クラスのポインタ
+	*/
+	void Draw(DrawerBase* drawer_);
+
+	void InitDraw(DrawerBase* drawer_);
 
 	//! 動ける場所を返す関数
 	void GetCanMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_MOVE_LIST_SIZE]);
@@ -33,10 +42,6 @@ public:
 	//! 初期化用マップの作成関数
 	void CreateInitGameMap();
 
-	/**
-	* @brief 引数で指定された座標の描画文字を返す
-	*/
-	char* GetDrawString(Vec2 pos_);
 
 private:
 	//! 初期化用のゲームマップ

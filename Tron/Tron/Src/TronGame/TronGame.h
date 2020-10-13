@@ -46,15 +46,9 @@ public:
 	bool IsGameFinish() { return m_is_game_finish; }
 
 	/**
-	* @brief 初期化バッファへの書き込み関数
-	* ゲームの初期化時のみに行う
-	*/
-	void SetBlankMap();
-
-	/**
 	* @brief ゲームマップの書き込み関数
 	*/
-	void SetDrawMap();
+	void Draw();
 
 	/**
 	* @brief 勝敗情報のセット関数

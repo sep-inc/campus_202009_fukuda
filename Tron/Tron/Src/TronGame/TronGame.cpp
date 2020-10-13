@@ -36,11 +36,13 @@ void TronGame::Update()
 	case TronGameStep::STEP_INITIALIZE:
 		// オブジェクト生成
 		CreateObjects();
+
 		// マップの初期化
 		m_p_game_map->CreateInitGameMap();
 		m_p_game_map->ClearGameMap();
-		// 初期化マップをセット
-		SetBlankMap();
+		// 初期マップをセット
+		m_p_game_map->InitDraw(DrawerManager::Instance()->m_p_drawer);
+
 		// ゲームマップのポインタをセット
 		m_p_player->SetGameMapPointer(m_p_game_map);
 		m_p_enemy->SetGameMapPointer(m_p_game_map);
@@ -99,26 +101,9 @@ void TronGame::DestroyObjects()
 
 }
 
-void TronGame::SetBlankMap()
+void TronGame::Draw()
 {
-	Vec2 pos;
-	// 初期マップの情報を初期化バッファに書き込む
-	for (pos.m_y = 0; pos.m_y < TRON_DRAW_BUFFER_HEIGHT; pos.m_y++) {
-		for (pos.m_x = 0; pos.m_x < TRON_DRAW_BUFFER_WIDTH; pos.m_x++) {
-			DrawerManager::Instance()->m_p_drawer->SetBlankBuffer(pos, m_p_game_map->GetDrawString(pos));
-		}
-	}
-}
-
-void TronGame::SetDrawMap()
-{
-	Vec2 pos;
-	// ゲームマップを描画バッファに書き込む
-	for (pos.m_y = 1; pos.m_y < TRON_DRAW_BUFFER_HEIGHT - 1; pos.m_y++) {
-		for (pos.m_x = 1; pos.m_x < TRON_DRAW_BUFFER_WIDTH - 1; pos.m_x++) {
-			DrawerManager::Instance()->m_p_drawer->SetDrawBuffer(pos, m_p_game_map->GetDrawString(pos));
-		}
-	}
+	m_p_game_map->Draw(DrawerManager::Instance()->m_p_drawer);
 }
 
 void TronGame::SetResult()
