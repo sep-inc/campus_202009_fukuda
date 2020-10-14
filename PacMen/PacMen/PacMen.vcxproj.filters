@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Src">
+      <UniqueIdentifier>{e58b615e-3de8-4afb-9833-d58573410020}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Draw">
+      <UniqueIdentifier>{403da31b-373e-4862-938c-d0ff79e9001d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\GameMap">
+      <UniqueIdentifier>{6af7ee33-6ff2-4ab7-b70a-09050ea8bb63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\GameObject">
+      <UniqueIdentifier>{8adcce02-b5f6-4a6a-bab3-c44142edb6f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Input">
+      <UniqueIdentifier>{938feea4-5610-464d-b386-dcd89cfa53b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\PacMenGame">
+      <UniqueIdentifier>{4bcb5f51-a3c6-451e-8216-3fd768e03547}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\Main.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\DrawerManager.cpp">
+      <Filter>Src\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\DrawerBase.cpp">
+      <Filter>Src\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\PacMenDrawer.cpp">
+      <Filter>Src\Draw</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\Definition.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\DrawerManager.h">
+      <Filter>Src\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\DrawerBase.h">
+      <Filter>Src\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\PacMenDrawer.h">
+      <Filter>Src\Draw</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
