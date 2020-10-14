@@ -1,9 +1,9 @@
-#ifndef DRAWER_BASE_H_
+ï»¿#ifndef DRAWER_BASE_H_
 #define DRAWER_BASE_H_
 
 /**
 * @file DrawerBase.h
-* @brief DrawerBaseƒNƒ‰ƒX‚Ìƒwƒbƒ_
+* @brief DrawerBaseã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€
 */
 
 #include "../Definition.h"
@@ -11,7 +11,7 @@
 
 /**
 * @class DrawerBase
-* @brief DrawerƒNƒ‰ƒX‚ÌŠî’êƒNƒ‰ƒX
+* @brief Drawerã‚¯ãƒ©ã‚¹ã®åŸºåº•ã‚¯ãƒ©ã‚¹
 */
 class DrawerBase {
 public:
@@ -19,40 +19,40 @@ public:
 	virtual ~DrawerBase();
 
 	/**
-	* @brief •`‰æŠÖ”
+	* @brief æç”»é–¢æ•°
 	*/
 	void Draw();
 
 	/**
-	* @brief •`‰æî•ñ‚ÌƒNƒŠƒAŠÖ”
-	* •`‰æ‚Ég—p‚µ‚½
+	* @brief æç”»æƒ…å ±ã®ã‚¯ãƒªã‚¢é–¢æ•°
+	* æç”»ã«ä½¿ç”¨ã—ãŸ
 	*/
 	void Clear();
 
-	//! ‰Šú‰»—pƒoƒbƒtƒ@‚ÌƒZƒbƒgŠÖ”
+	//! åˆæœŸåŒ–ç”¨ãƒãƒƒãƒ•ã‚¡ã®ã‚»ãƒƒãƒˆé–¢æ•°
 	virtual void SetBlankBuffer(Vec2 pos_, char* string_) = 0;
 
-	//! •`‰æ—pƒoƒbƒtƒ@‚ÌƒZƒbƒgŠÖ”
+	//! æç”»ç”¨ãƒãƒƒãƒ•ã‚¡ã®ã‚»ãƒƒãƒˆé–¢æ•°
 	virtual void SetDrawBuffer(Vec2 pos_, char* string_) = 0;
 
 	/**
-	* @brief ƒŠƒUƒ‹ƒgî•ñ‚ğƒZƒbƒg‚·‚éŠÖ”
-	* @param result_ o—Í‚·‚éŒ‹‰Ê‚Ì•¶š—ñ
+	* @brief ãƒªã‚¶ãƒ«ãƒˆæƒ…å ±ã‚’ã‚»ãƒƒãƒˆã™ã‚‹é–¢æ•°
+	* @param result_ å‡ºåŠ›ã™ã‚‹çµæœã®æ–‡å­—åˆ—
 	*/
 	void SetResultString(std::string result_);
 
 
 protected:
-	//! •`‰æƒoƒbƒtƒ@‚ÌƒNƒŠƒA
+	//! æç”»ãƒãƒƒãƒ•ã‚¡ã®ã‚¯ãƒªã‚¢
 	virtual void BufferClear() = 0;
 
-	//! •`‰æƒoƒbƒtƒ@‚ğ˜AŒ‹‚µ‚Ä‚P‚Â‚Ì•¶š—ñ‚Ö•ÏŠ·‚·‚éŠÖ”
+	//! æç”»ãƒãƒƒãƒ•ã‚¡ã‚’é€£çµã—ã¦ï¼‘ã¤ã®æ–‡å­—åˆ—ã¸å¤‰æ›ã™ã‚‹é–¢æ•°
 	virtual void LinkDrawBuffer() = 0;
 
 protected:
-	//! •`‰æ—p•¶š—ñ
+	//! æç”»ç”¨æ–‡å­—åˆ—
 	std::string m_draw_string;
-	//! ƒŠƒUƒ‹ƒg•`‰æ—p•¶š—ñ
+	//! ãƒªã‚¶ãƒ«ãƒˆæç”»ç”¨æ–‡å­—åˆ—
 	std::string m_result_string;
 };
 

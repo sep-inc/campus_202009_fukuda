@@ -1,25 +1,25 @@
-#ifndef DEFINITION_H_
+﻿#ifndef DEFINITION_H_
 #define DEFINITION_H_
 
 /**
 * @file Definition.h
-* @brief ��`���܂Ƃ߂��w�b�_
+* @brief 定義をまとめたヘッダ
 */
 
 #include <cinttypes>
 
-/* �萔�Q */
+/* 定数群 */
 
-//! �p�b�N�}���̕`��p�o�b�t�@�T�C�Y
+//! パックマンの描画用バッファサイズ
 #define PACMEN_DRAW_BUFFER_WIDTH  13
 #define PACMEN_DRAW_BUFFER_HEIGHT 13
 
-//! �`�悷�镶����̃T�C�Y
+//! 描画する文字列のサイズ
 #define DRAW_STRING_SIZE 8
 
-/* �񋓌Q */
+/* 列挙群 */
 
-/* �\���̌Q */
+/* 構造体群 */
 
 struct Vec2
 {

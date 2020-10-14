@@ -1,7 +1,7 @@
-#include <cstdlib>
+ï»¿#include <cstdlib>
 #include <csignal>
 
-//! Ctrl + C‚ÅƒvƒƒOƒ‰ƒ€‚ğI—¹‚·‚éŠÖ”
+//! Ctrl + Cã§ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’çµ‚äº†ã™ã‚‹é–¢æ•°
 void SignalHandle(int);
 
 int main() {
@@ -16,8 +16,8 @@ int main() {
 
 
 /**
-* @brief Ctrl + c‚ÅƒvƒƒOƒ‰ƒ€‚ğI—¹‚·‚éŠÖ”
-* @return void –ß‚è’l‚È‚µ
+* @brief Ctrl + cã§ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’çµ‚äº†ã™ã‚‹é–¢æ•°
+* @return void æˆ»ã‚Šå€¤ãªã—
 */
 void SignalHandle(int) {
 	exit(0);

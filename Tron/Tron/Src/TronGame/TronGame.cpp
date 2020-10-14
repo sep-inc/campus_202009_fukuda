@@ -1,4 +1,4 @@
-#include "TronGame.h"
+ï»¿#include "TronGame.h"
 #include "../Character/Player.h"
 #include "../Character/Enemy.h"
 #include "../Draw/DrawerManager.h"
@@ -34,10 +34,10 @@ void TronGame::Update()
 {
 	switch (m_step) {
 	case TronGameStep::STEP_INITIALIZE:
-		// ƒIƒuƒWƒFƒNƒg¶¬
+		// ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç”Ÿæˆ
 		CreateObjects();
 
-		// ‰Šú‰»ˆ—
+		// åˆæœŸåŒ–å‡¦ç†
 		m_p_game_map->Init();
 		m_p_player->Init(m_p_game_map);
 		m_p_enemy->Init(m_p_game_map);
@@ -45,16 +45,16 @@ void TronGame::Update()
 		m_step = TronGameStep::STEP_UPDATE;
 		break;
 	case TronGameStep::STEP_UPDATE:
-		// ƒvƒŒƒCƒ„[‚ÌXVˆ—
+		// ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®æ›´æ–°å‡¦ç†
 		m_p_player->Update();
-		// XVî•ñ‚ğƒQ[ƒ€ƒ}ƒbƒv‚ÉƒZƒbƒgAtrue‚ª•Ô‚Á‚Ä‚­‚ê‚ÎƒQ[ƒ€I—¹ˆ—‚Ö
+		// æ›´æ–°æƒ…å ±ã‚’ã‚²ãƒ¼ãƒ ãƒãƒƒãƒ—ã«ã‚»ãƒƒãƒˆã€trueãŒè¿”ã£ã¦ãã‚Œã°ã‚²ãƒ¼ãƒ çµ‚äº†å‡¦ç†ã¸
 		m_cannot_move_player = m_p_game_map->SetMovePos(m_p_player->GetMovePos(), m_p_player->GetMyParam());
-		// ƒGƒlƒ~[‚ÌXVˆ—
+		// ã‚¨ãƒãƒŸãƒ¼ã®æ›´æ–°å‡¦ç†
 		m_p_enemy->Update();
-		// XVî•ñ‚ğƒQ[ƒ€ƒ}ƒbƒv‚ÉƒZƒbƒgAtrue‚ª•Ô‚Á‚Ä‚­‚ê‚ÎƒQ[ƒ€I—¹ˆ—‚Ö
+		// æ›´æ–°æƒ…å ±ã‚’ã‚²ãƒ¼ãƒ ãƒãƒƒãƒ—ã«ã‚»ãƒƒãƒˆã€trueãŒè¿”ã£ã¦ãã‚Œã°ã‚²ãƒ¼ãƒ çµ‚äº†å‡¦ç†ã¸
 		m_cannot_move_enemy = m_p_game_map->SetMovePos(m_p_enemy->GetMovePos(), m_p_enemy->GetMyParam());
 
-		// I—¹”»’è
+		// çµ‚äº†åˆ¤å®š
 		if (m_cannot_move_player == true ||
 			m_cannot_move_enemy == true) {
 			m_step = TronGameStep::STEP_END;
@@ -62,7 +62,7 @@ void TronGame::Update()
 
 		break;
 	case TronGameStep::STEP_END:
-		// ƒIƒuƒWƒFƒNƒg”jŠü
+		// ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆç ´æ£„
 		DestroyObjects();
 		m_is_game_finish = true;
 		break;
@@ -78,13 +78,13 @@ void TronGame::SetResult()
 {
 	if (m_cannot_move_player == true &&
 		m_cannot_move_enemy == true) {
-		DrawerManager::Instance()->m_p_drawer->SetResultString("ˆø‚«•ª‚¯");
+		DrawerManager::Instance()->m_p_drawer->SetResultString("å¼•ãåˆ†ã‘");
 	}
 	else if (m_cannot_move_enemy == true) {
-		DrawerManager::Instance()->m_p_drawer->SetResultString("ƒvƒŒƒCƒ„[‚ÌŸ—˜");
+		DrawerManager::Instance()->m_p_drawer->SetResultString("ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã®å‹åˆ©");
 	}
 	else if (m_cannot_move_player == true) {
-		DrawerManager::Instance()->m_p_drawer->SetResultString("ƒGƒlƒ~[‚ÌŸ—˜");
+		DrawerManager::Instance()->m_p_drawer->SetResultString("ã‚¨ãƒãƒŸãƒ¼ã®å‹åˆ©");
 	}
 }
 

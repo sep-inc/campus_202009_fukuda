@@ -1,16 +1,16 @@
-#ifndef PACMEN_DRAWER_H_
+ï»¿#ifndef PACMEN_DRAWER_H_
 #define PACMEN_DRAWER_H_
 
 /**
 * @file PacMenDrawer.h
-* @brief PacMenDrawerƒNƒ‰ƒX‚Ìƒwƒbƒ_
+* @brief PacMenDrawerã‚¯ãƒ©ã‚¹ã®ãƒ˜ãƒƒãƒ€
 */
 
 #include "DrawerBase.h"
 
 /**
 * @class PacMenDrawer
-* @brief PacMenƒQ[ƒ€‚ÌDrawerƒNƒ‰ƒX
+* @brief PacMenã‚²ãƒ¼ãƒ ã®Drawerã‚¯ãƒ©ã‚¹
 */
 class PacMenDrawer : public DrawerBase
 {
@@ -19,35 +19,35 @@ public:
 	~PacMenDrawer();
 
 	/**
-	* @brief ‰Šú‰»—pƒoƒbƒtƒ@‚ÌƒZƒbƒgŠÖ”
-	* @param pos_ ƒZƒbƒg‚µ‚½‚¢ˆÊ’u
-	* @param string_ ƒZƒbƒg‚·‚é•¶š—ñ
+	* @brief åˆæœŸåŒ–ç”¨ãƒãƒƒãƒ•ã‚¡ã®ã‚»ãƒƒãƒˆé–¢æ•°
+	* @param pos_ ã‚»ãƒƒãƒˆã—ãŸã„ä½ç½®
+	* @param string_ ã‚»ãƒƒãƒˆã™ã‚‹æ–‡å­—åˆ—
 	*/
 	void SetBlankBuffer(Vec2 pos_, char* string_)override;
 
 	/**
-	* @brief •`‰æ—pƒoƒbƒtƒ@‚ÌƒZƒbƒgŠÖ”
-	* @param pos_ ƒZƒbƒg‚µ‚½‚¢ˆÊ’u
-	* @param string_ ƒZƒbƒg‚·‚é•¶š—ñ
+	* @brief æç”»ç”¨ãƒãƒƒãƒ•ã‚¡ã®ã‚»ãƒƒãƒˆé–¢æ•°
+	* @param pos_ ã‚»ãƒƒãƒˆã—ãŸã„ä½ç½®
+	* @param string_ ã‚»ãƒƒãƒˆã™ã‚‹æ–‡å­—åˆ—
 	*/
 	void SetDrawBuffer(Vec2 pos_, char* string_)override;
 
 
 private:
 	/**
-	* @brief •`‰æ—pƒoƒbƒtƒ@‚ÌƒNƒŠƒAŠÖ”
+	* @brief æç”»ç”¨ãƒãƒƒãƒ•ã‚¡ã®ã‚¯ãƒªã‚¢é–¢æ•°
 	*/
 	void BufferClear()override;
 
 	/**
-	* @brief •`‰æƒoƒbƒtƒ@‚ğ˜AŒ‹‚µ‚Ä‚P‚Â‚Ì•¶š—ñ‚Ö•ÏŠ·‚·‚éŠÖ”
+	* @brief æç”»ãƒãƒƒãƒ•ã‚¡ã‚’é€£çµã—ã¦ï¼‘ã¤ã®æ–‡å­—åˆ—ã¸å¤‰æ›ã™ã‚‹é–¢æ•°
 	*/
 	void LinkDrawBuffer()override;
 
 private:
-	//! ‰Šú‰»—pƒoƒbƒtƒ@
+	//! åˆæœŸåŒ–ç”¨ãƒãƒƒãƒ•ã‚¡
 	char m_blank_buffer[PACMEN_DRAW_BUFFER_HEIGHT][PACMEN_DRAW_BUFFER_WIDTH];
-	//! •`‰æ—pƒoƒbƒtƒ@
+	//! æç”»ç”¨ãƒãƒƒãƒ•ã‚¡
 	char m_draw_buffer[PACMEN_DRAW_BUFFER_HEIGHT][PACMEN_DRAW_BUFFER_WIDTH][DRAW_STRING_SIZE];
 
 };
