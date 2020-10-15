@@ -42,6 +42,9 @@ public:
 	*/
 	void SetMovePos(PacMenObjectParam param_, Vec2 move_pos_);
 
+	/**
+	* @brief 生成可能場所を返す関数
+	*/
 	int GetCanCreatePos(Vec2 list[CAN_CREATE_POS_NUM]);
 
 	/**

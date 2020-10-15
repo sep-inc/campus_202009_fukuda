@@ -37,9 +37,11 @@ void Monster::SelectMovePos()
 	if (array_index == 0) {
 		return;
 	}
-
+	// 移動先の選択
 	int select_index = rand() % array_index;
 	Vec2 move_pos = can_move_array[select_index];
+	// マップへ情報をセット
 	m_p_game_map->SetMovePos(m_param, move_pos);
+	// 自身の座標を更新
 	m_param.m_pos = move_pos;
 }

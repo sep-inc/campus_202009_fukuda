@@ -18,6 +18,10 @@ public:
 	Monster();
 	~Monster();
 
+	/**
+	* @brief 初期化関数
+	* 初期化時に自身の生成座標をランダムに選択する
+	*/
 	void Init(GameMap* map_)override;
 
 	/**
