@@ -48,6 +48,8 @@ private:
 	PacMenGameObject* m_game_map[PACMEN_DRAW_BUFFER_HEIGHT][PACMEN_DRAW_BUFFER_WIDTH];
 	//! 壁
 	PacMenGameObject* m_p_wall;
+	//! 壁の配置データ
+	static int m_init_wall[PACMEN_DRAW_BUFFER_HEIGHT][PACMEN_DRAW_BUFFER_WIDTH];
 
 };
 

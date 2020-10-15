@@ -47,14 +47,23 @@ void GameMap::Draw(DrawerBase* drawer_)
 
 void GameMap::CreateInitGameMap()
 {
+	// 外枠作成
 	for (int y = 0; y < PACMEN_DRAW_BUFFER_HEIGHT; y++) {
 		m_init_game_map[y][0] = m_p_wall;
 		m_init_game_map[y][PACMEN_DRAW_BUFFER_WIDTH - 1] = m_p_wall;
 	}
-
 	for (int x = 0; x < PACMEN_DRAW_BUFFER_WIDTH; x++) {
 		m_init_game_map[0][x] = m_p_wall;
 		m_init_game_map[PACMEN_DRAW_BUFFER_HEIGHT - 1][x] = m_p_wall;
+	}
+
+	// 壁データをもとにマップを作成
+	for (int y = 1; y < PACMEN_DRAW_BUFFER_HEIGHT - 1; y++) {
+		for (int x = 1; x < PACMEN_DRAW_BUFFER_WIDTH - 1; x++) {
+			if (m_init_wall[y - 1][x - 1] == 1) {
+				m_init_game_map[y][x] = m_p_wall;
+			}
+		}
 	}
 }
 
@@ -62,3 +71,17 @@ void GameMap::ClearGameMap()
 {
 	memcpy(m_game_map, m_init_game_map, sizeof(m_init_game_map));
 }
+
+int GameMap::m_init_wall[PACMEN_DRAW_BUFFER_HEIGHT][PACMEN_DRAW_BUFFER_WIDTH] = {
+	{0,0,0,0,0,0,0,0,0,0,0},
+	{0,1,1,1,1,1,0,1,1,1,0},
+	{0,1,0,0,0,0,0,0,0,1,0},
+	{0,1,0,1,1,0,1,1,0,0,0},
+	{0,1,0,1,0,0,0,1,0,1,0},
+	{0,0,0,0,0,0,0,0,0,1,0},
+	{0,1,0,1,0,0,0,1,0,1,0},
+	{0,1,0,1,1,0,1,1,0,0,0},
+	{0,1,0,0,0,0,0,0,0,1,0},
+	{0,1,1,1,0,1,1,1,1,1,0},
+	{0,0,0,0,0,0,0,0,0,0,0}
+};

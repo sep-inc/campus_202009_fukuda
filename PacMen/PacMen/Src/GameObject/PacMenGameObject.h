@@ -38,6 +38,7 @@ public:
 	inline PacMenObjectParam GetMyParam()const { return m_param; }
 
 protected:
+	// 自身のパラメータ
 	PacMenObjectParam m_param;
 };
 
