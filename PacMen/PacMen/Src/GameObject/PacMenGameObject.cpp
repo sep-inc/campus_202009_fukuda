@@ -1,6 +1,7 @@
 ﻿#include "PacMenGameObject.h"
 
-PacMenGameObject::PacMenGameObject()
+PacMenGameObject::PacMenGameObject():
+	m_p_game_map(nullptr)
 {
 }
 
@@ -8,12 +9,17 @@ PacMenGameObject::~PacMenGameObject()
 {
 }
 
+void PacMenGameObject::Init(GameMap* map_)
+{
+	m_p_game_map = map_;
+}
+
 void PacMenGameObject::Update()
 {
 	// 空
 }
 
-void PacMenGameObject::Draw()
+void PacMenGameObject::Draw(DrawerBase* drawer_)
 {
-	// 空
+	drawer_->SetDrawBuffer(m_param.m_pos, m_param.m_draw_string);
 }

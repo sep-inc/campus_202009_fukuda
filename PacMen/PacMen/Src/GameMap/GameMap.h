@@ -8,7 +8,6 @@
 
 #include "../Definition.h"
 #include "../Draw/DrawerBase.h"
-#include "../GameObject/Wall.h"
 
 /**
 * @class GameMap
@@ -43,11 +42,9 @@ private:
 
 private:
 	//! 初期化用マップ
-	PacMenGameObject* m_init_game_map[PACMEN_DRAW_BUFFER_HEIGHT][PACMEN_DRAW_BUFFER_WIDTH];
+	PacMenObjectParam m_init_game_map[PACMEN_DRAW_BUFFER_HEIGHT][PACMEN_DRAW_BUFFER_WIDTH];
 	//! ゲームマップ
-	PacMenGameObject* m_game_map[PACMEN_DRAW_BUFFER_HEIGHT][PACMEN_DRAW_BUFFER_WIDTH];
-	//! 壁
-	PacMenGameObject* m_p_wall;
+	PacMenObjectParam m_game_map[PACMEN_DRAW_BUFFER_HEIGHT][PACMEN_DRAW_BUFFER_WIDTH];
 	//! 壁の配置データ
 	static int m_init_wall[PACMEN_DRAW_BUFFER_HEIGHT][PACMEN_DRAW_BUFFER_WIDTH];
 

@@ -8,6 +8,7 @@
 
 #include "../GameObject/PacMenGameObject.h"
 #include "../GameMap/GameMap.h"
+#include <vector>
 
 /**
 * @class PacMenGame
@@ -42,7 +43,7 @@ public:
 public:
 	//! 各オブジェクトのポインタ変数群
 	GameMap* m_p_game_map;
-	PacMenGameObject* m_p_characters[PACMEN_CHARACTER_NUM];
+	std::vector<PacMenGameObject*> m_p_characters;
 	PacMenGameObject* m_p_items[PACMEN_ITEM_NUM];
 
 private:
@@ -58,6 +59,8 @@ private:
 	* @brief オブジェクト破棄関数
 	*/
 	void DestroyObjects();
+
+	Player* CreatePlayer();
 
 	static PacMenGame* p_instance;
 

@@ -48,8 +48,14 @@
     <ClCompile Include="Src\GameObject\PacMenGameObject.cpp">
       <Filter>Src\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GameObject\Wall.cpp">
-      <Filter>Src\GameObject</Filter>
+    <ClCompile Include="Src\GameObject\Character\CharacterBase.cpp">
+      <Filter>Src\GameObject\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GameObject\Character\Player.cpp">
+      <Filter>Src\GameObject\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GameObject\Character\Monster.cpp">
+      <Filter>Src\GameObject\Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,8 +83,14 @@
     <ClInclude Include="Src\GameObject\PacMenGameObject.h">
       <Filter>Src\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GameObject\Wall.h">
-      <Filter>Src\GameObject</Filter>
+    <ClInclude Include="Src\GameObject\Character\CharacterBase.h">
+      <Filter>Src\GameObject\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GameObject\Character\Player.h">
+      <Filter>Src\GameObject\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GameObject\Character\Monster.h">
+      <Filter>Src\GameObject\Character</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

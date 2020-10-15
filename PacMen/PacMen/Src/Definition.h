@@ -10,6 +10,8 @@
 
 /* 定数群 */
 
+#define SAFE_DELETE(p) if(p != nullptr){delete (p); (p) = nullptr;}
+
 //! パックマンの描画用バッファサイズ
 #define PACMEN_DRAW_BUFFER_WIDTH  13
 #define PACMEN_DRAW_BUFFER_HEIGHT 13
@@ -23,11 +25,16 @@
 //! アイテム
 #define PACMEN_ITEM_NUM 5
 
+//! プレイヤーの初期座標
+#define PLAYER_INIT_POS_WIDTH 2
+#define PLAYER_INIT_POS_HEIGHT 5
+
+
 /* 列挙群 */
 
 //! ゲームオブジェクトの種類
 enum class PacMenObjectType: uint8_t {
-	TYPE_NONE,	//! 種類無し
+	TYPE_EMPTY,	//! 種類無し
 	PLAYER,		//! プレイヤー
 	MONSTER,	//! モンスター
 	ITEM,		//! アイテム
@@ -52,8 +59,8 @@ struct PacMenObjectParam {
 
 	PacMenObjectParam():
 		m_pos{},
-		m_type(PacMenObjectType::TYPE_NONE),
-		m_draw_string("\0")
+		m_type(PacMenObjectType::TYPE_EMPTY),
+		m_draw_string("　")
 	{}
 };
 

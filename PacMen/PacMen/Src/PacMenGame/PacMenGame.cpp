@@ -1,11 +1,12 @@
 ﻿#include "PacMenGame.h"
 #include "../Draw/DrawerManager.h"
+#include "../GameObject/Character/Player.h"
 
 PacMenGame* PacMenGame::p_instance = 0;
 
-PacMenGame::PacMenGame():
+PacMenGame::PacMenGame() :
 	m_p_game_map(nullptr),
-	m_p_characters{nullptr},
+	m_p_characters{ PACMEN_CHARACTER_NUM,nullptr },
 	m_p_items{nullptr},
 	m_step(PacMenGameStep::STEP_INITIALIZE),
 	m_is_game_finish(false)
@@ -22,6 +23,8 @@ void PacMenGame::CreateObjects()
 {
 	if (m_p_game_map == nullptr)
 		m_p_game_map = new GameMap;
+	m_p_characters.push_back(new Player);
+	
 }
 
 void PacMenGame::DestroyObjects()
@@ -30,7 +33,18 @@ void PacMenGame::DestroyObjects()
 		delete m_p_game_map;
 		m_p_game_map = nullptr;
 	}
+	for (PacMenGameObject* e : m_p_characters) {
+		if (e != nullptr) {
+			delete e;
+			e = nullptr;
+		}
+	}
 	
+}
+
+Player* PacMenGame::CreatePlayer()
+{
+	return new Player;
 }
 
 PacMenGame* PacMenGame::Instance()
@@ -50,6 +64,7 @@ void PacMenGame::Update()
 
 		// 初期化処理
 		m_p_game_map->Init();
+		
 
 		// ステップ移行
 		m_step = PacMenGameStep::STEP_UPDATE;

@@ -7,6 +7,8 @@
 */
 
 #include "../Definition.h"
+#include "../GameMap/GameMap.h"
+#include "../Draw/DrawerBase.h"
 
 /**
 * @class PacMenGameObject
@@ -19,7 +21,7 @@ public:
 	virtual ~PacMenGameObject();
 
 	//! 初期化処理
-	virtual void Init() = 0;
+	virtual void Init(GameMap* map_);
 
 	/**
 	* @brief 更新処理関数
@@ -29,7 +31,7 @@ public:
 	/**
 	* @brief 描画処理
 	*/
-	virtual void Draw();
+	virtual void Draw(DrawerBase* drawer_);
 
 	/**
 	* @brief 自身の種類を返す関数
@@ -37,9 +39,11 @@ public:
 	*/
 	inline PacMenObjectParam GetMyParam()const { return m_param; }
 
+
 protected:
 	// 自身のパラメータ
 	PacMenObjectParam m_param;
+	GameMap* m_p_game_map;
 };
 
 #endif
