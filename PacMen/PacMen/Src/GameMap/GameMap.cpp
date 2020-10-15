@@ -31,6 +31,59 @@ void GameMap::Draw(DrawerBase* drawer_)
 	}
 }
 
+void GameMap::SetMovePos(PacMenObjectParam param_, Vec2 move_pos_)
+{
+	switch (param_.m_type) {
+	case PacMenObjectType::PLAYER:
+		if (m_game_map[move_pos_.m_y][move_pos_.m_x].m_type == PacMenObjectType::MONSTER) {
+			m_game_map[param_.m_pos.m_y][param_.m_pos.m_x] = m_empty;
+		}
+		else if (m_game_map[move_pos_.m_y][move_pos_.m_x].m_type == PacMenObjectType::ITEM) {
+			m_game_map[param_.m_pos.m_y][param_.m_pos.m_x] = m_empty;
+			m_game_map[move_pos_.m_y][move_pos_.m_x] = param_;
+		}
+		break;
+	case PacMenObjectType::MONSTER:
+		m_game_map[param_.m_pos.m_y][param_.m_pos.m_x] = m_empty;
+		m_game_map[move_pos_.m_y][move_pos_.m_x] = param_;
+		break;
+	case PacMenObjectType::ITEM:
+		m_game_map[move_pos_.m_y][move_pos_.m_x] = param_;
+		break;
+	}
+}
+
+
+void GameMap::GetCanPlayerMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_PLAYER_MOVE_LIST_SIZE])
+{
+	int tmp = 0;
+	// 1マス上の検索
+	if (m_game_map[now_pos_.m_y - 1][now_pos_.m_x].m_type != PacMenObjectType::WALL) {
+		Vec2 pos = { now_pos_.m_x,now_pos_.m_y - 1 };
+		move_list_[tmp] = pos;
+		tmp++;
+	}
+	// 1マス下の検索
+	if (m_game_map[now_pos_.m_y + 1][now_pos_.m_x].m_type != PacMenObjectType::WALL) {
+		Vec2 pos = { now_pos_.m_x,now_pos_.m_y + 1 };
+		move_list_[tmp] = pos;
+		tmp++;
+	}
+	// 1マス左の検索
+	if (m_game_map[now_pos_.m_y][now_pos_.m_x - 1].m_type != PacMenObjectType::WALL) {
+		Vec2 pos = { now_pos_.m_x - 1,now_pos_.m_y };
+		move_list_[tmp] = pos;
+		tmp++;
+	}
+	// 1マス右の検索
+	if (m_game_map[now_pos_.m_y][now_pos_.m_x + 1].m_type != PacMenObjectType::WALL) {
+		Vec2 pos = { now_pos_.m_x + 1,now_pos_.m_y };
+		move_list_[tmp] = pos;
+		tmp++;
+	}
+}
+
+
 void GameMap::CreateInitGameMap()
 {
 	PacMenObjectParam wall;

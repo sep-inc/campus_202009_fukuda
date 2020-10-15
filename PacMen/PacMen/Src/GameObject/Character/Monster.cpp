@@ -8,7 +8,7 @@ Monster::~Monster()
 {
 }
 
-Vec2 Monster::SelectMovePos()
+void Monster::SelectMovePos()
 {
-	return Vec2();
+	
 }

@@ -60,8 +60,6 @@ private:
 	*/
 	void DestroyObjects();
 
-	Player* CreatePlayer();
-
 	static PacMenGame* p_instance;
 
 private:

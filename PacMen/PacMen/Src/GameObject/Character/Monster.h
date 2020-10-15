@@ -24,7 +24,7 @@ public:
 	*
 	* @return 選択した座標
 	*/
-	Vec2 SelectMovePos();
+	void SelectMovePos();
 };
 
 #endif

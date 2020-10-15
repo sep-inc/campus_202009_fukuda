@@ -11,7 +11,6 @@ PacMenGame::PacMenGame() :
 	m_step(PacMenGameStep::STEP_INITIALIZE),
 	m_is_game_finish(false)
 {
-
 }
 
 PacMenGame::~PacMenGame()
@@ -24,7 +23,6 @@ void PacMenGame::CreateObjects()
 	if (m_p_game_map == nullptr)
 		m_p_game_map = new GameMap;
 	m_p_characters.push_back(new Player);
-	
 }
 
 void PacMenGame::DestroyObjects()
@@ -40,11 +38,6 @@ void PacMenGame::DestroyObjects()
 		}
 	}
 	
-}
-
-Player* PacMenGame::CreatePlayer()
-{
-	return new Player;
 }
 
 PacMenGame* PacMenGame::Instance()
@@ -64,12 +57,22 @@ void PacMenGame::Update()
 
 		// 初期化処理
 		m_p_game_map->Init();
+		for (PacMenGameObject* e : m_p_characters) {
+			if (e != nullptr) {
+				e->Init(m_p_game_map);
+			}
+		}
 		
 
 		// ステップ移行
 		m_step = PacMenGameStep::STEP_UPDATE;
 		break;
 	case PacMenGameStep::STEP_UPDATE:
+		for (PacMenGameObject* e : m_p_characters) {
+			if (e != nullptr) {
+				e->Update();
+			}
+		}
 
 		break;
 	case PacMenGameStep::STEP_END:
@@ -81,6 +84,12 @@ void PacMenGame::Update()
 void PacMenGame::Draw()
 {
 	m_p_game_map->Draw(DrawerManager::Instance()->m_p_drawer);
+	for (PacMenGameObject* e : m_p_characters) {
+		if (e != nullptr) {
+			e->Draw(DrawerManager::Instance()->m_p_drawer);
+		}
+	}
+	
 }
 
 void PacMenGame::SetResult()

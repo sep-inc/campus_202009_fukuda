@@ -21,7 +21,7 @@ public:
 	void Update()override;
 
 	//! 移動座標選択処理
-	virtual Vec2 SelectMovePos() = 0;
+	virtual void SelectMovePos() = 0;
 
 };
 

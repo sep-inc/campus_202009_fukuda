@@ -10,8 +10,6 @@
 
 /* 定数群 */
 
-#define SAFE_DELETE(p) if(p != nullptr){delete (p); (p) = nullptr;}
-
 //! パックマンの描画用バッファサイズ
 #define PACMEN_DRAW_BUFFER_WIDTH  13
 #define PACMEN_DRAW_BUFFER_HEIGHT 13
@@ -27,7 +25,9 @@
 
 //! プレイヤーの初期座標
 #define PLAYER_INIT_POS_WIDTH 2
-#define PLAYER_INIT_POS_HEIGHT 5
+#define PLAYER_INIT_POS_HEIGHT 6
+//! プレイヤーの移動可能範囲の最大数
+#define CAN_PLAYER_MOVE_LIST_SIZE 4
 
 
 /* 列挙群 */

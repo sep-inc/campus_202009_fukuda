@@ -8,6 +8,7 @@
 
 #include "../Definition.h"
 #include "../Draw/DrawerBase.h"
+#include <vector>
 
 /**
 * @class GameMap
@@ -30,6 +31,17 @@ public:
 	*/
 	void Draw(DrawerBase* drawer_);
 
+	/**
+	* @brief マップに移動情報をセットする関数
+	*/
+	void SetMovePos(PacMenObjectParam param_, Vec2 move_pos_);
+
+	/**
+	* @brief プレイヤーの移動可能範囲を返す関数
+	*/
+	void GetCanPlayerMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_PLAYER_MOVE_LIST_SIZE]);
+
+
 private:
 	//! 初期化用マップの作成関数
 	void CreateInitGameMap();
@@ -47,6 +59,8 @@ private:
 	PacMenObjectParam m_game_map[PACMEN_DRAW_BUFFER_HEIGHT][PACMEN_DRAW_BUFFER_WIDTH];
 	//! 壁の配置データ
 	static int m_init_wall[PACMEN_DRAW_BUFFER_HEIGHT][PACMEN_DRAW_BUFFER_WIDTH];
+	// 空情報
+	PacMenObjectParam m_empty;
 
 };
 
