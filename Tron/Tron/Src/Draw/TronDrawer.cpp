@@ -2,7 +2,7 @@
 #include <cstring>
 
 TronDrawer::TronDrawer():
-	m_blank_buffer{""},
+	m_blank_buffer{"\0"},
 	m_draw_buffer{""}
 {
 }
@@ -16,10 +16,6 @@ void TronDrawer::BufferClear()
 	memcpy(m_draw_buffer, m_blank_buffer, sizeof(m_blank_buffer));
 }
 
-void TronDrawer::SetBlankBuffer(Vec2 pos_, char* string_)
-{
-	strcpy_s(m_blank_buffer[pos_.m_y][pos_.m_x], DRAW_STRING_SIZE, string_);
-}
 
 void TronDrawer::SetDrawBuffer(Vec2 pos_, char* string_)
 {

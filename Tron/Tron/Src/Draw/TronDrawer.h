@@ -18,12 +18,6 @@ public:
 	TronDrawer();
 	~TronDrawer()override;
 	
-	/**
-	* @brief 初期化用バッファのセット関数
-	* @param pos_ セットしたい位置
-	* @param string_ セットする文字列
-	*/
-	void SetBlankBuffer(Vec2 pos_, char* string_)override;
 
 	/**
 	* @brief 描画用バッファのセット関数
