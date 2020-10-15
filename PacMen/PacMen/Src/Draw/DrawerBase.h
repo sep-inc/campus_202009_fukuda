@@ -29,9 +29,6 @@ public:
 	*/
 	void Clear();
 
-	//! 初期化用バッファのセット関数
-	virtual void SetBlankBuffer(Vec2 pos_, char* string_) = 0;
-
 	//! 描画用バッファのセット関数
 	virtual void SetDrawBuffer(Vec2 pos_, char* string_) = 0;
 
