@@ -126,13 +126,23 @@
     <ClCompile Include="Src\Draw\DrawerBase.cpp" />
     <ClCompile Include="Src\Draw\DrawerManager.cpp" />
     <ClCompile Include="Src\Draw\PacMenDrawer.cpp" />
+    <ClCompile Include="Src\GameMap\GameMap.cpp" />
+    <ClCompile Include="Src\GameObject\PacMenGameObject.cpp" />
+    <ClCompile Include="Src\GameObject\Wall.cpp" />
+    <ClCompile Include="Src\Input\Input.cpp" />
     <ClCompile Include="Src\Main.cpp" />
+    <ClCompile Include="Src\PacMenGame\PacMenGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Definition.h" />
     <ClInclude Include="Src\Draw\DrawerBase.h" />
     <ClInclude Include="Src\Draw\DrawerManager.h" />
     <ClInclude Include="Src\Draw\PacMenDrawer.h" />
+    <ClInclude Include="Src\GameMap\GameMap.h" />
+    <ClInclude Include="Src\GameObject\PacMenGameObject.h" />
+    <ClInclude Include="Src\GameObject\Wall.h" />
+    <ClInclude Include="Src\Input\Input.h" />
+    <ClInclude Include="Src\PacMenGame\PacMenGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

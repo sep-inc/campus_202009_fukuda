@@ -1,4 +1,5 @@
 ﻿#include "Draw/DrawerManager.h"
+#include "PacMenGame/PacMenGame.h"
 #include <cstdlib>
 #include <csignal>
 
@@ -13,6 +14,7 @@ int main() {
 
 	while (true) {
 		/* ゲームの更新処理 */
+		PacMenGame::Instance()->Update();
 
 		/* 描画処理 */
 		// 出力画面のクリア
@@ -20,7 +22,8 @@ int main() {
 		// 描画情報のクリア
 		DrawerManager::Instance()->m_p_drawer->Clear();
 		// 描画情報のセット
-
+		PacMenGame::Instance()->Draw();
+		PacMenGame::Instance()->SetResult();
 		// 描画
 		DrawerManager::Instance()->m_p_drawer->Draw();
 	}

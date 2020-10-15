@@ -19,6 +19,9 @@
     <Filter Include="Src\PacMenGame">
       <UniqueIdentifier>{4bcb5f51-a3c6-451e-8216-3fd768e03547}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\GameObject\Character">
+      <UniqueIdentifier>{7ef6432d-99b9-4eb4-b0f3-4b6cc5becd28}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Draw\DrawerManager.cpp">
@@ -33,6 +36,21 @@
     <ClCompile Include="Src\Main.cpp">
       <Filter>Src</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Input\Input.cpp">
+      <Filter>Src\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\PacMenGame\PacMenGame.cpp">
+      <Filter>Src\PacMenGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GameMap\GameMap.cpp">
+      <Filter>Src\GameMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GameObject\PacMenGameObject.cpp">
+      <Filter>Src\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GameObject\Wall.cpp">
+      <Filter>Src\GameObject</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Definition.h">
@@ -46,6 +64,21 @@
     </ClInclude>
     <ClInclude Include="Src\Draw\PacMenDrawer.h">
       <Filter>Src\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Input\Input.h">
+      <Filter>Src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\PacMenGame\PacMenGame.h">
+      <Filter>Src\PacMenGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GameMap\GameMap.h">
+      <Filter>Src\GameMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GameObject\PacMenGameObject.h">
+      <Filter>Src\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GameObject\Wall.h">
+      <Filter>Src\GameObject</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

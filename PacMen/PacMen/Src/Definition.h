@@ -17,7 +17,24 @@
 //! 描画する文字列のサイズ
 #define DRAW_STRING_SIZE 8
 
+//! ゲームに必要なオブジェクトの数
+//! キャラクター
+#define PACMEN_CHARACTER_NUM 4
+//! アイテム
+#define PACMEN_ITEM_NUM 5
+
 /* 列挙群 */
+
+//! ゲームオブジェクトの種類
+enum class PacMenObjectType: uint8_t {
+	TYPE_NONE,	//! 種類無し
+	PLAYER,		//! プレイヤー
+	MONSTER,	//! モンスター
+	ITEM,		//! アイテム
+	WALL,		//! 壁
+
+	MAX_TYPE
+};
 
 /* 構造体群 */
 
@@ -26,5 +43,19 @@ struct Vec2
 	int m_x;
 	int m_y;
 };
+
+//! ゲームオブジェクトの必要パラメータ
+struct PacMenObjectParam {
+	Vec2 m_pos;
+	PacMenObjectType m_type;
+	char m_draw_string[DRAW_STRING_SIZE];
+
+	PacMenObjectParam():
+		m_pos{},
+		m_type(PacMenObjectType::TYPE_NONE),
+		m_draw_string("\0")
+	{}
+};
+
 
 #endif
