@@ -12,6 +12,7 @@ PacMenGameObject::~PacMenGameObject()
 void PacMenGameObject::Init(GameMap* map_)
 {
 	m_p_game_map = map_;
+	m_p_game_map->SetPos(m_param);
 }
 
 void PacMenGameObject::Update()

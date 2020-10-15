@@ -17,7 +17,7 @@ Player::~Player()
 void Player::SelectMovePos()
 {
 	Vec2 movement = {};	// 移動量
-	Vec2 can_move_array[CAN_PLAYER_MOVE_LIST_SIZE] = {};	// 移動可能範囲
+	Vec2 can_move_array[CAN_CHARACTER_MOVE_POS_LIST] = {};	// 移動可能範囲
 	// 移動可能範囲の取得
 	m_p_game_map->GetCanPlayerMovePos(m_param.m_pos, can_move_array);
 
@@ -26,7 +26,7 @@ void Player::SelectMovePos()
 		movement = Input::Instance()->InputDirection();
 		Vec2 move_pos = { m_param.m_pos.m_x + movement.m_x,m_param.m_pos.m_y + movement.m_y };
 		// 移動先座標が移動可能範囲の中にあれば座標をセットし、終了
-		for (int i = 0; i < CAN_PLAYER_MOVE_LIST_SIZE; i++) {
+		for (int i = 0; i < CAN_CHARACTER_MOVE_POS_LIST; i++) {
 			if (move_pos.m_x == can_move_array[i].m_x &&
 				move_pos.m_y == can_move_array[i].m_y) {
 				m_p_game_map->SetMovePos(m_param, move_pos);

@@ -24,10 +24,16 @@
 #define PACMEN_ITEM_NUM 5
 
 //! プレイヤーの初期座標
-#define PLAYER_INIT_POS_WIDTH 2
+#define PLAYER_INIT_POS_WIDTH 3
 #define PLAYER_INIT_POS_HEIGHT 6
-//! プレイヤーの移動可能範囲の最大数
-#define CAN_PLAYER_MOVE_LIST_SIZE 4
+//! キャラクターの移動可能範囲の最大数
+#define CAN_CHARACTER_MOVE_POS_LIST 4
+
+//! 生成可能場所の最大数
+#define CAN_CREATE_POS_NUM 121
+
+//! モンスターの生成数
+#define MONSTER_NUM 3
 
 
 /* 列挙群 */

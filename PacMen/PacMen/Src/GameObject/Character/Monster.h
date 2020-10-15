@@ -18,6 +18,8 @@ public:
 	Monster();
 	~Monster();
 
+	void Init(GameMap* map_)override;
+
 	/**
 	* @brief 移動座標選択関数
 	* 移動可能範囲からランダムで移動座標を選択する

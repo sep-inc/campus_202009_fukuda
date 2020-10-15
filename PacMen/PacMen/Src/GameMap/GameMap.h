@@ -32,15 +32,27 @@ public:
 	void Draw(DrawerBase* drawer_);
 
 	/**
+	* @brief 指定した座標に情報をセットする関数
+	*/
+	void SetPos(PacMenObjectParam param_);
+
+	/**
 	* @brief マップに移動情報をセットする関数
+	* 移動時に移動先との当たり判定も行う
 	*/
 	void SetMovePos(PacMenObjectParam param_, Vec2 move_pos_);
+
+	int GetCanCreatePos(Vec2 list[CAN_CREATE_POS_NUM]);
 
 	/**
 	* @brief プレイヤーの移動可能範囲を返す関数
 	*/
-	void GetCanPlayerMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_PLAYER_MOVE_LIST_SIZE]);
+	int GetCanPlayerMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_CHARACTER_MOVE_POS_LIST]);
 
+	/**
+	* @brief モンスターの移動可能範囲を返す関数
+	*/
+	int GetCanMonsterMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_CHARACTER_MOVE_POS_LIST]);
 
 private:
 	//! 初期化用マップの作成関数

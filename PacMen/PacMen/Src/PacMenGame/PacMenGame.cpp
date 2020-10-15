@@ -1,6 +1,7 @@
 ﻿#include "PacMenGame.h"
 #include "../Draw/DrawerManager.h"
 #include "../GameObject/Character/Player.h"
+#include "../GameObject/Character/Monster.h"
 
 PacMenGame* PacMenGame::p_instance = 0;
 
@@ -23,6 +24,9 @@ void PacMenGame::CreateObjects()
 	if (m_p_game_map == nullptr)
 		m_p_game_map = new GameMap;
 	m_p_characters.push_back(new Player);
+	for (int i = 0; i < MONSTER_NUM; i++) {
+		m_p_characters.push_back(new Monster);
+	}
 }
 
 void PacMenGame::DestroyObjects()
