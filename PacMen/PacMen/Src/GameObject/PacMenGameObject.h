@@ -39,11 +39,26 @@ public:
 	*/
 	inline PacMenObjectParam GetMyParam()const { return m_param; }
 
+	virtual bool CheckHit();
+
+	/**
+	* @brief 死亡フラグを立てる関数
+	*/
+	inline void OnDeleteFlag() { m_is_delete = true; }
+
+	/**
+	* @brief 死亡フラグ取得関数
+	* @return 死亡フラグ
+	*/
+	inline bool GetDeleteFlag() { return m_is_delete; }
+
 
 protected:
 	// 自身のパラメータ
 	PacMenObjectParam m_param;
 	GameMap* m_p_game_map;
+
+	bool m_is_delete;	// 死亡フラグ
 };
 
 #endif

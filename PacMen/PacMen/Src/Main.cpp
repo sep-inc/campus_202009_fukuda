@@ -15,6 +15,9 @@ int main() {
 	while (true) {
 		/* ゲームの更新処理 */
 		PacMenGame::Instance()->Update();
+		if (PacMenGame::Instance()->IsGameFinish()) {
+			break;
+		}
 
 		/* 描画処理 */
 		// 出力画面のクリア

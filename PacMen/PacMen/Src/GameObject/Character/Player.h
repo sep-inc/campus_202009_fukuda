@@ -25,6 +25,8 @@ public:
 	* @return 選択した座標
 	*/
 	void SelectMovePos()override;
+
+	bool CheckHit()override;
 };
 
 #endif

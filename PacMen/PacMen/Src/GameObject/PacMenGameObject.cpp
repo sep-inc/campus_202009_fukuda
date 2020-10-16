@@ -1,7 +1,8 @@
 ﻿#include "PacMenGameObject.h"
 
 PacMenGameObject::PacMenGameObject():
-	m_p_game_map(nullptr)
+	m_p_game_map(nullptr),
+	m_is_delete(false)
 {
 }
 
@@ -23,4 +24,9 @@ void PacMenGameObject::Update()
 void PacMenGameObject::Draw(DrawerBase* drawer_)
 {
 	drawer_->SetDrawBuffer(m_param.m_pos, m_param.m_draw_string);
+}
+
+bool PacMenGameObject::CheckHit()
+{
+	return false;
 }

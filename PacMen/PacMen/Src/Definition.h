@@ -20,7 +20,7 @@
 //! ゲームに必要なオブジェクトの数
 //! キャラクター
 #define PACMEN_CHARACTER_NUM 4
-//! アイテム
+//! アイテムの生成数
 #define PACMEN_ITEM_NUM 5
 
 //! プレイヤーの初期座標
@@ -36,6 +36,7 @@
 #define MONSTER_NUM 3
 
 
+
 /* 列挙群 */
 
 //! ゲームオブジェクトの種類
@@ -47,6 +48,13 @@ enum class PacMenObjectType: uint8_t {
 	WALL,		//! 壁
 
 	MAX_TYPE
+};
+
+//! 勝敗の種類
+enum class PacMenResult : uint8_t {
+	NONE,
+	PLAYER_WIN,
+	PLAYER_LOSE
 };
 
 /* 構造体群 */

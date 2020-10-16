@@ -130,6 +130,7 @@
     <ClCompile Include="Src\GameObject\Character\CharacterBase.cpp" />
     <ClCompile Include="Src\GameObject\Character\Monster.cpp" />
     <ClCompile Include="Src\GameObject\Character\Player.cpp" />
+    <ClCompile Include="Src\GameObject\Item.cpp" />
     <ClCompile Include="Src\GameObject\PacMenGameObject.cpp" />
     <ClCompile Include="Src\Input\Input.cpp" />
     <ClCompile Include="Src\Main.cpp" />
@@ -144,6 +145,7 @@
     <ClInclude Include="Src\GameObject\Character\CharacterBase.h" />
     <ClInclude Include="Src\GameObject\Character\Monster.h" />
     <ClInclude Include="Src\GameObject\Character\Player.h" />
+    <ClInclude Include="Src\GameObject\Item.h" />
     <ClInclude Include="Src\GameObject\PacMenGameObject.h" />
     <ClInclude Include="Src\Input\Input.h" />
     <ClInclude Include="Src\PacMenGame\PacMenGame.h" />

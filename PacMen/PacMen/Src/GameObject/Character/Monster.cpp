@@ -8,7 +8,7 @@ Monster::Monster()
 	m_param.m_pos.m_x = 0;
 	m_param.m_pos.m_y = 0;
 	m_param.m_type = PacMenObjectType::MONSTER;
-	strcpy_s(m_param.m_draw_string, DRAW_STRING_SIZE, "@ ");
+	strcpy_s(m_param.m_draw_string, DRAW_STRING_SIZE, " @");
 	srand((unsigned)time(NULL));
 }
 

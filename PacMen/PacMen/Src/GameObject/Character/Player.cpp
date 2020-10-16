@@ -39,3 +39,12 @@ void Player::SelectMovePos()
 		printf("入力先には移動できません、もう一度入力して下さい\n");
 	}
 }
+
+bool Player::CheckHit()
+{
+	if (m_p_game_map->GetContent(m_param.m_pos) == PacMenObjectType::MONSTER) {
+		m_is_delete = true;
+		return m_is_delete;
+	}
+	return false;
+}

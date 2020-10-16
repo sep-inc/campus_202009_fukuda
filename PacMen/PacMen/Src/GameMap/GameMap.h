@@ -57,6 +57,13 @@ public:
 	*/
 	int GetCanMonsterMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_CHARACTER_MOVE_POS_LIST]);
 
+	/**
+	* @brief 指定されたマス目の中身を調べる関数
+	* @param pos 調べたい座標
+	* @return 中身の種類
+	*/
+	inline PacMenObjectType GetContent(Vec2 pos)const { return m_game_map[pos.m_y][pos.m_x].m_type; }
+
 private:
 	//! 初期化用マップの作成関数
 	void CreateInitGameMap();

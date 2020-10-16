@@ -43,7 +43,8 @@ public:
 public:
 	//! 各オブジェクトのポインタ変数群
 	GameMap* m_p_game_map;
-	std::vector<PacMenGameObject*> m_p_characters;
+	PacMenGameObject* m_p_player;
+	std::vector<PacMenGameObject*> m_p_monsters;
 	PacMenGameObject* m_p_items[PACMEN_ITEM_NUM];
 
 private:
@@ -60,6 +61,10 @@ private:
 	*/
 	void DestroyObjects();
 
+	bool CheckHitPlayer();
+
+	bool CheckHitItems();
+
 	static PacMenGame* p_instance;
 
 private:
@@ -71,6 +76,9 @@ private:
 	};
 
 	PacMenGameStep m_step;	//! 現在のステップ
+
+	PacMenResult m_result;	//! 勝敗状況
+	int m_item_delete_counter;
 
 	bool m_is_game_finish;	//! ゲーム終了フラグ
 
