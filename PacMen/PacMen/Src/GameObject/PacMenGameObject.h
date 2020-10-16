@@ -20,7 +20,7 @@ public:
 	PacMenGameObject();
 	virtual ~PacMenGameObject();
 
-	//! 初期化処理
+	//! 初期化処理関数
 	virtual void Init(GameMap* map_);
 
 	/**
@@ -29,28 +29,12 @@ public:
 	virtual void Update();
 
 	/**
-	* @brief 描画処理
+	* @brief 描画処理関数
 	*/
 	virtual void Draw(DrawerBase* drawer_);
 
-	/**
-	* @brief 自身の種類を返す関数
-	* @return 自身の種類
-	*/
-	inline PacMenObjectParam GetMyParam()const { return m_param; }
-
+	//! 当たり判定処理関数
 	virtual bool CheckHit();
-
-	/**
-	* @brief 死亡フラグを立てる関数
-	*/
-	inline void OnDeleteFlag() { m_is_delete = true; }
-
-	/**
-	* @brief 死亡フラグ取得関数
-	* @return 死亡フラグ
-	*/
-	inline bool GetDeleteFlag() { return m_is_delete; }
 
 
 protected:

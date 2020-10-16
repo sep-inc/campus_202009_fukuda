@@ -26,6 +26,10 @@ public:
 	*/
 	void SelectMovePos()override;
 
+	/**
+	* @brief 当たり判定処理関数
+	* @ return bool モンスターと当たっていたらtrue
+	*/
 	bool CheckHit()override;
 };
 

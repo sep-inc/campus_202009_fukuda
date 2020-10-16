@@ -28,5 +28,6 @@ void PacMenGameObject::Draw(DrawerBase* drawer_)
 
 bool PacMenGameObject::CheckHit()
 {
+	// 空
 	return false;
 }

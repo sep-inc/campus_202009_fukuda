@@ -61,8 +61,16 @@ private:
 	*/
 	void DestroyObjects();
 
+	/**
+	* @brief プレイヤーのヒット時の処理関数
+	* @return bool プレイヤーの死亡フラグが立ったらtrue
+	*/
 	bool CheckHitPlayer();
 
+	/**
+	* @brief アイテムのヒット時の処理関数
+	* @return bool 全アイテムが消えたらtrue
+	*/
 	bool CheckHitItems();
 
 	static PacMenGame* p_instance;
@@ -77,9 +85,8 @@ private:
 
 	PacMenGameStep m_step;	//! 現在のステップ
 
-	PacMenResult m_result;	//! 勝敗状況
-	int m_item_delete_counter;
-
+	PacMenResult m_result;		//! 勝敗状況
+	int m_item_delete_counter;	//! アイテム取得数
 	bool m_is_game_finish;	//! ゲーム終了フラグ
 
 };

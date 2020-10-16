@@ -14,10 +14,12 @@ Item::Item(int number_)
 	// 引数でもらった整数を文字に変換
 	std::ostringstream num_string;
 	num_string << number_;
-	
+	// 描画文字作成
 	std::string draw_string = " ";
 	draw_string += num_string.str();
+	// 描画文字セット
 	strcpy_s(m_param.m_draw_string, DRAW_STRING_SIZE, draw_string.c_str());
+
 	srand((unsigned)time(NULL));
 }
 

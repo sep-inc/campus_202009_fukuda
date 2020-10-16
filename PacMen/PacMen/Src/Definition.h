@@ -17,11 +17,6 @@
 //! 描画する文字列のサイズ
 #define DRAW_STRING_SIZE 8
 
-//! ゲームに必要なオブジェクトの数
-//! キャラクター
-#define PACMEN_CHARACTER_NUM 4
-//! アイテムの生成数
-#define PACMEN_ITEM_NUM 5
 
 //! プレイヤーの初期座標
 #define PLAYER_INIT_POS_WIDTH 3
@@ -33,8 +28,10 @@
 #define CAN_CREATE_POS_NUM 121
 
 //! モンスターの生成数
-#define MONSTER_NUM 3
+#define PACMEN_MONSTER_NUM 3
 
+//! アイテムの生成数
+#define PACMEN_ITEM_NUM 5
 
 
 /* 列挙群 */
@@ -57,6 +54,7 @@ enum class PacMenResult : uint8_t {
 	PLAYER_LOSE
 };
 
+
 /* 構造体群 */
 
 struct Vec2
@@ -67,9 +65,9 @@ struct Vec2
 
 //! ゲームオブジェクトの必要パラメータ
 struct PacMenObjectParam {
-	Vec2 m_pos;
-	PacMenObjectType m_type;
-	char m_draw_string[DRAW_STRING_SIZE];
+	Vec2 m_pos;								//! 現在の座標
+	PacMenObjectType m_type;				//! オブジェクトの種類
+	char m_draw_string[DRAW_STRING_SIZE];	//! 描画文字
 
 	PacMenObjectParam():
 		m_pos{},

@@ -8,7 +8,8 @@ PacMenGame* PacMenGame::p_instance = 0;
 
 PacMenGame::PacMenGame() :
 	m_p_game_map(nullptr),
-	m_p_monsters{ MONSTER_NUM,nullptr },
+	m_p_player(nullptr),
+	m_p_monsters{ PACMEN_MONSTER_NUM,nullptr },
 	m_p_items{nullptr},
 	m_step(PacMenGameStep::STEP_INITIALIZE),
 	m_result(PacMenResult::NONE),
@@ -22,13 +23,107 @@ PacMenGame::~PacMenGame()
 	DestroyObjects();
 }
 
+void PacMenGame::Update()
+{
+	switch (m_step) {
+	case PacMenGameStep::STEP_INITIALIZE:
+		/* オブジェクトの生成 */
+		CreateObjects();
+
+		/* 初期化処理 */
+		m_p_game_map->Init();
+		m_p_player->Init(m_p_game_map);
+		for (PacMenGameObject* e : m_p_monsters) {
+			if (e != nullptr) {
+				e->Init(m_p_game_map);
+			}
+		}
+		for (int i = 0; i < PACMEN_ITEM_NUM; i++) {
+			m_p_items[i]->Init(m_p_game_map);
+		}
+
+		/* ステップ移行 */
+		m_step = PacMenGameStep::STEP_UPDATE;
+		break;
+
+	case PacMenGameStep::STEP_UPDATE:
+		/* 更新処理 */
+		// アイテムの更新処理
+		for (int i = 0; i < PACMEN_ITEM_NUM; i++) {
+			m_p_items[i]->Update();
+		}
+		// プレイヤーの更新処理
+		m_p_player->Update();
+
+		/* ゲームの終了判定 */
+		if (CheckHitPlayer()) {
+			m_step = PacMenGameStep::STEP_END;
+			break;
+		}
+		if (CheckHitItems()) {
+			m_step = PacMenGameStep::STEP_END;
+			break;
+		}
+
+		/* モンスターの更新処理 */
+		for (PacMenGameObject* e : m_p_monsters) {
+			if (e != nullptr) {
+				e->Update();
+			}
+		}
+
+		/* ゲームの終了判定 */
+		if (CheckHitPlayer()) {
+			m_step = PacMenGameStep::STEP_END;
+		}
+		break;
+
+	case PacMenGameStep::STEP_END:
+		m_is_game_finish = true;
+		DestroyObjects();
+		break;
+	}
+}
+
+void PacMenGame::Draw()
+{
+	// マップの描画処理
+	m_p_game_map->Draw(DrawerManager::Instance()->m_p_drawer);
+	// アイテムの描画処理
+	for (int i = 0; i < PACMEN_ITEM_NUM; i++) {
+		m_p_items[i]->Draw(DrawerManager::Instance()->m_p_drawer);
+	}
+	// プレイヤーの描画処理
+	m_p_player->Draw(DrawerManager::Instance()->m_p_drawer);
+	// モンスターの描画処理
+	for (PacMenGameObject* e : m_p_monsters) {
+		if (e != nullptr) {
+			e->Draw(DrawerManager::Instance()->m_p_drawer);
+		}
+	}
+}
+
+void PacMenGame::SetResult()
+{
+	switch (m_result) {
+	case PacMenResult::NONE:
+		return;
+	case PacMenResult::PLAYER_WIN:
+		DrawerManager::Instance()->m_p_drawer->SetResultString("プレイヤーの勝利\n");
+		return;
+	case PacMenResult::PLAYER_LOSE:
+		DrawerManager::Instance()->m_p_drawer->SetResultString("プレイヤーの敗北\n");
+		return;
+	}
+}
+
 void PacMenGame::CreateObjects()
 {
 	if (m_p_game_map == nullptr)
 		m_p_game_map = new GameMap;
 	if (m_p_player == nullptr)
 		m_p_player = new Player;
-	for (int i = 0; i < MONSTER_NUM; i++) {
+	for (int i = 0; i < PACMEN_MONSTER_NUM; i++) {
 		m_p_monsters.push_back(new Monster);
 	}
 	for (int i = 0; i < PACMEN_ITEM_NUM; i++) {
@@ -93,96 +188,4 @@ PacMenGame* PacMenGame::Instance()
 		p_instance = new PacMenGame;
 	}
 	return p_instance;
-}
-
-void PacMenGame::Update()
-{
-	switch (m_step) {
-	case PacMenGameStep::STEP_INITIALIZE:
-		// オブジェクトの生成	
-		CreateObjects();
-
-		// 初期化処理
-		m_p_game_map->Init();
-		m_p_player->Init(m_p_game_map);
-		for (PacMenGameObject* e : m_p_monsters) {
-			if (e != nullptr) {
-				e->Init(m_p_game_map);
-			}
-		}
-		for (int i = 0; i < PACMEN_ITEM_NUM; i++) {
-			m_p_items[i]->Init(m_p_game_map);
-		}
-
-		// ステップ移行
-		m_step = PacMenGameStep::STEP_UPDATE;
-		break;
-
-	case PacMenGameStep::STEP_UPDATE:
-		/* 更新処理 */
-		// アイテムの更新処理
-		for (int i = 0; i < PACMEN_ITEM_NUM; i++) {
-			m_p_items[i]->Update();
-		}
-		// プレイヤーの更新処理
-		m_p_player->Update();
-
-		/* ゲームの終了判定 */
-		if (CheckHitPlayer()) {
-			m_step = PacMenGameStep::STEP_END;
-			break;
-		}
-		if (CheckHitItems()) {
-			m_step = PacMenGameStep::STEP_END;
-			break;
-		}
-
-		/* モンスターの更新処理 */
-		for (PacMenGameObject* e : m_p_monsters) {
-			if (e != nullptr) {
-				e->Update();
-			}
-		}
-
-		/* ゲームの終了判定 */
-		if (CheckHitPlayer()) {
-			m_step = PacMenGameStep::STEP_END;
-			break;
-		}
-
-		break;
-
-	case PacMenGameStep::STEP_END:
-		m_is_game_finish = true;
-		DestroyObjects();
-		break;
-	}
-}
-
-void PacMenGame::Draw()
-{
-	m_p_game_map->Draw(DrawerManager::Instance()->m_p_drawer);
-	for (int i = 0; i < PACMEN_ITEM_NUM; i++) {
-		m_p_items[i]->Draw(DrawerManager::Instance()->m_p_drawer);
-	}
-	m_p_player->Draw(DrawerManager::Instance()->m_p_drawer);
-	for (PacMenGameObject* e : m_p_monsters) {
-		if (e != nullptr) {
-			e->Draw(DrawerManager::Instance()->m_p_drawer);
-		}
-	}
-}
-
-void PacMenGame::SetResult()
-{
-	switch (m_result) {
-	case PacMenResult::NONE:
-		return;
-	case PacMenResult::PLAYER_WIN:
-		DrawerManager::Instance()->m_p_drawer->SetResultString("プレイヤーの勝利\n");
-		return;
-	case PacMenResult::PLAYER_LOSE:
-		DrawerManager::Instance()->m_p_drawer->SetResultString("プレイヤーの敗北\n");
-		return;
-	}
 }

@@ -41,14 +41,17 @@ void GameMap::SetMovePos(PacMenObjectParam param_, Vec2 move_pos_)
 	switch (param_.m_type) {
 	case PacMenObjectType::PLAYER:
 		if (m_game_map[move_pos_.m_y][move_pos_.m_x].m_type == PacMenObjectType::MONSTER) {
+			// 自身の場所を空にする
 			m_game_map[param_.m_pos.m_y][param_.m_pos.m_x] = m_empty;
 		}
 		else if (m_game_map[move_pos_.m_y][move_pos_.m_x].m_type == PacMenObjectType::ITEM) {
+			// 自身の場所を空にして、移動先に移動する
 			m_game_map[param_.m_pos.m_y][param_.m_pos.m_x] = m_empty;
 			m_game_map[move_pos_.m_y][move_pos_.m_x] = param_;
 		}
 		break;
 	case PacMenObjectType::MONSTER:
+		// 自身の場所を空にして、移動先に移動する
 		m_game_map[param_.m_pos.m_y][param_.m_pos.m_x] = m_empty;
 		m_game_map[move_pos_.m_y][move_pos_.m_x] = param_;
 		break;
@@ -58,6 +61,7 @@ void GameMap::SetMovePos(PacMenObjectParam param_, Vec2 move_pos_)
 int GameMap::GetCanCreatePos(Vec2 list[CAN_CREATE_POS_NUM])
 {
 	int index = 0;
+	// 外枠の壁を除いて空の場所を検索する
 	for (int x = 1; x < PACMEN_DRAW_BUFFER_WIDTH - 1; x++) {
 		for (int y = 1; y < PACMEN_DRAW_BUFFER_HEIGHT - 1; y++) {
 			if (m_game_map[y][x].m_type == PacMenObjectType::TYPE_EMPTY) {
@@ -69,7 +73,6 @@ int GameMap::GetCanCreatePos(Vec2 list[CAN_CREATE_POS_NUM])
 	}
 	return index;
 }
-
 
 int GameMap::GetCanPlayerMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_CHARACTER_MOVE_POS_LIST])
 {
@@ -100,7 +103,6 @@ int GameMap::GetCanPlayerMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_CHARACTER_MO
 	}
 	return tmp;
 }
-
 
 int GameMap::GetCanMonsterMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_CHARACTER_MOVE_POS_LIST])
 {
@@ -138,9 +140,11 @@ int GameMap::GetCanMonsterMovePos(Vec2 now_pos_, Vec2 move_list_[CAN_CHARACTER_M
 
 void GameMap::CreateInitGameMap()
 {
+	// 壁の定義
 	PacMenObjectParam wall;
 	wall.m_type = PacMenObjectType::WALL;
 	strcpy_s(wall.m_draw_string, DRAW_STRING_SIZE, "■");
+
 	// 外枠作成
 	for (int y = 0; y < PACMEN_DRAW_BUFFER_HEIGHT; y++) {
 		m_init_game_map[y][0] = wall;
@@ -166,6 +170,7 @@ void GameMap::ClearGameMap()
 	memcpy(m_game_map, m_init_game_map, sizeof(m_init_game_map));
 }
 
+// 壁の配置
 int GameMap::m_init_wall[PACMEN_DRAW_BUFFER_HEIGHT][PACMEN_DRAW_BUFFER_WIDTH] = {
 	{0,0,0,0,0,0,0,0,0,0,0},
 	{0,1,1,1,1,1,0,1,1,1,0},

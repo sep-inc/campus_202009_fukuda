@@ -18,6 +18,9 @@ public:
 	CharacterBase();
 	virtual ~CharacterBase();
 
+	/**
+	* @brief キャラクターの更新処理関数
+	*/
 	void Update()override;
 
 	//! 移動座標選択処理
