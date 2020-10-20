@@ -19,6 +19,9 @@
     <Filter Include="Src\RunGame">
       <UniqueIdentifier>{71623a88-f9b7-48f9-bd84-df5468767daf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\GameCamera">
+      <UniqueIdentifier>{bc658105-822f-4004-9474-14606820f0c9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Main.cpp">
@@ -39,6 +42,9 @@
     <ClCompile Include="Src\RunGame\RunGame.cpp">
       <Filter>Src\RunGame</Filter>
     </ClCompile>
+    <ClCompile Include="Src\GameMap\GameMap.cpp">
+      <Filter>Src\GameMap</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Input\Input.h">
@@ -58,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="Src\RunGame\RunGame.h">
       <Filter>Src\RunGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GameMap\GameMap.h">
+      <Filter>Src\GameMap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
