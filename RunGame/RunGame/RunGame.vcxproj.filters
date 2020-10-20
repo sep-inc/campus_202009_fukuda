@@ -10,6 +10,15 @@
     <Filter Include="Src\Input">
       <UniqueIdentifier>{e67278ba-8635-47cf-8f20-9412cb2abb73}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\GameMap">
+      <UniqueIdentifier>{2a579c3b-4aaa-43b5-8431-a0a24188c0f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Player">
+      <UniqueIdentifier>{8cbd1d36-5f94-4609-892d-1e327d335783}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\RunGame">
+      <UniqueIdentifier>{71623a88-f9b7-48f9-bd84-df5468767daf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Main.cpp">
@@ -27,6 +36,9 @@
     <ClCompile Include="Src\Draw\DrawerManager.cpp">
       <Filter>Src\Draw</Filter>
     </ClCompile>
+    <ClCompile Include="Src\RunGame\RunGame.cpp">
+      <Filter>Src\RunGame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Input\Input.h">
@@ -43,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="Src\Draw\RunGameDrawer.h">
       <Filter>Src\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\RunGame\RunGame.h">
+      <Filter>Src\RunGame</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

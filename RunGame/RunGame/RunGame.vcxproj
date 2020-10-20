@@ -128,6 +128,7 @@
     <ClCompile Include="Src\Draw\RunGameDrawer.cpp" />
     <ClCompile Include="Src\Input\Input.cpp" />
     <ClCompile Include="Src\Main.cpp" />
+    <ClCompile Include="Src\RunGame\RunGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\Definition.h" />
@@ -135,6 +136,7 @@
     <ClInclude Include="Src\Draw\DrawerManager.h" />
     <ClInclude Include="Src\Draw\RunGameDrawer.h" />
     <ClInclude Include="Src\Input\Input.h" />
+    <ClInclude Include="Src\RunGame\RunGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
