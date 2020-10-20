@@ -7,7 +7,6 @@
 */
 
 #include "DrawerBase.h"
-#include "../Definition.h"
 
 /**
 * @class DrawerManager
