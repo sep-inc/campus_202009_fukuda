@@ -34,7 +34,13 @@ void GameMap::Draw(DrawerBase* drawer_)
 
 void GameMap::CreateMap()
 {
+	
 	int num = 0;
+	// 最初のみ平坦な地形にする
+	AddMapParts(m_map_pattern1, RUNGAME_MAP_HEIGHT, num);
+	num++;
+
+	// 地形パターンからランダムで選択
 	while (num * RUNGAME_MAP_PARTS_WIDTH <= RUNGAME_MAP_PARTS_WIDTH) {
 		int rand_num = rand() % RUNGAME_MAP_PARTS_NUM;
 
@@ -72,10 +78,12 @@ void GameMap::AddMapParts(int parts_[][RUNGAME_MAP_PARTS_WIDTH], int height_, in
 
 void GameMap::ConvertGameMap()
 {
+	// 地面の定義
 	ObjectParam ground;
 	ground.m_type = ObjectType::GROUND;
 	strcpy_s(ground.m_draw_string, DRAW_STRING_SIZE, "■");
 	
+	// 地面情報のセット
 	for (int y = 0; y < RUNGAME_MAP_HEIGHT; y++) {
 		for (int x = 0; x < RUNGAME_MAP_WIDTH; x++) {
 			if (m_ground_map[y][x] == 1) {

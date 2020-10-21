@@ -7,6 +7,9 @@
 */
 
 #include "../GameMap/GameMap.h"
+#include "../FrameCounter/FrameCounter.h"
+#include "../Player/Player.h"
+#include "../GameCamera/GameCamera.h"
 #include "../Draw/DrawerBase.h"
 
 /**
@@ -43,6 +46,9 @@ public:
 public:
 	//! 各オブジェクトのポインタ変数群
 	GameMap* m_p_map;
+	FrameCounter* m_p_frame_counter;
+	Player* m_p_player;
+	GameCamera* m_p_camera;
 
 private:
 	RunGame();

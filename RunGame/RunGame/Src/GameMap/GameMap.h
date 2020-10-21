@@ -49,14 +49,11 @@ private:
 	//! ゲームオブジェクトの情報を格納したマップ
 	ObjectParam m_game_map[RUNGAME_MAP_HEIGHT][RUNGAME_MAP_WIDTH];
 
+	//! マップのパターン
 	static int m_map_pattern1[RUNGAME_MAP_HEIGHT][RUNGAME_MAP_PARTS_WIDTH];
-
 	static int m_map_pattern2[RUNGAME_MAP_HEIGHT][RUNGAME_MAP_PARTS_WIDTH];
-
 	static int m_map_pattern3[RUNGAME_MAP_HEIGHT][RUNGAME_MAP_PARTS_WIDTH];
-
 	static int m_map_pattern4[RUNGAME_MAP_HEIGHT][RUNGAME_MAP_PARTS_WIDTH];
-
 };
 
 #endif
