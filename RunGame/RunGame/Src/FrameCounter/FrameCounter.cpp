@@ -15,7 +15,7 @@ void FrameCounter::UpdateCounter()
 	// カウントを加算
 	m_now_frame++;
 	// 指定フレームを超えたらリセット
-	if (m_now_frame >= UPDATE_FRAME_NUM) {
+	if (m_now_frame > UPDATE_FRAME_NUM) {
 		ResetCounter();
 	}
 }
@@ -28,7 +28,7 @@ void FrameCounter::ResetCounter()
 bool FrameCounter::IsCountMax()
 {
 	// 指定フレームならtrue
-	if (m_now_frame == UPDATE_FRAME_NUM) {
+	if (m_now_frame >= UPDATE_FRAME_NUM) {
 		return true;
 	}
 	return false;

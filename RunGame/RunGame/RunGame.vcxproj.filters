@@ -19,9 +19,6 @@
     <Filter Include="Src\RunGame">
       <UniqueIdentifier>{71623a88-f9b7-48f9-bd84-df5468767daf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Src\GameCamera">
-      <UniqueIdentifier>{bc658105-822f-4004-9474-14606820f0c9}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Src\FrameCounter">
       <UniqueIdentifier>{c2ac43e4-0a8b-40a3-84dd-82bf44f85775}</UniqueIdentifier>
     </Filter>
@@ -47,9 +44,6 @@
     </ClCompile>
     <ClCompile Include="Src\GameMap\GameMap.cpp">
       <Filter>Src\GameMap</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\GameCamera\GameCamera.cpp">
-      <Filter>Src\GameCamera</Filter>
     </ClCompile>
     <ClCompile Include="Src\Player\Player.cpp">
       <Filter>Src\Player</Filter>
@@ -79,9 +73,6 @@
     </ClInclude>
     <ClInclude Include="Src\RunGame\RunGame.h">
       <Filter>Src\RunGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\GameCamera\GameCamera.h">
-      <Filter>Src\GameCamera</Filter>
     </ClInclude>
     <ClInclude Include="Src\Player\Player.h">
       <Filter>Src\Player</Filter>

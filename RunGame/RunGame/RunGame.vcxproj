@@ -127,7 +127,6 @@
     <ClCompile Include="Src\Draw\DrawerManager.cpp" />
     <ClCompile Include="Src\Draw\RunGameDrawer.cpp" />
     <ClCompile Include="Src\FrameCounter\FrameCounter.cpp" />
-    <ClCompile Include="Src\GameCamera\GameCamera.cpp" />
     <ClCompile Include="Src\GameMap\GameMap.cpp" />
     <ClCompile Include="Src\Input\Input.cpp" />
     <ClCompile Include="Src\Main.cpp" />
@@ -140,7 +139,6 @@
     <ClInclude Include="Src\Draw\DrawerManager.h" />
     <ClInclude Include="Src\Draw\RunGameDrawer.h" />
     <ClInclude Include="Src\FrameCounter\FrameCounter.h" />
-    <ClInclude Include="Src\GameCamera\GameCamera.h" />
     <ClInclude Include="Src\GameMap\GameMap.h" />
     <ClInclude Include="Src\Input\Input.h" />
     <ClInclude Include="Src\Player\Player.h" />

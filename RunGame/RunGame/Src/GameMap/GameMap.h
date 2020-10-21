@@ -19,6 +19,11 @@ public:
 	GameMap();
 	~GameMap();
 
+	/**
+	* @brief 指定フレームのみ行う更新処理関数
+	* @param is_count_max_ カウントが指定フレームに達しているか
+	*/
+	void FixedUpdate(bool is_count_max_);
 
 	/**
 	* @brief 初期化関数
@@ -26,6 +31,11 @@ public:
 	void Init();
 
 	void Draw(DrawerBase* drawer_);
+
+	/**
+	* @brief Player情報をセットする関数
+	*/
+	void SetPlayer(Vec2 player_pos);
 
 
 private:
@@ -41,6 +51,11 @@ private:
 	*/
 	void ConvertGameMap();
 
+	/**
+	* @brief カメラの更新関数
+	*/
+	void UpdateCamera();
+
 
 private:
 	//! 地面の配置のみを格納するマップ
@@ -54,6 +69,9 @@ private:
 	static int m_map_pattern2[RUNGAME_MAP_HEIGHT][RUNGAME_MAP_PARTS_WIDTH];
 	static int m_map_pattern3[RUNGAME_MAP_HEIGHT][RUNGAME_MAP_PARTS_WIDTH];
 	static int m_map_pattern4[RUNGAME_MAP_HEIGHT][RUNGAME_MAP_PARTS_WIDTH];
+
+	Vec2 m_camera_pos;
+	int m_camera_speed;
 };
 
 #endif

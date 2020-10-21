@@ -7,6 +7,7 @@
 */
 
 #include "../Definition.h"
+#include "../GameMap/GameMap.h"
 
 /**
 * @class Player
@@ -26,7 +27,7 @@ public:
 	/**
 	* @brief 初期化関数
  	*/
-	void Init();
+	void Init(GameMap* map_);
 
 	/**
 	* @brief 指定フレームのみ行う更新処理関数
@@ -50,6 +51,9 @@ private:
 	int m_speed;				//! 移動速度
 	int m_jump_height;			//! ジャンプの高さ
 	PlayerState m_now_state;	//! 現在の状態
+
+	//! 参照用
+	GameMap* m_p_map;
 
 };
 

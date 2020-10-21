@@ -4,7 +4,9 @@
 #include <cstring>
 
 GameMap::GameMap():
-	m_ground_map{0}
+	m_ground_map{0},
+	m_camera_pos{},
+	m_camera_speed(PLAYER_MOVE_SPEED)
 {
 	srand((unsigned)time(NULL));
 }
@@ -13,6 +15,13 @@ GameMap::~GameMap()
 {
 }
 
+
+void GameMap::FixedUpdate(bool is_count_max_)
+{
+	if (is_count_max_ == true) {
+		UpdateCamera();
+	}
+}
 
 void GameMap::Init()
 {
@@ -27,7 +36,7 @@ void GameMap::Draw(DrawerBase* drawer_)
 	Vec2 pos;
 	for (pos.m_y = 0; pos.m_y < RUNGAME_DRAW_BUFFER_HEIGHT; pos.m_y++) {
 		for (pos.m_x = 0; pos.m_x < RUNGAME_DRAW_BUFFER_WIDTH; pos.m_x++) {
-			drawer_->SetDrawBuffer(pos, m_game_map[pos.m_y][pos.m_x].m_draw_string);
+			drawer_->SetDrawBuffer(pos, m_game_map[m_camera_pos.m_y + pos.m_y][m_camera_pos.m_x + pos.m_x].m_draw_string);
 		}
 	}
 }
@@ -41,7 +50,7 @@ void GameMap::CreateMap()
 	num++;
 
 	// 地形パターンからランダムで選択
-	while (num * RUNGAME_MAP_PARTS_WIDTH <= RUNGAME_MAP_PARTS_WIDTH) {
+	while (num < RUNGAME_MAP_WIDTH / RUNGAME_MAP_PARTS_WIDTH) {
 		int rand_num = rand() % RUNGAME_MAP_PARTS_NUM;
 
 		switch (rand_num)
@@ -69,10 +78,13 @@ void GameMap::CreateMap()
 void GameMap::AddMapParts(int parts_[][RUNGAME_MAP_PARTS_WIDTH], int height_, int add_num_)
 {
 	// 追加するパーツがマップのサイズを超えていない場合
-	if (add_num_ * RUNGAME_MAP_PARTS_WIDTH <= RUNGAME_MAP_WIDTH) {
-		for (int y = 0; y < height_; y++) {
-			memcpy(&m_ground_map[y][add_num_ * RUNGAME_MAP_PARTS_WIDTH], parts_[y], sizeof(parts_[y]));
-		}
+	// if (add_num_ * RUNGAME_MAP_PARTS_WIDTH <= RUNGAME_MAP_WIDTH) {
+	// 	for (int y = 0; y < height_; y++) {
+	// 		memcpy(&m_ground_map[y][add_num_ * RUNGAME_MAP_PARTS_WIDTH], parts_[y], sizeof(parts_[y]));
+	// 	}
+	// }
+	for (int y = 0; y < height_; y++) {
+		memcpy(&m_ground_map[y][add_num_ * RUNGAME_MAP_PARTS_WIDTH], parts_[y], sizeof(parts_[y]));
 	}
 }
 
@@ -92,6 +104,13 @@ void GameMap::ConvertGameMap()
 		}
 	}
 
+}
+
+void GameMap::UpdateCamera()
+{
+	if (m_camera_pos.m_x + RUNGAME_DRAW_BUFFER_WIDTH <= RUNGAME_MAP_WIDTH) {
+		m_camera_pos.m_x++;
+	}
 }
 
 int GameMap::m_map_pattern1[RUNGAME_MAP_HEIGHT][RUNGAME_MAP_PARTS_WIDTH] =

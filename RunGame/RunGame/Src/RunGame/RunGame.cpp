@@ -6,7 +6,6 @@ RunGame::RunGame():
 	m_p_map(nullptr),
 	m_p_frame_counter(nullptr),
 	m_p_player(nullptr),
-	m_p_camera(nullptr),
 	m_step(RunGameStep::STEP_INITIALIZE),
 	m_result(RunGameResult::NONE),
 	m_is_game_finish(false)
@@ -37,8 +36,7 @@ void RunGame::Update()
 		/* 初期化処理 */
 		m_p_map->Init();
 		m_p_frame_counter->ResetCounter();
-		m_p_player->Init();
-		m_p_camera->Init(m_p_player, m_p_map);
+		m_p_player->Init(m_p_map);
 
 		/* ステップ移行 */
 		m_step = RunGameStep::STEP_UPDATE;
@@ -46,7 +44,7 @@ void RunGame::Update()
 
 	case RunGameStep::STEP_UPDATE:
 		/* 更新処理 */
-		
+		m_p_map->FixedUpdate(m_p_frame_counter->IsCountMax());
 
 		m_p_frame_counter->UpdateCounter();
 		break;
@@ -75,8 +73,6 @@ void RunGame::CreateObjects()
 		m_p_frame_counter = new FrameCounter;
 	if (m_p_player == nullptr)
 		m_p_player = new Player;
-	if (m_p_camera == nullptr)
-		m_p_camera = new GameCamera;
 }
 
 void RunGame::DestroyObjects()
@@ -93,8 +89,5 @@ void RunGame::DestroyObjects()
 		delete m_p_player;
 		m_p_player = nullptr;
 	}
-	if (m_p_camera != nullptr) {
-		delete m_p_camera;
-		m_p_camera = nullptr;
-	}
+
 }
