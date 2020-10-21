@@ -62,11 +62,11 @@
     <ClInclude Include="Src\Draw\RunGameDrawer.h">
       <Filter>Src\Draw</Filter>
     </ClInclude>
-    <ClInclude Include="Src\RunGame\RunGame.h">
-      <Filter>Src\RunGame</Filter>
-    </ClInclude>
     <ClInclude Include="Src\GameMap\GameMap.h">
       <Filter>Src\GameMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\RunGame\RunGame.h">
+      <Filter>Src\RunGame</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

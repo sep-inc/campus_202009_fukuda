@@ -3,6 +3,7 @@
 RunGame* RunGame::p_instance = 0;
 
 RunGame::RunGame():
+	m_p_map(nullptr),
 	m_step(RunGameStep::STEP_INITIALIZE),
 	m_result(RunGameResult::NONE),
 	m_is_game_finish(false)
@@ -31,6 +32,7 @@ void RunGame::Update()
 		CreateObjects();
 
 		/* 初期化処理 */
+		m_p_map->Init();
 
 		/* ステップ移行 */
 		m_step = RunGameStep::STEP_UPDATE;
@@ -48,8 +50,9 @@ void RunGame::Update()
 	}
 }
 
-void RunGame::Draw()
+void RunGame::Draw(DrawerBase* drawer_)
 {
+	m_p_map->Draw(drawer_);
 }
 
 void RunGame::SetResult()
@@ -58,8 +61,14 @@ void RunGame::SetResult()
 
 void RunGame::CreateObjects()
 {
+	if (m_p_map == nullptr)
+		m_p_map = new GameMap;
 }
 
 void RunGame::DestroyObjects()
 {
+	if (m_p_map != nullptr) {
+		delete m_p_map;
+		m_p_map = nullptr;
+	}
 }

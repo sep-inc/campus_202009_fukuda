@@ -6,6 +6,9 @@
 * @brief RunGameクラスのヘッダ
 */
 
+#include "../GameMap/GameMap.h"
+#include "../Draw/DrawerBase.h"
+
 /**
 * @class RunGame
 * @brief Runゲーム本体
@@ -23,7 +26,7 @@ public:
 	/**
 	* @brief 描画処理関数
 	*/
-	void Draw();
+	void Draw(DrawerBase* drawer_);
 
 	/**
 	* @brief 勝敗情報のセット関数
@@ -39,7 +42,7 @@ public:
 
 public:
 	//! 各オブジェクトのポインタ変数群
-
+	GameMap* m_p_map;
 
 private:
 	RunGame();

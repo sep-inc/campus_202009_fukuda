@@ -1,4 +1,5 @@
 ﻿#include "Draw/DrawerManager.h"
+#include "RunGame/RunGame.h"
 #include <cstdlib>
 #include <csignal>
 
@@ -13,6 +14,7 @@ int main() {
 
 	while (true) {
 		/* ゲームの更新処理 */
+		RunGame::Instance()->Update();
 
 		/* 描画処理 */
 		// 出力画面のクリア
@@ -20,10 +22,9 @@ int main() {
 		// 描画情報のクリア
 		DrawerManager::Instance()->m_p_drawer->Clear();
 		// 描画情報のセット
-
+		RunGame::Instance()->Draw(DrawerManager::Instance()->m_p_drawer);
 		// 描画
 		DrawerManager::Instance()->m_p_drawer->Draw();
-
 	}
 
 	DrawerManager::Instance()->DeleteDrawer();
