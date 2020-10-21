@@ -77,14 +77,11 @@ void GameMap::CreateMap()
 
 void GameMap::AddMapParts(int parts_[][RUNGAME_MAP_PARTS_WIDTH], int height_, int add_num_)
 {
-	// 追加するパーツがマップのサイズを超えていない場合
-	// if (add_num_ * RUNGAME_MAP_PARTS_WIDTH <= RUNGAME_MAP_WIDTH) {
-	// 	for (int y = 0; y < height_; y++) {
-	// 		memcpy(&m_ground_map[y][add_num_ * RUNGAME_MAP_PARTS_WIDTH], parts_[y], sizeof(parts_[y]));
-	// 	}
-	// }
-	for (int y = 0; y < height_; y++) {
-		memcpy(&m_ground_map[y][add_num_ * RUNGAME_MAP_PARTS_WIDTH], parts_[y], sizeof(parts_[y]));
+	// 生成範囲がマップの範囲を超えていない場合
+	if (add_num_ < RUNGAME_MAP_WIDTH / RUNGAME_MAP_PARTS_WIDTH) {
+		for (int y = 0; y < height_; y++) {
+			memcpy(&m_ground_map[y][add_num_ * RUNGAME_MAP_PARTS_WIDTH], parts_[y], sizeof(parts_[y]));
+		}
 	}
 }
 
@@ -108,7 +105,8 @@ void GameMap::ConvertGameMap()
 
 void GameMap::UpdateCamera()
 {
-	if (m_camera_pos.m_x + RUNGAME_DRAW_BUFFER_WIDTH <= RUNGAME_MAP_WIDTH) {
+	// カメラの範囲がマップの範囲を超えていない場合
+	if (m_camera_pos.m_x + RUNGAME_DRAW_BUFFER_WIDTH < RUNGAME_MAP_WIDTH) {
 		m_camera_pos.m_x++;
 	}
 }
