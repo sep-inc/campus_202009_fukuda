@@ -10,7 +10,6 @@ RunGame::RunGame():
 	m_result(RunGameResult::NONE),
 	m_is_game_finish(false)
 {
-
 }
 
 RunGame::~RunGame()
@@ -45,10 +44,14 @@ void RunGame::Update()
 
 	case RunGameStep::STEP_UPDATE:
 		/* 更新処理 */
+		// 毎フレーム行う更新
 		m_p_player->Update();
+
+		// 指定フレームのみ行う更新
 		m_p_player->FixedUpdate(m_p_frame_counter->IsCountMax());
 		m_p_map->FixedUpdate(m_p_frame_counter->IsCountMax());
 
+		/* 勝敗判定 */
 		if (m_p_player->IsClear()) {
 			m_result = RunGameResult::WIN;
 			m_step = RunGameStep::STEP_END;
@@ -58,6 +61,7 @@ void RunGame::Update()
 			m_step = RunGameStep::STEP_END;
 		}
 
+		// フレームカウント更新
 		m_p_frame_counter->UpdateCounter();
 		break;
 

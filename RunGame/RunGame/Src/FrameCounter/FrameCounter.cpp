@@ -16,7 +16,7 @@ void FrameCounter::UpdateCounter()
 	m_now_frame++;
 	// 指定フレームを超えたらリセット
 	if (m_now_frame > UPDATE_FRAME_NUM) {
-		ResetCounter();
+ 		ResetCounter();
 	}
 }
 
