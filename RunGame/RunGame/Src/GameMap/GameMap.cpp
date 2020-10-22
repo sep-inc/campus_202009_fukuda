@@ -19,7 +19,9 @@ GameMap::~GameMap()
 void GameMap::FixedUpdate(bool is_count_max_)
 {
 	if (is_count_max_ == true) {
+		// マップ情報のクリア
 		ClearMap();
+		// カメラの更新処理
 		UpdateCamera();
 	}
 }
@@ -30,7 +32,7 @@ void GameMap::Init()
 	CreateMap();
 	// ゲームマップへ作成情報を反映
 	ConvertGameMap();
-
+	// マップを初期化マップでクリア
 	ClearMap();
 }
 
@@ -46,9 +48,11 @@ void GameMap::Draw(DrawerBase* drawer_)
 
 void GameMap::SetPlayer(Vec2 player_pos_, ObjectParam player_, ObjectParam player_head_)
 {
+	// プレイヤー情報セット
 	if (player_pos_.m_y >= 0) {
 		m_game_map[player_pos_.m_y][player_pos_.m_x] = player_;
 	}
+	// プレイヤーの上半身情報をセット
 	if (player_pos_.m_y - 1 >= 0) {
 		m_game_map[player_pos_.m_y - 1][player_pos_.m_x] = player_head_;
 	}
@@ -56,7 +60,9 @@ void GameMap::SetPlayer(Vec2 player_pos_, ObjectParam player_, ObjectParam playe
 
 bool GameMap::IsHitGround(Vec2 pos_)
 {
-	if (m_ground_map[pos_.m_y + 1][pos_.m_x] == 1) {
+	// 真下の地面か、1マス先の地面に当たっていたらtrue
+	if (m_ground_map[pos_.m_y + 1][pos_.m_x] == 1 || 
+		m_ground_map[pos_.m_y + 1][pos_.m_x + 1] == 1) {
 		return true;
 	}
 	return false;
@@ -64,6 +70,7 @@ bool GameMap::IsHitGround(Vec2 pos_)
 
 bool GameMap::IsHitWall(Vec2 pos_)
 {
+	// 現在地が壁と重なっていたら
 	if (m_ground_map[pos_.m_y][pos_.m_x] == 1) {
 		return true;
 	}
@@ -72,8 +79,8 @@ bool GameMap::IsHitWall(Vec2 pos_)
 
 void GameMap::CreateMap()
 {
-	
-	int num = 0;
+	int num = 0;	// 追加する番号
+
 	// 最初のみ平坦な地形にする
 	AddMapParts(m_map_pattern1, RUNGAME_MAP_HEIGHT, num);
 	num++;
@@ -81,7 +88,6 @@ void GameMap::CreateMap()
 	// 地形パターンからランダムで選択
 	while (num < RUNGAME_MAP_WIDTH / RUNGAME_MAP_PARTS_WIDTH) {
 		int rand_num = rand() % RUNGAME_MAP_PARTS_NUM;
-
 		switch (rand_num)
 		{
 		case 0:
@@ -101,7 +107,6 @@ void GameMap::CreateMap()
 		}
 		num++;
 	}
-
 }
 
 void GameMap::AddMapParts(int parts_[][RUNGAME_MAP_PARTS_WIDTH], int height_, int add_num_)

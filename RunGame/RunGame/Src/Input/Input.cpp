@@ -27,7 +27,6 @@ bool Input::PressSpaceKey(KeyType key_type_)
 	int buf;
 	if (_kbhit()) {
 		buf = _getch();
-		fflush(stdin);
 		if (buf == key_type_) {
 			return true;
 		}
