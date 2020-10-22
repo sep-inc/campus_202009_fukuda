@@ -28,7 +28,7 @@
 #define RUNGAME_MAP_PARTS_NUM 4
 
 //! 更新フレーム
-#define UPDATE_FRAME_NUM 10
+#define UPDATE_FRAME_NUM 5
 
 //! プレイヤーの初期位置
 #define PLAYER_INIT_POS_X 1

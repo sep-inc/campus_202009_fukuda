@@ -18,12 +18,13 @@ Player::~Player()
 
 void Player::Update()
 {
-	// 入力処理
-	if (m_now_state == PlayerState::RUN) {
-		if (Input::Instance()->PressSpaceKey(KeyType::SPACE_KEY)) {
+	if (Input::Instance()->PressSpaceKey(KeyType::SPACE_KEY)) {
+		// 入力処理
+		if (m_now_state == PlayerState::RUN) {
 			m_now_state = PlayerState::JUMP;
 		}
 	}
+
 }
 
 void Player::Init(GameMap* map_)

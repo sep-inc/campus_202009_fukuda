@@ -25,12 +25,21 @@ Input* Input::Instance()
 bool Input::PressSpaceKey(KeyType key_type_)
 {
 	int buf = 0;
+	// fflush(stdin);
 	if (_kbhit()) {
 		buf = _getch();
-		
 		if (buf == key_type_) {
-			return true;
+ 			return true;
 		}
 	}
 	return false;
+}
+
+int Input::GetKey()
+{
+	if (_kbhit() != 0) {
+		return _getch();
+	}
+
+	return -1;
 }

@@ -23,6 +23,8 @@ public:
 	*/
 	bool PressSpaceKey(KeyType key_type_);
 
+	int GetKey();
+
 private:
 	Input();
 	~Input();
