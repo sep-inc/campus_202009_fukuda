@@ -32,7 +32,7 @@
 
 //! プレイヤーの初期位置
 #define PLAYER_INIT_POS_X 1
-#define PLAYER_INIT_POS_Y 4
+#define PLAYER_INIT_POS_Y 5
 
 //! プレイヤーの移動速度
 #define PLAYER_MOVE_SPEED 1
@@ -51,6 +51,11 @@ enum class ObjectType : uint8_t
 	GROUND,		//! 地面
 
 	MAX_TYPE
+};
+
+enum KeyType
+{
+	SPACE_KEY = 0x20
 };
 
 

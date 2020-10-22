@@ -6,6 +6,7 @@
 * @brief Inputクラスのヘッダ
 */
 
+#include "../Definition.h"
 
 /**
 * @class Input
@@ -16,8 +17,11 @@ class Input
 public:
 	static Input* Instance();
 
-	// 入力処理関数
-
+	/**
+	* @brief スペースキー入力関数
+	* @return bool キーが押されたらtrue
+	*/
+	bool PressSpaceKey(KeyType key_type_);
 
 private:
 	Input();

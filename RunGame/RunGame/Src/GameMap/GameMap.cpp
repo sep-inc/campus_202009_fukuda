@@ -19,6 +19,7 @@ GameMap::~GameMap()
 void GameMap::FixedUpdate(bool is_count_max_)
 {
 	if (is_count_max_ == true) {
+		ClearMap();
 		UpdateCamera();
 	}
 }
@@ -29,6 +30,8 @@ void GameMap::Init()
 	CreateMap();
 	// ゲームマップへ作成情報を反映
 	ConvertGameMap();
+
+	ClearMap();
 }
 
 void GameMap::Draw(DrawerBase* drawer_)
@@ -39,6 +42,32 @@ void GameMap::Draw(DrawerBase* drawer_)
 			drawer_->SetDrawBuffer(pos, m_game_map[m_camera_pos.m_y + pos.m_y][m_camera_pos.m_x + pos.m_x].m_draw_string);
 		}
 	}
+}
+
+void GameMap::SetPlayer(Vec2 player_pos_, ObjectParam player_, ObjectParam player_head_)
+{
+	if (player_pos_.m_y >= 0) {
+		m_game_map[player_pos_.m_y][player_pos_.m_x] = player_;
+	}
+	if (player_pos_.m_y - 1 >= 0) {
+		m_game_map[player_pos_.m_y - 1][player_pos_.m_x] = player_head_;
+	}
+}
+
+bool GameMap::IsHitGround(Vec2 pos_)
+{
+	if (m_ground_map[pos_.m_y + 1][pos_.m_x] == 1) {
+		return true;
+	}
+	return false;
+}
+
+bool GameMap::IsHitWall(Vec2 pos_)
+{
+	if (m_ground_map[pos_.m_y][pos_.m_x + 1] == 1) {
+		return true;
+	}
+	return false;
 }
 
 void GameMap::CreateMap()
@@ -96,7 +125,7 @@ void GameMap::ConvertGameMap()
 	for (int y = 0; y < RUNGAME_MAP_HEIGHT; y++) {
 		for (int x = 0; x < RUNGAME_MAP_WIDTH; x++) {
 			if (m_ground_map[y][x] == 1) {
-				m_game_map[y][x] = ground;
+				m_init_game_map[y][x] = ground;
 			}
 		}
 	}
@@ -109,6 +138,11 @@ void GameMap::UpdateCamera()
 	if (m_camera_pos.m_x + RUNGAME_DRAW_BUFFER_WIDTH < RUNGAME_MAP_WIDTH) {
 		m_camera_pos.m_x++;
 	}
+}
+
+void GameMap::ClearMap()
+{
+	memcpy(m_game_map, m_init_game_map, sizeof(m_init_game_map));
 }
 
 int GameMap::m_map_pattern1[RUNGAME_MAP_HEIGHT][RUNGAME_MAP_PARTS_WIDTH] =

@@ -44,6 +44,8 @@ void RunGame::Update()
 
 	case RunGameStep::STEP_UPDATE:
 		/* 更新処理 */
+		m_p_player->Update();
+		m_p_player->FixedUpdate(m_p_frame_counter->IsCountMax());
 		m_p_map->FixedUpdate(m_p_frame_counter->IsCountMax());
 
 		m_p_frame_counter->UpdateCounter();
@@ -58,6 +60,7 @@ void RunGame::Update()
 
 void RunGame::Draw(DrawerBase* drawer_)
 {
+	m_p_player->Draw();
 	m_p_map->Draw(drawer_);
 }
 
