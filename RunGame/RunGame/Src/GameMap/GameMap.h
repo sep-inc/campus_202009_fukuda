@@ -43,7 +43,7 @@ public:
 	bool IsHitGround(Vec2 pos_);
 
 	/**
-	* @brief 次の壁に当たっているか
+	* @brief 壁に当たっているか
 	*/
 	bool IsHitWall(Vec2 pos_);
 

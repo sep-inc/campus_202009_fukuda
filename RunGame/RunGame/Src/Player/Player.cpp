@@ -6,6 +6,7 @@ Player::Player():
 	m_pos{},
 	m_speed(PLAYER_MOVE_SPEED),
 	m_now_jump_height(0),
+	m_is_dead(false),
 	m_now_state(PlayerState::RUN),
 	m_p_map(nullptr)
 {
@@ -41,6 +42,11 @@ void Player::Init(GameMap* map_)
 void Player::FixedUpdate(bool is_count_max_)
 {
 	if (is_count_max_ == true) {
+		if (m_p_map->IsHitWall(m_pos)) {
+			m_is_dead = true;
+			return;
+		}
+
 		// 移動処理
 		switch (m_now_state)
 		{
@@ -52,8 +58,8 @@ void Player::FixedUpdate(bool is_count_max_)
 			break;
 		case PlayerState::JUMP:
 			m_pos.m_x++;
-			m_now_jump_height++;
 			m_pos.m_y--;
+			m_now_jump_height++;
 			if (m_now_jump_height >= PLAYER_JUMP_HEIGHT) {
 				m_now_jump_height = 0;
 				if (m_p_map->IsHitGround(m_pos)) {
@@ -74,12 +80,23 @@ void Player::FixedUpdate(bool is_count_max_)
 		default:
 			break;
 		}
-
-		
 	}
 }
 
 void Player::Draw()
 {
 	m_p_map->SetPlayer(m_pos, m_my_param, m_head_param);
+}
+
+bool Player::IsClear()
+{
+	if (m_pos.m_x == RUNGAME_MAP_WIDTH - 1) {
+		return true;
+	}
+	return false;
+}
+
+bool Player::IsDead()
+{
+	return m_is_dead;
 }

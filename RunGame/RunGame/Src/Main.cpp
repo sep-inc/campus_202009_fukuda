@@ -16,6 +16,10 @@ int main() {
 		/* ゲームの更新処理 */
 		RunGame::Instance()->Update();
 
+		if (RunGame::Instance()->IsGameFinish()) {
+			break;
+		}
+
 		/* 描画処理 */
 		// 出力画面のクリア
 		system("cls");

@@ -38,6 +38,7 @@ void RunGame::Update()
 		m_p_frame_counter->ResetCounter();
 		m_p_player->Init(m_p_map);
 
+		
 		/* ステップ移行 */
 		m_step = RunGameStep::STEP_UPDATE;
 		break;
@@ -47,6 +48,15 @@ void RunGame::Update()
 		m_p_player->Update();
 		m_p_player->FixedUpdate(m_p_frame_counter->IsCountMax());
 		m_p_map->FixedUpdate(m_p_frame_counter->IsCountMax());
+
+		if (m_p_player->IsClear()) {
+			m_result = RunGameResult::WIN;
+			m_step = RunGameStep::STEP_END;
+		}
+		if (m_p_player->IsDead()) {
+			m_result = RunGameResult::LOSE;
+			m_step = RunGameStep::STEP_END;
+		}
 
 		m_p_frame_counter->UpdateCounter();
 		break;
@@ -62,10 +72,21 @@ void RunGame::Draw(DrawerBase* drawer_)
 {
 	m_p_player->Draw();
 	m_p_map->Draw(drawer_);
+
+	SetResult(drawer_);
 }
 
-void RunGame::SetResult()
+void RunGame::SetResult(DrawerBase* drawer_)
 {
+	if (m_result == RunGameResult::NONE) {
+		return;
+	}
+	else if (m_result == RunGameResult::WIN) {
+		drawer_->SetResultString("プレイヤーの勝利\n");
+	}
+	else {
+		drawer_->SetResultString("プレイヤーの敗北\n");
+	}
 }
 
 void RunGame::CreateObjects()

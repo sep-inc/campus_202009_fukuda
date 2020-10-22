@@ -33,7 +33,7 @@ public:
 	/**
 	* @brief 勝敗情報のセット関数
 	*/
-	void SetResult();
+	void SetResult(DrawerBase* drawer_);
 
 	/**
 	* @brief ゲーム終了判定関数

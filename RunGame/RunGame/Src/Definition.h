@@ -38,7 +38,7 @@
 #define PLAYER_MOVE_SPEED 1
 
 //! プレイヤーのジャンプの高さ
-#define PLAYER_JUMP_HEIGHT 3
+#define PLAYER_JUMP_HEIGHT 2
 
 
 /* 列挙群 */

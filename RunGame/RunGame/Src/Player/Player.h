@@ -37,6 +37,10 @@ public:
 
 	void Draw();
 
+	bool IsClear();
+
+	bool IsDead();
+
 private:
 	//! プレイヤーの状態の種類
 	enum class PlayerState : int {
@@ -50,6 +54,7 @@ private:
 	Vec2 m_pos;					//! 現在地
 	int m_speed;				//! 移動速度
 	int m_now_jump_height;		//! ジャンプの高さ
+	bool m_is_dead;				//! 死亡フラグ
 	PlayerState m_now_state;	//! 現在の状態
 
 	//! 参照用

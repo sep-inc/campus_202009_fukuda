@@ -64,7 +64,7 @@ bool GameMap::IsHitGround(Vec2 pos_)
 
 bool GameMap::IsHitWall(Vec2 pos_)
 {
-	if (m_ground_map[pos_.m_y][pos_.m_x + 1] == 1) {
+	if (m_ground_map[pos_.m_y][pos_.m_x] == 1) {
 		return true;
 	}
 	return false;
