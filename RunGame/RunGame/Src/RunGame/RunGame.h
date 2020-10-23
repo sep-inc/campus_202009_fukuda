@@ -62,6 +62,15 @@ private:
 	*/
 	void DestroyObjects();
 
+	/**
+	* @brief ゲーム開始処理関数
+	* 
+	* @return bool Enterキー入力でtrue
+	*/
+	bool StartRunGame();
+
+	void SelectGameEnd();
+
 	static RunGame* p_instance;
 
 
@@ -69,7 +78,9 @@ private:
 	//! 処理ステップの種類
 	enum class RunGameStep : int {
 		STEP_INITIALIZE,	//! 初期化ステップ
+		STEP_GAME_START,	//! ゲームの開始ステップ
 		STEP_UPDATE,		//! 更新ステップ
+		STEP_GAME_END,		//! ゲームの終了ステップ
 		STEP_END			//! 終了ステップ
 	};
 

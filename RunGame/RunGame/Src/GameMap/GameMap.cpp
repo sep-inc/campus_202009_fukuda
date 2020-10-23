@@ -9,6 +9,13 @@ GameMap::GameMap():
 	m_camera_speed(PLAYER_MOVE_SPEED)
 {
 	srand((unsigned)time(NULL));
+
+	/*
+	*	下記メンバ変数はInit関数内でも初期化を行う
+	*	・m_ground_map
+	*	・m_init_game_map
+	*	・m_camera_pos
+	*/
 }
 
 GameMap::~GameMap()
@@ -28,12 +35,18 @@ void GameMap::FixedUpdate(bool is_count_max_)
 
 void GameMap::Init()
 {
+	// マップの0クリア
+	ZeroClearMaps();
 	// マップの作成
 	CreateMap();
 	// ゲームマップへ作成情報を反映
 	ConvertGameMap();
 	// マップを初期化マップでクリア
 	ClearMap();
+
+	// 各メンバ変数初期化
+	m_camera_pos.m_x = 0;
+	m_camera_pos.m_y = 0;
 }
 
 void GameMap::Draw(DrawerBase* drawer_)
@@ -148,6 +161,17 @@ void GameMap::UpdateCamera()
 void GameMap::ClearMap()
 {
 	memcpy(m_game_map, m_init_game_map, sizeof(m_init_game_map));
+}
+
+void GameMap::ZeroClearMaps()
+{
+	ObjectParam empty;
+	for (int y = 0; y < RUNGAME_MAP_HEIGHT; y++) {
+		for (int x = 0; x < RUNGAME_MAP_WIDTH; x++) {
+			m_ground_map[y][x] = 0;
+			m_init_game_map[y][x] = empty;
+		}
+	}
 }
 
 int GameMap::m_map_pattern1[RUNGAME_MAP_HEIGHT][RUNGAME_MAP_PARTS_WIDTH] =

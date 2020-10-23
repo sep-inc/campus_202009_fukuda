@@ -92,6 +92,11 @@ private:
 	*/
 	void ClearMap();
 
+	/**
+	* @brief マップをゼロ初期化する関数
+	*/
+	void ZeroClearMaps();
+
 
 private:
 	//! 地面の配置のみを格納するマップ

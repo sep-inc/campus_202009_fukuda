@@ -6,7 +6,6 @@ Player::Player():
 	m_pos{},
 	m_speed(PLAYER_MOVE_SPEED),
 	m_now_jump_height(0),
-	m_is_dead(false),
 	m_now_state(PlayerState::RUN),
 	m_p_map(nullptr)
 {
@@ -18,13 +17,14 @@ Player::~Player()
 
 void Player::Update()
 {
-	if (Input::Instance()->PressSpaceKey(KeyType::SPACE_KEY)) {
-		// 入力処理
+	// 入力情報取得
+	int key = Input::Instance()->PressSpaceKey();
+	// スペースキー入力処理
+	if (key == KeyType::SPACE_KEY) {
 		if (m_now_state == PlayerState::RUN) {
 			m_now_state = PlayerState::JUMP;
 		}
 	}
-
 }
 
 void Player::Init(GameMap* map_)
@@ -34,9 +34,11 @@ void Player::Init(GameMap* map_)
 	strcpy_s(m_my_param.m_draw_string, DRAW_STRING_SIZE, "▽");
 	m_head_param.m_type = ObjectType::PLAYER;
 	strcpy_s(m_head_param.m_draw_string, DRAW_STRING_SIZE, "〇");
-	// 初期位置セット
+	// 各メンバ変数初期化
 	m_pos.m_x = PLAYER_INIT_POS_X;
 	m_pos.m_y = PLAYER_INIT_POS_Y;
+	m_now_jump_height = 0;
+	m_now_state = PlayerState::RUN;
 	// マップをセット
 	m_p_map = map_;
 }
@@ -84,10 +86,7 @@ void Player::FixedUpdate(bool is_count_max_)
 		}
 
 		// 壁と当たっていたら死亡フラグを立てる
-		if (m_p_map->IsHitWall(m_pos)) {
-			m_is_dead = true;
-			return;
-		}
+		IsDead();
 	}
 }
 
@@ -106,5 +105,8 @@ bool Player::IsClear()
 
 bool Player::IsDead()
 {
-	return m_is_dead;
+	if (m_p_map->IsHitWall(m_pos)) {
+		return true;
+	}
+	return false;
 }

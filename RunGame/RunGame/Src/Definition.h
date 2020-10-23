@@ -27,7 +27,7 @@
 //! マップのパーツの数
 #define RUNGAME_MAP_PARTS_NUM 4
 
-//! 更新フレーム
+//! 更新フレーム数
 #define UPDATE_FRAME_NUM 5
 
 //! プレイヤーの初期位置
@@ -53,9 +53,12 @@ enum class ObjectType : uint8_t
 	MAX_TYPE
 };
 
+//! キーの種類
 enum KeyType
 {
-	SPACE_KEY = 0x20
+	ENTER_KEY = 0x0d,	//! Enterキー
+	SPACE_KEY = 0x20,	//! Spaceキー
+	ESCAPE_KEY = 0x1b	//! Escキー
 };
 
 
