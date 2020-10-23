@@ -69,6 +69,10 @@ private:
 	*/
 	bool StartRunGame();
 
+	/**
+	* @brief 終了処理の選択関数
+	* 入力情報に従って処理を行う
+	*/
 	void SelectGameEnd();
 
 	static RunGame* p_instance;
