@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Src">
+      <UniqueIdentifier>{daa65ae7-9800-4750-82ac-188c1372aa17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Input">
+      <UniqueIdentifier>{be3a284f-b4cc-4a5d-9508-1954006aa0d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Draw">
+      <UniqueIdentifier>{907a589d-981c-42ea-9a8c-7cde36a86fac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Draw\Drawers">
+      <UniqueIdentifier>{c604a766-499f-42c6-a529-a3f5aa369183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Utility">
+      <UniqueIdentifier>{d88fd082-41fe-4e7b-8a5b-4092f810781f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes">
+      <UniqueIdentifier>{e4112bac-709b-4791-9959-05163711569b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\RunGameScene">
+      <UniqueIdentifier>{4612d6fd-c7ff-413a-920e-1f22a9f37814}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\SelectGameScene">
+      <UniqueIdentifier>{e95feafb-0566-40f6-82cb-913654cf76e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\RunGameScene\RunGamePlayer">
+      <UniqueIdentifier>{cf7a1ca9-7ab1-4c52-89e0-c5461e144245}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\RunGameScene\RunGameMap">
+      <UniqueIdentifier>{32937bd7-34e9-4cbc-a584-4b0fe1f1bb91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\RunGameScene\FrameCounter">
+      <UniqueIdentifier>{c21b3147-f07b-459a-aece-7f734581ec2a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\Main.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Input\Input.cpp">
+      <Filter>Src\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\DrawerManager.cpp">
+      <Filter>Src\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\Drawers\DrawerBase.cpp">
+      <Filter>Src\Draw\Drawers</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\Drawers\RunGameDrawer.cpp">
+      <Filter>Src\Draw\Drawers</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\SceneManager.cpp">
+      <Filter>Src\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\SceneBase.cpp">
+      <Filter>Src\Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\SelectGameScene\SelectGameScene.cpp">
+      <Filter>Src\Scenes\SelectGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\Drawers\SelectGameDrawer.cpp">
+      <Filter>Src\Draw\Drawers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\AllDefinition.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Input\Input.h">
+      <Filter>Src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\Drawers\DrawerBase.h">
+      <Filter>Src\Draw\Drawers</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\DrawerManager.h">
+      <Filter>Src\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Utility\Utility.h">
+      <Filter>Src\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\Drawers\RunGameDrawer.h">
+      <Filter>Src\Draw\Drawers</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\RunGameScene\RunGameDefinition.h">
+      <Filter>Src\Scenes\RunGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\SceneManager.h">
+      <Filter>Src\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\SceneBase.h">
+      <Filter>Src\Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\SelectGameScene\SelectGameScene.h">
+      <Filter>Src\Scenes\SelectGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\SelectGameScene\SelectGameDefinition.h">
+      <Filter>Src\Scenes\SelectGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\Drawers\SelectGameDrawer.h">
+      <Filter>Src\Draw\Drawers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
