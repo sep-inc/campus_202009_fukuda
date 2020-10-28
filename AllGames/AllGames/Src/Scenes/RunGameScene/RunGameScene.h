@@ -58,7 +58,7 @@ private:
 	/**
 	* @brief ゲーム開始処理関数
 	*
-	* @return bool Enterキー入力でtrue
+	* @return bool Spaceキー入力でtrue
 	*/
 	bool StartRunGame();
 
