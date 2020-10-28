@@ -1,6 +1,7 @@
-#include "DrawerManager.h"
+﻿#include "DrawerManager.h"
 #include "Drawers/SelectGameDrawer.h"
 #include "Drawers/RunGameDrawer.h"
+#include "Drawers/PacMenDrawer.h"
 
 DrawerManager* DrawerManager::p_instance = 0;
 
@@ -57,6 +58,7 @@ void DrawerManager::CreateDrawer(SceneType game_type_)
 		case SceneType::TRON:
 			break;
 		case SceneType::PACMEN:
+			m_p_drawer = new PacMenDrawer;
 			break;
 		case SceneType::RUN_GAME:
 			m_p_drawer = new RunGameDrawer;

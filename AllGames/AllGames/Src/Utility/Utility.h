@@ -1,9 +1,9 @@
-#ifndef UTILITY_H_
+ï»¿#ifndef UTILITY_H_
 #define UTILITY_H_
 
 /**
 * @file Utility.h
-* @brief ”Ä—p“I‚È‚à‚Ì‚ğ‚Ü‚Æ‚ß‚½ƒwƒbƒ_
+* @brief æ±ç”¨çš„ãªã‚‚ã®ã‚’ã¾ã¨ã‚ãŸãƒ˜ãƒƒãƒ€
 */
 
 
@@ -15,6 +15,11 @@ struct Vec2_Int
 	Vec2_Int():
 		m_x(0),
 		m_y(0)
+	{}
+
+	Vec2_Int(int x_, int y_):
+		m_x(x_),
+		m_y(y_)
 	{}
 };
 

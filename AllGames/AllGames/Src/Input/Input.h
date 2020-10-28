@@ -1,9 +1,9 @@
-#ifndef INPUT_H_
+ï»¿#ifndef INPUT_H_
 #define INPUT_H_
 
 /**
 * @class Input
-* @brief “ü—Íˆ—ƒNƒ‰ƒX
+* @brief å…¥åŠ›å‡¦ç†ã‚¯ãƒ©ã‚¹
 */
 class Input
 {
@@ -11,11 +11,18 @@ public:
 	static Input* Instance();
 
 	/**
-	* @brief “ü—Í‚ğó‚¯•t‚¯‚éŠÖ”
+	* @brief å…¥åŠ›ã‚’å—ã‘ä»˜ã‘ã‚‹é–¢æ•°
 	* 
-	* @return int “ü—Í‚³‚ê‚½ƒL[
+	* @return int å…¥åŠ›ã•ã‚ŒãŸã‚­ãƒ¼
 	*/
 	int GetKey();
+
+	/**
+	* @brief å…¥åŠ›å—ä»˜é–¢æ•°ï¼ˆå…¥åŠ›å¾…ã¡ã‚ã‚Šï¼‰
+	*
+	* @return int å…¥åŠ›ã•ã‚ŒãŸã‚­ãƒ¼
+	*/
+	int GetWaitingKey();
 
 private:
 	Input();

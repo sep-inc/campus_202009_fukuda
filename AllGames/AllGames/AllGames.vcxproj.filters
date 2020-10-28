@@ -34,6 +34,18 @@
     <Filter Include="Src\Scenes\RunGameScene\FrameCounter">
       <UniqueIdentifier>{c21b3147-f07b-459a-aece-7f734581ec2a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Scenes\PacMenGameScene">
+      <UniqueIdentifier>{abd810ec-d76a-4cbf-a6e0-71826b8d9497}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\PacMenGameScene\PacMenGameMap">
+      <UniqueIdentifier>{69651267-0712-440f-98d2-8d37409e9268}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\PacMenGameScene\PacMenGameObject">
+      <UniqueIdentifier>{3e9acbfd-53b9-4025-9091-3550a882aa38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter">
+      <UniqueIdentifier>{df66e565-d9a4-473b-8938-a4d09bbd9265}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Main.cpp">
@@ -74,6 +86,30 @@
     </ClCompile>
     <ClCompile Include="Src\Scenes\RunGameScene\RunGameScene.cpp">
       <Filter>Src\Scenes\RunGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameMap\PacMenGameMap.cpp">
+      <Filter>Src\Scenes\PacMenGameScene\PacMenGameMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameObject.cpp">
+      <Filter>Src\Scenes\PacMenGameScene\PacMenGameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenItem.cpp">
+      <Filter>Src\Scenes\PacMenGameScene\PacMenGameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter\PacMenCharacter.cpp">
+      <Filter>Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter\PacMenPlayer.cpp">
+      <Filter>Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter\PacMenMonster.cpp">
+      <Filter>Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameScene.cpp">
+      <Filter>Src\Scenes\PacMenGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\Drawers\PacMenDrawer.cpp">
+      <Filter>Src\Draw\Drawers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -124,6 +160,33 @@
     </ClInclude>
     <ClInclude Include="Src\Scenes\RunGameScene\RunGameScene.h">
       <Filter>Src\Scenes\RunGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameDefinition.h">
+      <Filter>Src\Scenes\PacMenGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameMap\PacMenGameMap.h">
+      <Filter>Src\Scenes\PacMenGameScene\PacMenGameMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameObject.h">
+      <Filter>Src\Scenes\PacMenGameScene\PacMenGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenItem.h">
+      <Filter>Src\Scenes\PacMenGameScene\PacMenGameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter\PacMenCharacter.h">
+      <Filter>Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter\PacMenPlayer.h">
+      <Filter>Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter\PacMenMonster.h">
+      <Filter>Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameScene.h">
+      <Filter>Src\Scenes\PacMenGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\Drawers\PacMenDrawer.h">
+      <Filter>Src\Draw\Drawers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

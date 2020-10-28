@@ -125,10 +125,18 @@
   <ItemGroup>
     <ClCompile Include="Src\Draw\DrawerManager.cpp" />
     <ClCompile Include="Src\Draw\Drawers\DrawerBase.cpp" />
+    <ClCompile Include="Src\Draw\Drawers\PacMenDrawer.cpp" />
     <ClCompile Include="Src\Draw\Drawers\RunGameDrawer.cpp" />
     <ClCompile Include="Src\Draw\Drawers\SelectGameDrawer.cpp" />
     <ClCompile Include="Src\Input\Input.cpp" />
     <ClCompile Include="Src\Main.cpp" />
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameMap\PacMenGameMap.cpp" />
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter\PacMenCharacter.cpp" />
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter\PacMenMonster.cpp" />
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter\PacMenPlayer.cpp" />
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameObject.cpp" />
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenItem.cpp" />
+    <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameScene.cpp" />
     <ClCompile Include="Src\Scenes\RunGameScene\FrameCounter\FrameCounter.cpp" />
     <ClCompile Include="Src\Scenes\RunGameScene\RunGameMap\RunGameMap.cpp" />
     <ClCompile Include="Src\Scenes\RunGameScene\RunGamePlayer\RunGamePlayer.cpp" />
@@ -141,9 +149,18 @@
     <ClInclude Include="Src\AllDefinition.h" />
     <ClInclude Include="Src\Draw\DrawerManager.h" />
     <ClInclude Include="Src\Draw\Drawers\DrawerBase.h" />
+    <ClInclude Include="Src\Draw\Drawers\PacMenDrawer.h" />
     <ClInclude Include="Src\Draw\Drawers\RunGameDrawer.h" />
     <ClInclude Include="Src\Draw\Drawers\SelectGameDrawer.h" />
     <ClInclude Include="Src\Input\Input.h" />
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameDefinition.h" />
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameMap\PacMenGameMap.h" />
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter\PacMenCharacter.h" />
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter\PacMenMonster.h" />
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter\PacMenPlayer.h" />
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameObject.h" />
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenItem.h" />
+    <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameScene.h" />
     <ClInclude Include="Src\Scenes\RunGameScene\FrameCounter\FrameCounter.h" />
     <ClInclude Include="Src\Scenes\RunGameScene\RunGameDefinition.h" />
     <ClInclude Include="Src\Scenes\RunGameScene\RunGameMap\RunGameMap.h" />

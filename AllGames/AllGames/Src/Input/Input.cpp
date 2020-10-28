@@ -1,4 +1,4 @@
-#include "Input.h"
+ï»¿#include "Input.h"
 #include "../AllDefinition.h"
 #include <conio.h>
 
@@ -26,15 +26,27 @@ Input* Input::Instance()
 int Input::GetKey()
 {
 	int buf = 0;
-	// ƒL[‚ª“ü—Í‚³‚ê‚Ä‚¢‚½ê‡
+	// ã‚­ãƒ¼ãŒå…¥åŠ›ã•ã‚Œã¦ã„ãŸå ´åˆ
 	if (_kbhit()) {
 		buf = _getch();
-		// “ü—Í•¶š‚ª2ƒoƒCƒgi“Áê•¶šj‚Ìê‡
+		// å…¥åŠ›æ–‡å­—ãŒ2ãƒã‚¤ãƒˆï¼ˆç‰¹æ®Šæ–‡å­—ï¼‰ã®å ´åˆ
 		if ((buf == KeyType::NULL_KEY) || (buf == KeyType::SO_KEY)) {
 			buf = _getch();
 		}
 		return buf;
 	}
-	// ƒL[‚ª“ü—Í‚³‚ê‚Ä‚¢‚È‚©‚Á‚½ê‡
+	// ã‚­ãƒ¼ãŒå…¥åŠ›ã•ã‚Œã¦ã„ãªã‹ã£ãŸå ´åˆ
 	return -1;
+}
+
+int Input::GetWaitingKey()
+{
+	int buf = 0;
+
+	buf = _getch();
+	// å…¥åŠ›æ–‡å­—ãŒ2ãƒã‚¤ãƒˆï¼ˆç‰¹æ®Šæ–‡å­—ï¼‰ã®å ´åˆ
+	if ((buf == KeyType::NULL_KEY) || (buf == KeyType::SO_KEY)) {
+		buf = _getch();
+	}
+	return buf;
 }
