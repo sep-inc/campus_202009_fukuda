@@ -63,6 +63,18 @@
     <ClCompile Include="Src\Draw\Drawers\SelectGameDrawer.cpp">
       <Filter>Src\Draw\Drawers</Filter>
     </ClCompile>
+    <ClCompile Include="Src\Scenes\RunGameScene\FrameCounter\FrameCounter.cpp">
+      <Filter>Src\Scenes\RunGameScene\FrameCounter</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\RunGameScene\RunGameMap\RunGameMap.cpp">
+      <Filter>Src\Scenes\RunGameScene\RunGameMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\RunGameScene\RunGamePlayer\RunGamePlayer.cpp">
+      <Filter>Src\Scenes\RunGameScene\RunGamePlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\RunGameScene\RunGameScene.cpp">
+      <Filter>Src\Scenes\RunGameScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\AllDefinition.h">
@@ -100,6 +112,18 @@
     </ClInclude>
     <ClInclude Include="Src\Draw\Drawers\SelectGameDrawer.h">
       <Filter>Src\Draw\Drawers</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\RunGameScene\FrameCounter\FrameCounter.h">
+      <Filter>Src\Scenes\RunGameScene\FrameCounter</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\RunGameScene\RunGameMap\RunGameMap.h">
+      <Filter>Src\Scenes\RunGameScene\RunGameMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\RunGameScene\RunGamePlayer\RunGamePlayer.h">
+      <Filter>Src\Scenes\RunGameScene\RunGamePlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\RunGameScene\RunGameScene.h">
+      <Filter>Src\Scenes\RunGameScene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

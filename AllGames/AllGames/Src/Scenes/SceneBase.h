@@ -1,4 +1,4 @@
-#ifndef SCENE_BASE_H_
+ï»¿#ifndef SCENE_BASE_H_
 #define SCENE_BASE_H_
 
 #include "../AllDefinition.h"
@@ -6,7 +6,7 @@
 
 /**
 * @class SceneBase
-* @brief ŠeScene‚ÌŠî’êƒNƒ‰ƒX
+* @brief å„Sceneã®åŸºåº•ã‚¯ãƒ©ã‚¹
 */
 class SceneBase
 {
@@ -14,22 +14,23 @@ public:
 	SceneBase();
 	virtual ~SceneBase();
 
-	//! XVˆ—ŠÖ”
+	//! æ›´æ–°å‡¦ç†é–¢æ•°
 	virtual void Update() = 0;
 
-	//! •`‰æˆ—ŠÖ”
+	//! æç”»å‡¦ç†é–¢æ•°
 	virtual void Draw(DrawerBase* drawer_) = 0;
 
 	inline SceneType GetNextScene()const { return m_next_scene; }
 
 	/**
-	* @brief ƒV[ƒ“‚ÌI—¹ƒtƒ‰ƒO‚ğ•Ô‚·ŠÖ”
+	* @brief ã‚·ãƒ¼ãƒ³ã®çµ‚äº†ãƒ•ãƒ©ã‚°ã‚’è¿”ã™é–¢æ•°
 	*/
 	bool IsGameFinish();
 
 protected:
-	SceneType m_next_scene;		//! Ÿ‚ÌƒV[ƒ“
-	bool m_is_scene_finish;		//! ƒV[ƒ“I—¹ƒtƒ‰ƒO
+	SceneType m_next_scene;		//! æ¬¡ã®ã‚·ãƒ¼ãƒ³
+	bool m_is_scene_finish;		//! ã‚·ãƒ¼ãƒ³çµ‚äº†ãƒ•ãƒ©ã‚°
+
 };
 
 

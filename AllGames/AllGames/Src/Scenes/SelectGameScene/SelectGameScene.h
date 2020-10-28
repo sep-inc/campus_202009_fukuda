@@ -1,4 +1,4 @@
-#ifndef SELECT_GAME_SCENE_H_
+ï»¿#ifndef SELECT_GAME_SCENE_H_
 #define SELECT_GAME_SCENE_H_
 
 #include "../SceneBase.h"
@@ -9,7 +9,7 @@
 
 /**
 * @class SelectGameScene
-* @brief ƒQ[ƒ€‚Ì‘I‘ğƒV[ƒ“ƒNƒ‰ƒX
+* @brief ã‚²ãƒ¼ãƒ ã®é¸æŠã‚·ãƒ¼ãƒ³ã‚¯ãƒ©ã‚¹
 */
 class SelectGameScene : public SceneBase
 {
@@ -18,41 +18,46 @@ public:
 	~SelectGameScene();
 
 	/**
-	* @brief XVˆ—ŠÖ”
+	* @brief æ›´æ–°å‡¦ç†é–¢æ•°
 	*/
 	void Update()override;
 
 	/**
-	* @brief •`‰æˆ—ŠÖ”
+	* @brief æç”»å‡¦ç†é–¢æ•°
 	*/
 	void Draw(DrawerBase* drawer_)override;
+
+	/**
+	* @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆé–¢æ•°
+	*/
+	static SceneBase* InstanceSelectGameScene();
 
 
 private:
 	/**
-	* @brief ‰Šú‰»ŠÖ”
+	* @brief åˆæœŸåŒ–é–¢æ•°
 	*/
 	void Init();
 	/**
-	* @brief ƒV[ƒ“‘I‘ğˆ—ŠÖ”
+	* @brief ã‚·ãƒ¼ãƒ³é¸æŠå‡¦ç†é–¢æ•°
 	*
-	* @return bool Enter‚ª‰Ÿ‚³‚ê‚½‚çtrue
+	* @return bool EnterãŒæŠ¼ã•ã‚ŒãŸã‚‰true
 	*/
 	bool SelectScene();
 
 
 private:
-	//! SelectGame‚ÌXVƒXƒeƒbƒv
+	//! SelectGameã®æ›´æ–°ã‚¹ãƒ†ãƒƒãƒ—
 	enum class SelectGameStep {
 		STEP_INITIALIZE,
 		STEP_UPDATE,
 		STEP_END
 	};
 
-	//! ‘I‘ğ‚·‚éƒQ[ƒ€‚Ìî•ñ‚ğ‚Ü‚Æ‚ß‚½\‘¢‘Ì
+	//! é¸æŠã™ã‚‹ã‚²ãƒ¼ãƒ ã®æƒ…å ±ã‚’ã¾ã¨ã‚ãŸæ§‹é€ ä½“
 	struct SelectGameParam {
-		SceneType m_scene_type;									//! ©g‚Ìí—Ş
-		char m_title_string[SELECT_GAME_DRAW_STRING_SIZE];		//! •`‰æî•ñ
+		SceneType m_scene_type;									//! è‡ªèº«ã®ç¨®é¡
+		char m_title_string[SELECT_GAME_DRAW_STRING_SIZE];		//! æç”»æƒ…å ±
 
 		SelectGameParam() :
 			m_scene_type(SceneType::TYPE_NONE),
@@ -61,11 +66,11 @@ private:
 		}
 	};
 
-	//! Œ»İ‚ÌƒXƒeƒbƒv
+	//! ç¾åœ¨ã®ã‚¹ãƒ†ãƒƒãƒ—
 	SelectGameStep m_now_step;
-	//! ƒQ[ƒ€‚Ìî•ñ‚Ì”z—ñ
+	//! ã‚²ãƒ¼ãƒ ã®æƒ…å ±ã®é…åˆ—
 	SelectGameParam m_games[ALL_GAME_NUM];
-	//! Œ»İ‘I‘ğ’†‚ÌƒV[ƒ“‚Ì”Ô†
+	//! ç¾åœ¨é¸æŠä¸­ã®ã‚·ãƒ¼ãƒ³ã®ç•ªå·
 	int m_now_select_index;
 
 };

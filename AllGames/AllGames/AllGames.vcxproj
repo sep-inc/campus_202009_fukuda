@@ -129,6 +129,10 @@
     <ClCompile Include="Src\Draw\Drawers\SelectGameDrawer.cpp" />
     <ClCompile Include="Src\Input\Input.cpp" />
     <ClCompile Include="Src\Main.cpp" />
+    <ClCompile Include="Src\Scenes\RunGameScene\FrameCounter\FrameCounter.cpp" />
+    <ClCompile Include="Src\Scenes\RunGameScene\RunGameMap\RunGameMap.cpp" />
+    <ClCompile Include="Src\Scenes\RunGameScene\RunGamePlayer\RunGamePlayer.cpp" />
+    <ClCompile Include="Src\Scenes\RunGameScene\RunGameScene.cpp" />
     <ClCompile Include="Src\Scenes\SceneBase.cpp" />
     <ClCompile Include="Src\Scenes\SceneManager.cpp" />
     <ClCompile Include="Src\Scenes\SelectGameScene\SelectGameScene.cpp" />
@@ -140,7 +144,11 @@
     <ClInclude Include="Src\Draw\Drawers\RunGameDrawer.h" />
     <ClInclude Include="Src\Draw\Drawers\SelectGameDrawer.h" />
     <ClInclude Include="Src\Input\Input.h" />
+    <ClInclude Include="Src\Scenes\RunGameScene\FrameCounter\FrameCounter.h" />
     <ClInclude Include="Src\Scenes\RunGameScene\RunGameDefinition.h" />
+    <ClInclude Include="Src\Scenes\RunGameScene\RunGameMap\RunGameMap.h" />
+    <ClInclude Include="Src\Scenes\RunGameScene\RunGamePlayer\RunGamePlayer.h" />
+    <ClInclude Include="Src\Scenes\RunGameScene\RunGameScene.h" />
     <ClInclude Include="Src\Scenes\SceneBase.h" />
     <ClInclude Include="Src\Scenes\SceneManager.h" />
     <ClInclude Include="Src\Scenes\SelectGameScene\SelectGameDefinition.h" />

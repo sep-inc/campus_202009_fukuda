@@ -1,8 +1,10 @@
-#include "SceneManager.h"
+Ôªø#include "SceneManager.h"
 #include "SelectGameScene/SelectGameScene.h"
+#include "RunGameScene/RunGameScene.h"
 #include "../Draw/DrawerManager.h"
 
 SceneManager* SceneManager::p_instance = 0;
+
 
 SceneManager::SceneManager():
 	m_p_scene(nullptr),
@@ -28,19 +30,19 @@ void SceneManager::Update()
 {
 	switch (m_step) {
 	case SceneStep::STEP_INITIALIZE:
-		// ÉVÅ[ÉìÇÃê∂ê¨
+		// „Ç∑„Éº„É≥„ÅÆÁîüÊàê
 		CreateScene(m_now_scene);
-		// DrawerÉNÉâÉXÇÃêÿÇËë÷Ç¶
+		// Drawer„ÇØ„É©„Çπ„ÅÆÂàá„ÇäÊõø„Åà
 		DrawerManager::Instance()->SelectDrawer(m_now_scene);
 
 		m_step = SceneStep::STEP_UPDATE;
 		break;
 
 	case SceneStep::STEP_UPDATE:
-		// ÉVÅ[ÉìÇÃèàóù
+		// „Ç∑„Éº„É≥„ÅÆÂá¶ÁêÜ
 		m_p_scene->Update();
 
-		// ÉVÅ[ÉìÇÃèIóπîªíËèàóù
+		// „Ç∑„Éº„É≥„ÅÆÁµÇ‰∫ÜÂà§ÂÆöÂá¶ÁêÜ
 		if (m_p_scene->IsGameFinish()) {
 			m_step = SceneStep::STEP_END;
 		}
@@ -48,10 +50,12 @@ void SceneManager::Update()
 		break;
 
 	case SceneStep::STEP_END:
-		// ÉVÅ[ÉìÇéüÇÃÉVÅ[ÉìÇ…êÿÇËë÷Ç¶
+		// „Ç∑„Éº„É≥„ÇíÊ¨°„ÅÆ„Ç∑„Éº„É≥„Å´Âàá„ÇäÊõø„Åà
 		m_now_scene = m_p_scene->GetNextScene();
-		// ÉVÅ[ÉìÇÃîjä¸
+		// „Ç∑„Éº„É≥„ÅÆÁ†¥Ê£Ñ
 		DestroyScene();
+
+		m_step = SceneStep::STEP_INITIALIZE;
 
 		break;
 	}
@@ -66,27 +70,7 @@ void SceneManager::Draw(DrawerBase* drawer_)
 
 void SceneManager::CreateScene(SceneType scene_)
 {
-	if (m_p_scene == nullptr) {
-		switch (scene_) {
-		case SceneType::SELECT_GAME:
-			m_p_scene = new SelectGameScene;
-			break;
-		case SceneType::TIT_TAT_TOE:
-			break;
-		case SceneType::TOWER_OF_HANOI:
-			break;
-		case SceneType::TRON:
-			break;
-		case SceneType::PACMEN:
-			break;
-		case SceneType::RUN_GAME:
-			break;
-		case SceneType::SHOGI:
-			break;
-		default:
-			break;
-		}
-	}
+	m_p_scene = s_func_ptr_array[static_cast<int>(scene_)]();
 }
 
 void SceneManager::DestroyScene()
@@ -96,3 +80,14 @@ void SceneManager::DestroyScene()
 		m_p_scene = nullptr;
 	}
 }
+
+SceneBase* (*SceneManager::s_func_ptr_array[static_cast<int>(SceneType::MAX_SCENE_NUM)])() =
+{
+	SelectGameScene::InstanceSelectGameScene,
+	SelectGameScene::InstanceSelectGameScene,
+	SelectGameScene::InstanceSelectGameScene,
+	SelectGameScene::InstanceSelectGameScene,
+	SelectGameScene::InstanceSelectGameScene,
+	RunGameScene::InstanceRunGameScene,
+	SelectGameScene::InstanceSelectGameScene
+};

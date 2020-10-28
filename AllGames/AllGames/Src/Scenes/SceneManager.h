@@ -1,4 +1,4 @@
-#ifndef SCENE_MANAGER_H_
+ï»¿#ifndef SCENE_MANAGER_H_
 #define SCENE_MANAGER_H_
 
 #include "SceneBase.h"
@@ -8,7 +8,7 @@
 
 /**
 * @class SceneManager
-* @brief Scene‚ğŠÇ—‚·‚éƒNƒ‰ƒX
+* @brief Sceneã‚’ç®¡ç†ã™ã‚‹ã‚¯ãƒ©ã‚¹
 */
 class SceneManager
 {
@@ -16,49 +16,55 @@ public:
 	static SceneManager* Instance();
 
 	/**
-	* @brief ƒQ[ƒ€‘S‘Ì‚ÌXVŠÖ”
+	* @brief ã‚²ãƒ¼ãƒ å…¨ä½“ã®æ›´æ–°é–¢æ•°
 	*/
 	void Update();
 
 	/**
-	* @brief •`‰æî•ñ‚ğƒZƒbƒg‚·‚éŠÖ”
+	* @brief æç”»æƒ…å ±ã‚’ã‚»ãƒƒãƒˆã™ã‚‹é–¢æ•°
 	*/
 	void Draw(DrawerBase* drawer_);
 
-
+	
 private:
 	/**
-	* @brief ƒV[ƒ“¶¬ŠÖ”
+	* @brief ã‚·ãƒ¼ãƒ³ç”Ÿæˆé–¢æ•°
 	* 
-	* @param scene_ ¶¬‚·‚éƒV[ƒ“ 
+	* @param scene_ ç”Ÿæˆã™ã‚‹ã‚·ãƒ¼ãƒ³ 
 	*/
 	void CreateScene(SceneType scene_);
 
 	/**
-	* @brief ƒV[ƒ“”jŠüŠÖ”
+	* @brief ã‚·ãƒ¼ãƒ³ç ´æ£„é–¢æ•°
 	*/
 	void DestroyScene();
 
+	//! å„ã‚·ãƒ¼ãƒ³ãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”ã™é–¢æ•°ã®ãƒã‚¤ãƒ³ã‚¿é…åˆ—
+	static SceneBase* (*s_func_ptr_array[static_cast<int>(SceneType::MAX_SCENE_NUM)])();
+
 private:
-	//! XVˆ—‚ÌƒXƒeƒbƒv
+	//! æ›´æ–°å‡¦ç†ã®ã‚¹ãƒ†ãƒƒãƒ—
 	enum class SceneStep : uint8_t {
 		STEP_INITIALIZE,
 		STEP_UPDATE,
 		STEP_END
 	};
 
-	//! ƒV[ƒ“‚Ìƒ|ƒCƒ“ƒ^•Ï”
+	//! ã‚·ãƒ¼ãƒ³ã®ãƒã‚¤ãƒ³ã‚¿å¤‰æ•°
 	SceneBase* m_p_scene;
-	//! Œ»İ‚ÌƒXƒeƒbƒv
+	//! ç¾åœ¨ã®ã‚¹ãƒ†ãƒƒãƒ—
 	SceneStep m_step;
-	//! Œ»İ‚ÌƒV[ƒ“
+	//! ç¾åœ¨ã®ã‚·ãƒ¼ãƒ³
 	SceneType m_now_scene;
 
+	
 private:
 	SceneManager();
 	~SceneManager();
 
 	static SceneManager* p_instance;
 };
+
+// 
 
 #endif

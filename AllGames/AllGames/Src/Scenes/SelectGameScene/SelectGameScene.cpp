@@ -1,4 +1,4 @@
-#include "SelectGameScene.h"
+Ôªø#include "SelectGameScene.h"
 #include "../../Input/Input.h"
 #include <cstring>
 
@@ -34,8 +34,8 @@ void SelectGameScene::Update()
 
 void SelectGameScene::Draw(DrawerBase* drawer_)
 {
-	char space[SELECT_GAME_DRAW_STRING_SIZE] = "Å@";
-	char pointer[SELECT_GAME_DRAW_STRING_SIZE] = "Åú";
+	char space[SELECT_GAME_DRAW_STRING_SIZE] = "„ÄÄ";
+	char pointer[SELECT_GAME_DRAW_STRING_SIZE] = "‚óè";
 	Vec2_Int pos;
 	for (pos.m_y = 0; pos.m_y < ALL_GAME_NUM; pos.m_y++) {
 		pos.m_x = 0;
@@ -50,20 +50,25 @@ void SelectGameScene::Draw(DrawerBase* drawer_)
 	}
 }
 
+SceneBase* SelectGameScene::InstanceSelectGameScene()
+{
+	return static_cast<SceneBase*>(new SelectGameScene);
+}
+
 void SelectGameScene::Init()
 {
 	m_games[0].m_scene_type = SceneType::TIT_TAT_TOE;
-	strcpy_s(m_games[0].m_title_string, SELECT_GAME_DRAW_STRING_SIZE, "É}ÉãÉoÉcÉQÅ[ÉÄ");
+	strcpy_s(m_games[0].m_title_string, SELECT_GAME_DRAW_STRING_SIZE, "„Éû„É´„Éê„ÉÑ„Ç≤„Éº„É†");
 	m_games[1].m_scene_type = SceneType::TOWER_OF_HANOI;
-	strcpy_s(m_games[1].m_title_string, SELECT_GAME_DRAW_STRING_SIZE, "ÉnÉmÉCÇÃìÉ");
+	strcpy_s(m_games[1].m_title_string, SELECT_GAME_DRAW_STRING_SIZE, "„Éè„Éé„Ç§„ÅÆÂ°î");
 	m_games[2].m_scene_type = SceneType::TRON;
-	strcpy_s(m_games[2].m_title_string, SELECT_GAME_DRAW_STRING_SIZE, "ÉgÉçÉì");
+	strcpy_s(m_games[2].m_title_string, SELECT_GAME_DRAW_STRING_SIZE, "„Éà„É≠„É≥");
 	m_games[3].m_scene_type = SceneType::PACMEN;
-	strcpy_s(m_games[3].m_title_string, SELECT_GAME_DRAW_STRING_SIZE, "ÉpÉbÉNÉ}Éì");
+	strcpy_s(m_games[3].m_title_string, SELECT_GAME_DRAW_STRING_SIZE, "„Éë„ÉÉ„ÇØ„Éû„É≥");
 	m_games[4].m_scene_type = SceneType::RUN_GAME;
-	strcpy_s(m_games[4].m_title_string, SELECT_GAME_DRAW_STRING_SIZE, "RunÉQÅ[ÉÄ");
+	strcpy_s(m_games[4].m_title_string, SELECT_GAME_DRAW_STRING_SIZE, "Run„Ç≤„Éº„É†");
 	m_games[5].m_scene_type = SceneType::SHOGI;
-	strcpy_s(m_games[5].m_title_string, SELECT_GAME_DRAW_STRING_SIZE, "4É}ÉXè´ä˚");
+	strcpy_s(m_games[5].m_title_string, SELECT_GAME_DRAW_STRING_SIZE, "4„Éû„ÇπÂ∞ÜÊ£ã");
 }
 
 bool SelectGameScene::SelectScene()
