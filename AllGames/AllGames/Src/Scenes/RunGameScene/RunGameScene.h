@@ -42,7 +42,7 @@ public:
 	//! 各オブジェクトのポインタ変数群
 	RunGameMap* m_p_map;
 	FrameCounter* m_p_frame_counter;
-	Player* m_p_player;
+	RunGamePlayer* m_p_player;
 
 private:
 	/**

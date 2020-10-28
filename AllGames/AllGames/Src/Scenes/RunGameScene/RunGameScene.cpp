@@ -113,7 +113,7 @@ void RunGameScene::CreateObjects()
 	if (m_p_frame_counter == nullptr)
 		m_p_frame_counter = new FrameCounter;
 	if (m_p_player == nullptr)
-		m_p_player = new Player;
+		m_p_player = new RunGamePlayer;
 }
 
 void RunGameScene::DestroyObjects()

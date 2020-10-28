@@ -2,7 +2,7 @@
 #include "../../../Input/Input.h"
 #include <cstring>
 
-Player::Player() :
+RunGamePlayer::RunGamePlayer() :
 	m_pos{},
 	m_speed(RUNGAME_PLAYER_MOVE_SPEED),
 	m_now_jump_height(0),
@@ -11,11 +11,11 @@ Player::Player() :
 {
 }
 
-Player::~Player()
+RunGamePlayer::~RunGamePlayer()
 {
 }
 
-void Player::Update()
+void RunGamePlayer::Update()
 {
 	// 入力情報取得
 	int key = Input::Instance()->GetKey();
@@ -27,7 +27,7 @@ void Player::Update()
 	}
 }
 
-void Player::Init(RunGameMap* map_)
+void RunGamePlayer::Init(RunGameMap* map_)
 {
 	// パラメータ情報の初期化
 	m_my_param.m_type = RunGameObjectType::PLAYER;
@@ -43,7 +43,7 @@ void Player::Init(RunGameMap* map_)
 	m_p_map = map_;
 }
 
-void Player::FixedUpdate(bool is_count_max_)
+void RunGamePlayer::FixedUpdate(bool is_count_max_)
 {
 	if (is_count_max_ == true) {
 		// 自身の状態に合わせた移動処理
@@ -90,12 +90,12 @@ void Player::FixedUpdate(bool is_count_max_)
 	}
 }
 
-void Player::Draw()
+void RunGamePlayer::Draw()
 {
 	m_p_map->SetPlayer(m_pos, m_my_param, m_head_param);
 }
 
-bool Player::IsClear()
+bool RunGamePlayer::IsClear()
 {
 	if (m_pos.m_x == RUNGAME_MAP_WIDTH - 1) {
 		return true;
@@ -103,7 +103,7 @@ bool Player::IsClear()
 	return false;
 }
 
-bool Player::IsDead()
+bool RunGamePlayer::IsDead()
 {
 	if (m_p_map->IsHitWall(m_pos)) {
 		return true;

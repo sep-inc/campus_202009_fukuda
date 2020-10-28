@@ -36,7 +36,6 @@ void SceneManager::Update()
 		DrawerManager::Instance()->SelectDrawer(m_now_scene);
 
 		m_step = SceneStep::STEP_UPDATE;
-		break;
 
 	case SceneStep::STEP_UPDATE:
 		// シーンの処理

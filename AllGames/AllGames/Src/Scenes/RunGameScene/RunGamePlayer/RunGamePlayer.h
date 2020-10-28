@@ -8,11 +8,11 @@
 * @class Player
 * Playerの処理クラス
 */
-class Player
+class RunGamePlayer
 {
 public:
-	Player();
-	~Player();
+	RunGamePlayer();
+	~RunGamePlayer();
 
 	/**
 	* @brief 更新処理関数（毎フレーム行う）
