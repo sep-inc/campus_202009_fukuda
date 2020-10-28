@@ -52,7 +52,7 @@ public:
 
 private:
 	//! プレイヤーの状態の種類
-	enum class PlayerState : int {
+	enum class RunGamePlayerState : int {
 		RUN,
 		JUMP,
 		FALL
@@ -64,7 +64,7 @@ private:
 	Vec2_Int m_pos;					//! 現在地
 	int m_speed;				//! 移動速度
 	int m_now_jump_height;		//! ジャンプの高さ
-	PlayerState m_now_state;	//! 現在の状態
+	RunGamePlayerState m_now_state;	//! 現在の状態
 
 	//! 参照用
 	RunGameMap* m_p_map;

@@ -6,7 +6,7 @@ RunGamePlayer::RunGamePlayer() :
 	m_pos{},
 	m_speed(RUNGAME_PLAYER_MOVE_SPEED),
 	m_now_jump_height(0),
-	m_now_state(PlayerState::RUN),
+	m_now_state(RunGamePlayerState::RUN),
 	m_p_map(nullptr)
 {
 }
@@ -21,8 +21,8 @@ void RunGamePlayer::Update()
 	int key = Input::Instance()->GetKey();
 	// スペースキー入力処理
 	if (key == KeyType::SPACE_KEY) {
-		if (m_now_state == PlayerState::RUN) {
-			m_now_state = PlayerState::JUMP;
+		if (m_now_state == RunGamePlayerState::RUN) {
+			m_now_state = RunGamePlayerState::JUMP;
 		}
 	}
 }
@@ -38,7 +38,7 @@ void RunGamePlayer::Init(RunGameMap* map_)
 	m_pos.m_x = RUNGAME_PLAYER_INIT_POS_X;
 	m_pos.m_y = RUNGAME_PLAYER_INIT_POS_Y;
 	m_now_jump_height = 0;
-	m_now_state = PlayerState::RUN;
+	m_now_state = RunGamePlayerState::RUN;
 	// マップをセット
 	m_p_map = map_;
 }
@@ -49,14 +49,14 @@ void RunGamePlayer::FixedUpdate(bool is_count_max_)
 		// 自身の状態に合わせた移動処理
 		switch (m_now_state)
 		{
-		case PlayerState::RUN:
+		case RunGamePlayerState::RUN:
 			m_pos.m_x++;
 			// 地面と当たっていなかった場合、状態をFALLに移行
 			if (!m_p_map->IsHitGround(m_pos)) {
-				m_now_state = PlayerState::FALL;
+				m_now_state = RunGamePlayerState::FALL;
 			}
 			break;
-		case PlayerState::JUMP:
+		case RunGamePlayerState::JUMP:
 			m_pos.m_x++;
 			m_pos.m_y--;
 			m_now_jump_height++;
@@ -65,20 +65,20 @@ void RunGamePlayer::FixedUpdate(bool is_count_max_)
 				m_now_jump_height = 0;
 				// 地面と当たっていた場合、状態をRUNに移行
 				if (m_p_map->IsHitGround(m_pos)) {
-					m_now_state = PlayerState::RUN;
+					m_now_state = RunGamePlayerState::RUN;
 				}
 				// 地面と当たっていなかった場合、状態をFALLに移行
 				else {
-					m_now_state = PlayerState::FALL;
+					m_now_state = RunGamePlayerState::FALL;
 				}
 			}
 			break;
-		case PlayerState::FALL:
+		case RunGamePlayerState::FALL:
 			m_pos.m_x++;
 			m_pos.m_y++;
 			// 地面と当たっていた場合
 			if (m_p_map->IsHitGround(m_pos)) {
-				m_now_state = PlayerState::RUN;
+				m_now_state = RunGamePlayerState::RUN;
 			}
 			break;
 		default:
