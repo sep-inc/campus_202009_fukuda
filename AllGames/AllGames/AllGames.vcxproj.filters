@@ -61,6 +61,15 @@
     <Filter Include="Src\Scenes\ShogiGameScene\ShogiBoard">
       <UniqueIdentifier>{f00f637d-9596-4edf-ae84-975425c161b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Scenes\TronGameScene">
+      <UniqueIdentifier>{6c406c71-7ba6-450d-b5bb-0d97d3438268}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\TronGameScene\TronGameMap">
+      <UniqueIdentifier>{eb86a45e-4abd-41d8-89cc-e9df3a2ff978}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\TronGameScene\TronCharacter">
+      <UniqueIdentifier>{101526e5-77e0-4095-8035-fcf5dde9036c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Main.cpp">
@@ -173,6 +182,24 @@
     </ClCompile>
     <ClCompile Include="Src\Draw\Drawers\ShogiGameDrawer.cpp">
       <Filter>Src\Draw\Drawers</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\Drawers\TronDrawer.cpp">
+      <Filter>Src\Draw\Drawers</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\TronGameScene\TronGameMap\TronGameMap.cpp">
+      <Filter>Src\Scenes\TronGameScene\TronGameMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\TronGameScene\TronCharacter\TronCharacterBase.cpp">
+      <Filter>Src\Scenes\TronGameScene\TronCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\TronGameScene\TronCharacter\TronPlayer.cpp">
+      <Filter>Src\Scenes\TronGameScene\TronCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\TronGameScene\TronCharacter\TronEnemy.cpp">
+      <Filter>Src\Scenes\TronGameScene\TronCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\TronGameScene\TronGameScene.cpp">
+      <Filter>Src\Scenes\TronGameScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -301,6 +328,27 @@
     </ClInclude>
     <ClInclude Include="Src\Draw\Drawers\ShogiGameDrawer.h">
       <Filter>Src\Draw\Drawers</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\TronGameScene\TronGameDefinition.h">
+      <Filter>Src\Scenes\TronGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\Drawers\TronDrawer.h">
+      <Filter>Src\Draw\Drawers</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\TronGameScene\TronGameMap\TronGameMap.h">
+      <Filter>Src\Scenes\TronGameScene\TronGameMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\TronGameScene\TronCharacter\TronCharacterBase.h">
+      <Filter>Src\Scenes\TronGameScene\TronCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\TronGameScene\TronCharacter\TronPlayer.h">
+      <Filter>Src\Scenes\TronGameScene\TronCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\TronGameScene\TronCharacter\TronEnemy.h">
+      <Filter>Src\Scenes\TronGameScene\TronCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\TronGameScene\TronGameScene.h">
+      <Filter>Src\Scenes\TronGameScene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

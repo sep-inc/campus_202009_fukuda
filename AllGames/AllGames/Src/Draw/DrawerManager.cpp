@@ -3,6 +3,7 @@
 #include "Drawers/RunGameDrawer.h"
 #include "Drawers/PacMenDrawer.h"
 #include "Drawers/ShogiGameDrawer.h"
+#include "Drawers/TronDrawer.h"
 
 DrawerManager* DrawerManager::p_instance = 0;
 
@@ -62,7 +63,7 @@ DrawerBase* (*DrawerManager::s_func_ptr_array[static_cast<int>(SceneType::MAX_SC
 	SelectGameDrawer::InstanceSelectGameDrawer,
 	SelectGameDrawer::InstanceSelectGameDrawer,
 	SelectGameDrawer::InstanceSelectGameDrawer,
-	SelectGameDrawer::InstanceSelectGameDrawer,
+	TronDrawer::InstanceTronGameDrawer,
 	PacMenDrawer::InstancePacMenDrawer,
 	RunGameDrawer::InstanceRunGameDrawer,
 	ShogiGameDrawer::InstanceSelectGameDrawer

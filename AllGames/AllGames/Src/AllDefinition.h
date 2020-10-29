@@ -35,7 +35,7 @@ enum KeyType
 {
 	NULL_KEY	= 0x00,		//! NULL
 	ENTER_KEY	= 0x0d,		//! Enter
-	SO_KEY		= 0x0e,		//! シフトアウト
+	SO_KEY		= 0xe0,		//! シフトアウト
 	ESCAPE_KEY  = 0x1b,		//! Esc
 	SPACE_KEY	= 0x20,		//! Space
 
