@@ -47,7 +47,7 @@ public:
 	//! 各オブジェクトのポインタ変数群
 	PacMenGameMap* m_p_game_map;
 	PacMenGameObject* m_p_player;
-	std::vector<PacMenGameObject*> m_p_monsters;
+	PacMenGameObject* m_p_monsters[PACMEN_MONSTER_NUM];
 	PacMenGameObject* m_p_items[PACMEN_ITEM_NUM];
 
 private:

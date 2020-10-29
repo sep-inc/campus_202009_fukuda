@@ -8,7 +8,7 @@
 PacMenGameScene::PacMenGameScene() :
 	m_p_game_map(nullptr),
 	m_p_player(nullptr),
-	m_p_monsters{ PACMEN_MONSTER_NUM,nullptr },
+	m_p_monsters{ nullptr },
 	m_p_items{ nullptr },
 	m_step(PacMenGameSceneStep::STEP_INITIALIZE),
 	m_result(PacMenResult::NONE),
@@ -33,10 +33,8 @@ void PacMenGameScene::Update()
 		/* 初期化処理 */
 		m_p_game_map->Init();
 		m_p_player->Init(m_p_game_map);
-		for (PacMenGameObject* e : m_p_monsters) {
-			if (e != nullptr) {
-				e->Init(m_p_game_map);
-			}
+		for (int i = 0; i < PACMEN_MONSTER_NUM; i++) {
+			m_p_monsters[i]->Init(m_p_game_map);
 		}
 		for (int i = 0; i < PACMEN_ITEM_NUM; i++) {
 			m_p_items[i]->Init(m_p_game_map);
@@ -73,10 +71,8 @@ void PacMenGameScene::Update()
 		}
 
 		/* モンスターの更新処理 */
-		for (PacMenGameObject* e : m_p_monsters) {
-			if (e != nullptr) {
-				e->Update();
-			}
+		for (int i = 0; i < PACMEN_MONSTER_NUM; i++) {
+			m_p_monsters[i]->Update();
 		}
 
 		/* ゲームの終了判定 */
@@ -112,10 +108,8 @@ void PacMenGameScene::Draw(DrawerBase* drawer_)
 	// プレイヤーの描画処理
 	m_p_player->Draw(drawer_);
 	// モンスターの描画処理
-	for (PacMenGameObject* e : m_p_monsters) {
-		if (e != nullptr) {
-			e->Draw(drawer_);
-		}
+	for (int i = 0; i < PACMEN_MONSTER_NUM; i++) {
+		m_p_monsters[i]->Draw(drawer_);
 	}
 }
 
@@ -145,10 +139,14 @@ void PacMenGameScene::CreateObjects()
 	if (m_p_player == nullptr)
 		m_p_player = new PacMenPlayer;
 	for (int i = 0; i < PACMEN_MONSTER_NUM; i++) {
-		m_p_monsters.push_back(new PacMenMonster);
+		if (m_p_monsters[i] == nullptr) {
+			m_p_monsters[i] = new PacMenMonster;
+		}
 	}
 	for (int i = 0; i < PACMEN_ITEM_NUM; i++) {
-		m_p_items[i] = new PacMenItem(i + 1);
+		if (m_p_items[i] == nullptr) {
+			m_p_items[i] = new PacMenItem(i + 1);
+		}
 	}
 }
 
@@ -162,10 +160,10 @@ void PacMenGameScene::DestroyObjects()
 		delete m_p_player;
 		m_p_player = nullptr;
 	}
-	for (PacMenGameObject* e : m_p_monsters) {
-		if (e != nullptr) {
-			delete e;
-			e = nullptr;
+	for (int i = 0; i < PACMEN_MONSTER_NUM; i++) {
+		if (m_p_monsters[i] != nullptr) {
+			delete m_p_monsters[i];
+			m_p_items[i] = nullptr;
 		}
 	}
 	for (int i = 0; i < PACMEN_ITEM_NUM; i++) {
