@@ -36,7 +36,7 @@ void RunGameScene::Update()
 
 	case RunGameSceneStep::STEP_GAME_START:
 		// ゲームスタート処理
-		if (StartRunGame()) {
+		if (GameStart()) {
 			m_step = RunGameSceneStep::STEP_UPDATE;
 		}
 		break;
@@ -66,7 +66,9 @@ void RunGameScene::Update()
 
 	case RunGameSceneStep::STEP_GAME_END:
 		/* ゲーム終了処理選択 */
-		SelectGameEnd();
+		if (SelectGameEnd()) {
+			m_step = RunGameSceneStep::STEP_END;
+		}
 		break;
 
 	case RunGameSceneStep::STEP_END:
@@ -133,34 +135,3 @@ void RunGameScene::DestroyObjects()
 
 }
 
-bool RunGameScene::StartRunGame()
-{
-	printf("Spaceでゲームスタート\n");
-	// キー情報取得
-	int key = Input::Instance()->GetKey();
-	if (key == KeyType::SPACE_KEY) {
-		return true;
-	}
-	return false;
-}
-
-void RunGameScene::SelectGameEnd()
-{
-	printf("ゲームを続けますか？\n");
-	printf("Enter : 続行  Esc : 終了\n");
-	// キー情報取得
-	int key = Input::Instance()->GetKey();
-	// 入力なし
-	if (key == -1) {
-		return;
-	}
-	// Enterキー入力
-	else if (key == KeyType::ENTER_KEY) {
-		m_step = RunGameSceneStep::STEP_END;
-	}
-	// Escキー入力
-	else if (key == KeyType::ESCAPE_KEY) {
-		m_is_scene_finish = true;
-		m_step = RunGameSceneStep::STEP_END;
-	}
-}

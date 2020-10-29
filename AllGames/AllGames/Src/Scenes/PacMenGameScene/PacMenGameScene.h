@@ -62,19 +62,6 @@ private:
 	void DestroyObjects();
 
 	/**
-	* @brief ゲーム開始処理関数
-	*
-	* @return bool Spaceキー入力でtrue
-	*/
-	bool StartPacMen();
-
-	/**
-	* @brief 終了処理の選択関数
-	* 入力情報に従って処理を行う
-	*/
-	void SelectGameEnd();
-
-	/**
 	* @brief プレイヤーのヒット時の処理関数
 	* @return bool プレイヤーの死亡フラグが立ったらtrue
 	*/
