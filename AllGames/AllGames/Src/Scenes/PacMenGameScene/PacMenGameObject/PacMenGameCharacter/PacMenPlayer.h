@@ -14,6 +14,12 @@ public:
 	~PacMenPlayer();
 
 	/**
+	* @brief 初期化関数
+	* 初期化時に自身の生成座標をランダムに選択する
+	*/
+	void Init(PacMenGameMap* map_)override;
+
+	/**
 	* @brief 移動座標選択関数
 	* 入力情報に従って移動座標を選択する
 	*

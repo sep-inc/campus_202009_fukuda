@@ -15,6 +15,14 @@ PacMenPlayer::~PacMenPlayer()
 {
 }
 
+void PacMenPlayer::Init(PacMenGameMap* map_)
+{
+	m_p_game_map = map_;
+	m_param.m_pos.m_x = PACMEN_PLAYER_INIT_POS_X;
+	m_param.m_pos.m_y = PACMEN_PLAYER_INIT_POS_Y;
+	m_p_game_map->SetPos(m_param);
+}
+
 void PacMenPlayer::SelectMovePos()
 {
 	Vec2_Int movement = {};	// 移動量

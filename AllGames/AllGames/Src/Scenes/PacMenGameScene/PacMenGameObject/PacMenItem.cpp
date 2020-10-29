@@ -30,6 +30,7 @@ PacMenItem::~PacMenItem()
 void PacMenItem::Init(PacMenGameMap* map_)
 {
 	m_p_game_map = map_;
+	m_is_delete = false;
 	// 生成可能場所の取得
 	Vec2_Int can_create_array[PACMEN_CAN_CREATE_POS_NUM] = {};
 	int array_index = m_p_game_map->GetCanCreatePos(can_create_array);

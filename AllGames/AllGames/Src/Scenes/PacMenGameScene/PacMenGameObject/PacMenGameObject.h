@@ -16,7 +16,7 @@ public:
 	virtual ~PacMenGameObject();
 
 	//! 初期化処理関数
-	virtual void Init(PacMenGameMap* map_);
+	virtual void Init(PacMenGameMap* map_) = 0;
 
 	/**
 	* @brief 更新処理関数
