@@ -21,6 +21,11 @@ public:
 	*/
 	void SetDrawBuffer(Vec2_Int pos_, char* string_)override;
 
+	/**
+	* @brief インスタンス生成関数
+	*/
+	static DrawerBase* InstancePacMenDrawer();
+
 
 private:
 	/**

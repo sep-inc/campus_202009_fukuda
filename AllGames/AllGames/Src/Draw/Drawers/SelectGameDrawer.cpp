@@ -1,4 +1,4 @@
-#include "SelectGameDrawer.h"
+﻿#include "SelectGameDrawer.h"
 
 SelectGameDrawer::SelectGameDrawer() :
 	m_blank_buffer{ "\0" },
@@ -20,6 +20,11 @@ void SelectGameDrawer::BufferClear()
 void SelectGameDrawer::SetDrawBuffer(Vec2_Int pos_, char* string_)
 {
 	strcpy_s(m_draw_buffer[pos_.m_y][pos_.m_x], SELECT_GAME_DRAW_STRING_SIZE, string_);
+}
+
+DrawerBase* SelectGameDrawer::InstanceSelectGameDrawer()
+{
+	return static_cast<DrawerBase*>(new SelectGameDrawer);
 }
 
 void SelectGameDrawer::LinkDrawBuffer()

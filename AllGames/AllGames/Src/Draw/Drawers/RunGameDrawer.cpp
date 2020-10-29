@@ -1,4 +1,4 @@
-#include "RunGameDrawer.h"
+﻿#include "RunGameDrawer.h"
 #include <cstring>
 
 RunGameDrawer::RunGameDrawer() :
@@ -21,6 +21,11 @@ void RunGameDrawer::BufferClear()
 void RunGameDrawer::SetDrawBuffer(Vec2_Int pos_, char* string_)
 {
 	strcpy_s(m_draw_buffer[pos_.m_y][pos_.m_x], RUNGAME_DRAW_STRING_SIZE, string_);
+}
+
+DrawerBase* RunGameDrawer::InstanceRunGameDrawer()
+{
+	return static_cast<DrawerBase*>(new RunGameDrawer);
 }
 
 void RunGameDrawer::LinkDrawBuffer()

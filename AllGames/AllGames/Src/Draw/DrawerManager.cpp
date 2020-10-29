@@ -45,30 +45,7 @@ void DrawerManager::SelectDrawer(SceneType game_type_)
 
 void DrawerManager::CreateDrawer(SceneType game_type_)
 {
-	if (m_p_drawer == nullptr)
-	{
-		switch (game_type_) {
-		case SceneType::SELECT_GAME:
-			m_p_drawer = new SelectGameDrawer;
-			break;
-		case SceneType::TIT_TAT_TOE:
-			break;
-		case SceneType::TOWER_OF_HANOI:
-			break;
-		case SceneType::TRON:
-			break;
-		case SceneType::PACMEN:
-			m_p_drawer = new PacMenDrawer;
-			break;
-		case SceneType::RUN_GAME:
-			m_p_drawer = new RunGameDrawer;
-			break;
-		case SceneType::SHOGI:
-			break;
-		default:
-			break;
-		}
-	}
+	m_p_drawer = s_func_ptr_array[static_cast<int>(game_type_)]();
 }
 
 void DrawerManager::DestroyDrawer()
@@ -78,3 +55,14 @@ void DrawerManager::DestroyDrawer()
 		m_p_drawer = nullptr;
 	}
 }
+
+DrawerBase* (*DrawerManager::s_func_ptr_array[static_cast<int>(SceneType::MAX_SCENE_NUM)])() =
+{
+	SelectGameDrawer::InstanceSelectGameDrawer,
+	SelectGameDrawer::InstanceSelectGameDrawer,
+	SelectGameDrawer::InstanceSelectGameDrawer,
+	SelectGameDrawer::InstanceSelectGameDrawer,
+	PacMenDrawer::InstancePacMenDrawer,
+	RunGameDrawer::InstanceRunGameDrawer,
+	SelectGameDrawer::InstanceSelectGameDrawer
+};

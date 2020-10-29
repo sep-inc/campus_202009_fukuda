@@ -1,4 +1,4 @@
-#ifndef RUN_GAME_DRAWER_H_
+ï»¿#ifndef RUN_GAME_DRAWER_H_
 #define RUN_GAME_DRAWER_H_
 
 #include "DrawerBase.h"
@@ -6,7 +6,7 @@
 
 /**
 * @class RunGameDrawer
-* @brief RunƒQ[ƒ€‚Ég—p‚·‚éDrawerƒNƒ‰ƒX
+* @brief Runã‚²ãƒ¼ãƒ ã«ä½¿ç”¨ã™ã‚‹Drawerã‚¯ãƒ©ã‚¹
 */
 class RunGameDrawer : public DrawerBase
 {
@@ -15,29 +15,34 @@ public:
 	~RunGameDrawer();
 
 	/**
-	* @brief •`‰æ—pƒoƒbƒtƒ@‚ÌƒZƒbƒgŠÖ”
-	* @param pos_ ƒZƒbƒg‚µ‚½‚¢ˆÊ’u
-	* @param string_ ƒZƒbƒg‚·‚é•¶š—ñ
+	* @brief æç”»ç”¨ãƒãƒƒãƒ•ã‚¡ã®ã‚»ãƒƒãƒˆé–¢æ•°
+	* @param pos_ ã‚»ãƒƒãƒˆã—ãŸã„ä½ç½®
+	* @param string_ ã‚»ãƒƒãƒˆã™ã‚‹æ–‡å­—åˆ—
 	*/
 	void SetDrawBuffer(Vec2_Int pos_, char* string_)override;
+
+	/**
+	* @brief ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ç”Ÿæˆé–¢æ•°
+	*/
+	static DrawerBase* InstanceRunGameDrawer();
 
 
 private:
 	/**
-	* @brief •`‰æ—pƒoƒbƒtƒ@‚ÌƒNƒŠƒAŠÖ”
+	* @brief æç”»ç”¨ãƒãƒƒãƒ•ã‚¡ã®ã‚¯ãƒªã‚¢é–¢æ•°
 	*/
 	void BufferClear()override;
 
 	/**
-	* @brief •`‰æƒoƒbƒtƒ@‚ğ˜AŒ‹‚µ‚Ä‚P‚Â‚Ì•¶š—ñ‚Ö•ÏŠ·‚·‚éŠÖ”
+	* @brief æç”»ãƒãƒƒãƒ•ã‚¡ã‚’é€£çµã—ã¦ï¼‘ã¤ã®æ–‡å­—åˆ—ã¸å¤‰æ›ã™ã‚‹é–¢æ•°
 	*/
 	void LinkDrawBuffer()override;
 
 
 private:
-	//! ‰Šú‰»—pƒoƒbƒtƒ@
+	//! åˆæœŸåŒ–ç”¨ãƒãƒƒãƒ•ã‚¡
 	char m_blank_buffer[RUNGAME_DRAW_HEIGHT][RUNGAME_DRAW_WIDTH][RUNGAME_DRAW_STRING_SIZE];
-	//! •`‰æ—pƒoƒbƒtƒ@
+	//! æç”»ç”¨ãƒãƒƒãƒ•ã‚¡
 	char m_draw_buffer[RUNGAME_DRAW_HEIGHT][RUNGAME_DRAW_WIDTH][RUNGAME_DRAW_STRING_SIZE];
 
 

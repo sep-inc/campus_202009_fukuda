@@ -1,4 +1,4 @@
-#ifndef DRAWER_MANAGER_H_
+ï»¿#ifndef DRAWER_MANAGER_H_
 #define DRAWER_MANAGER_H_
 
 #include "Drawers/DrawerBase.h"
@@ -6,7 +6,7 @@
 
 /**
 * @class DrawerManager
-* @brief DrawerƒNƒ‰ƒX‚ğƒQ[ƒ€‚²‚Æ‚ÉØ‚è‘Ö‚¦‚éƒVƒ“ƒOƒ‹ƒgƒ“ƒNƒ‰ƒX
+* @brief Drawerã‚¯ãƒ©ã‚¹ã‚’ã‚²ãƒ¼ãƒ ã”ã¨ã«åˆ‡ã‚Šæ›¿ãˆã‚‹ã‚·ãƒ³ã‚°ãƒ«ãƒˆãƒ³ã‚¯ãƒ©ã‚¹
 */
 class DrawerManager
 {
@@ -14,45 +14,47 @@ public:
 	static DrawerManager* Instance();
 
 	/**
-	* @brief •`‰æŠÖ”
+	* @brief æç”»é–¢æ•°
 	*/
 	void Draw();
 
 	/**
-	* @brief •`‰æî•ñƒNƒŠƒAŠÖ”
+	* @brief æç”»æƒ…å ±ã‚¯ãƒªã‚¢é–¢æ•°
 	*/
 	void Clear();
 
 	/**
-	* @brief DrawerƒNƒ‰ƒX‘I‘ğŠÖ”
-	* w’è‚³‚ê‚½ƒQ[ƒ€‚É‰‚¶‚ÄADrawer‚ğ¶¬A”jŠü‚·‚éŠÖ”
+	* @brief Drawerã‚¯ãƒ©ã‚¹é¸æŠé–¢æ•°
+	* æŒ‡å®šã•ã‚ŒãŸã‚²ãƒ¼ãƒ ã«å¿œã˜ã¦ã€Drawerã‚’ç”Ÿæˆã€ç ´æ£„ã™ã‚‹é–¢æ•°
 	*
-	* @param game_type_ ¶¬‚·‚éDrawer‚ÌƒQ[ƒ€‚Ìí—Ş
+	* @param game_type_ ç”Ÿæˆã™ã‚‹Drawerã®ã‚²ãƒ¼ãƒ ã®ç¨®é¡
 	*/
 	void SelectDrawer(SceneType game_type_);
 
 	/**
-	* @brief Drawer‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Ô‚·ŠÖ”
+	* @brief Drawerã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”ã™é–¢æ•°
 	*/
 	inline DrawerBase* GetDrawerInstance()const { return m_p_drawer; }
 
 
 private:
 	/**
-	* @brief DrawerƒNƒ‰ƒX¶¬ŠÖ”
+	* @brief Drawerã‚¯ãƒ©ã‚¹ç”Ÿæˆé–¢æ•°
 	*
-	* @param game_type_ ¶¬‚·‚éDrawer‚Ìí—Ş
+	* @param game_type_ ç”Ÿæˆã™ã‚‹Drawerã®ç¨®é¡
 	*/
 	void CreateDrawer(SceneType game_type_);
 
 	/**
-	* @brief DrawerƒNƒ‰ƒX”jŠüŠÖ”
+	* @brief Drawerã‚¯ãƒ©ã‚¹ç ´æ£„é–¢æ•°
 	*/
 	void DestroyDrawer();
 
+	//! å„DrawerãŒã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’è¿”ã™é–¢æ•°ã®ãƒã‚¤ãƒ³ã‚¿é…åˆ—
+	static DrawerBase* (*s_func_ptr_array[static_cast<int>(SceneType::MAX_SCENE_NUM)])();
 
 private:
-	//! DrawerƒNƒ‰ƒX‚Ìƒ|ƒCƒ“ƒ^•Ï”
+	//! Drawerã‚¯ãƒ©ã‚¹ã®ãƒã‚¤ãƒ³ã‚¿å¤‰æ•°
 	DrawerBase* m_p_drawer;
 
 
