@@ -2,6 +2,7 @@
 #include "SelectGameScene/SelectGameScene.h"
 #include "RunGameScene/RunGameScene.h"
 #include "PacMenGameScene/PacMenGameScene.h"
+#include "ShogiGameScene/ShogiGameScene.h"
 #include "../Draw/DrawerManager.h"
 
 SceneManager* SceneManager::p_instance = 0;
@@ -89,5 +90,5 @@ SceneBase* (*SceneManager::s_func_ptr_array[static_cast<int>(SceneType::MAX_SCEN
 	SelectGameScene::InstanceSelectGameScene,
 	PacMenGameScene::InstancePacMenGameScene,
 	RunGameScene::InstanceRunGameScene,
-	SelectGameScene::InstanceSelectGameScene
+	ShogiGameScene::InstanceShogiGameScene
 };

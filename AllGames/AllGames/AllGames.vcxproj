@@ -128,6 +128,7 @@
     <ClCompile Include="Src\Draw\Drawers\PacMenDrawer.cpp" />
     <ClCompile Include="Src\Draw\Drawers\RunGameDrawer.cpp" />
     <ClCompile Include="Src\Draw\Drawers\SelectGameDrawer.cpp" />
+    <ClCompile Include="Src\Draw\Drawers\ShogiGameDrawer.cpp" />
     <ClCompile Include="Src\Input\Input.cpp" />
     <ClCompile Include="Src\Main.cpp" />
     <ClCompile Include="Src\Scenes\PacMenGameScene\PacMenGameMap\PacMenGameMap.cpp" />
@@ -144,6 +145,21 @@
     <ClCompile Include="Src\Scenes\SceneBase.cpp" />
     <ClCompile Include="Src\Scenes\SceneManager.cpp" />
     <ClCompile Include="Src\Scenes\SelectGameScene\SelectGameScene.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiBoard\ShogiBoard.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiGameScene.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieceBase.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieceData.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiGoldGeneralPiece1.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiGoldGeneralPiece2.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKingPiece1.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKingPiece2.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKnightPiece1.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKnightPiece2.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiPawnPiece1.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiPawnPiece2.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayer1.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayer2.cpp" />
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayerBase.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Src\AllDefinition.h" />
@@ -152,6 +168,7 @@
     <ClInclude Include="Src\Draw\Drawers\PacMenDrawer.h" />
     <ClInclude Include="Src\Draw\Drawers\RunGameDrawer.h" />
     <ClInclude Include="Src\Draw\Drawers\SelectGameDrawer.h" />
+    <ClInclude Include="Src\Draw\Drawers\ShogiGameDrawer.h" />
     <ClInclude Include="Src\Input\Input.h" />
     <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameDefinition.h" />
     <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameMap\PacMenGameMap.h" />
@@ -170,6 +187,22 @@
     <ClInclude Include="Src\Scenes\SceneManager.h" />
     <ClInclude Include="Src\Scenes\SelectGameScene\SelectGameDefinition.h" />
     <ClInclude Include="Src\Scenes\SelectGameScene\SelectGameScene.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiBoard\ShogiBoard.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiGameDefinition.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiGameScene.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieceBase.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieceData.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiGoldGeneralPiece1.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiGoldGeneralPiece2.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKingPiece1.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKingPiece2.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKnightPiece1.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKnightPiece2.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiPawnPiece1.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiPawnPiece2.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayer1.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayer2.h" />
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayerBase.h" />
     <ClInclude Include="Src\Utility\Utility.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

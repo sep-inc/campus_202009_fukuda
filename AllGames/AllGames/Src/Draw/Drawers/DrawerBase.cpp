@@ -1,4 +1,4 @@
-#include "DrawerBase.h"
+ï»¿#include "DrawerBase.h"
 #include <cstdio>
 #include <cstring>
 
@@ -23,10 +23,14 @@ void DrawerBase::Draw()
 
 void DrawerBase::Clear()
 {
-	// •`‰æ—p•¶š—ñƒNƒŠƒA
+	// æç”»ç”¨æ–‡å­—åˆ—ã‚¯ãƒªã‚¢
 	m_draw_string.clear();
-	// •`‰æƒoƒbƒtƒ@ƒNƒŠƒA
+	// æç”»ãƒãƒƒãƒ•ã‚¡ã‚¯ãƒªã‚¢
 	BufferClear();
+}
+
+void DrawerBase::SetDrawMapString(std::string map_)
+{
 }
 
 void DrawerBase::SetResultString(std::string result_)

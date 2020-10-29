@@ -46,6 +46,21 @@
     <Filter Include="Src\Scenes\PacMenGameScene\PacMenGameObject\PacMenGameCharacter">
       <UniqueIdentifier>{df66e565-d9a4-473b-8938-a4d09bbd9265}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Scenes\ShogiGameScene">
+      <UniqueIdentifier>{05a47cea-18c3-432b-ba3d-a868b4b018d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\ShogiGameScene\ShogiPlayer">
+      <UniqueIdentifier>{fcaa5163-553e-47bc-963e-24a96c62fe5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\ShogiGameScene\ShogiPiece">
+      <UniqueIdentifier>{97e303ef-9f96-4211-9998-fac390874506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces">
+      <UniqueIdentifier>{900f40e6-d017-489e-a4a8-64bb9877ed3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\ShogiGameScene\ShogiBoard">
+      <UniqueIdentifier>{f00f637d-9596-4edf-ae84-975425c161b6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Main.cpp">
@@ -109,6 +124,54 @@
       <Filter>Src\Scenes\PacMenGameScene</Filter>
     </ClCompile>
     <ClCompile Include="Src\Draw\Drawers\PacMenDrawer.cpp">
+      <Filter>Src\Draw\Drawers</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieceBase.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiPawnPiece1.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiPawnPiece2.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiGoldGeneralPiece1.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiGoldGeneralPiece2.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKnightPiece1.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKnightPiece2.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKingPiece1.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKingPiece2.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieceData.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiBoard\ShogiBoard.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayerBase.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayer1.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayer2.cpp">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiGameScene.cpp">
+      <Filter>Src\Scenes\ShogiGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\Drawers\ShogiGameDrawer.cpp">
       <Filter>Src\Draw\Drawers</Filter>
     </ClCompile>
   </ItemGroup>
@@ -186,6 +249,57 @@
       <Filter>Src\Scenes\PacMenGameScene</Filter>
     </ClInclude>
     <ClInclude Include="Src\Draw\Drawers\PacMenDrawer.h">
+      <Filter>Src\Draw\Drawers</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiGameDefinition.h">
+      <Filter>Src\Scenes\ShogiGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieceBase.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiPawnPiece1.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiPawnPiece2.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiGoldGeneralPiece1.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiGoldGeneralPiece2.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKingPiece1.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKingPiece2.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKnightPiece1.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces\ShogiKnightPiece2.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieces</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPiece\ShogiPieceData.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPiece</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiBoard\ShogiBoard.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayerBase.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayer1.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayer2.h">
+      <Filter>Src\Scenes\ShogiGameScene\ShogiPlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiGameScene.h">
+      <Filter>Src\Scenes\ShogiGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\Drawers\ShogiGameDrawer.h">
       <Filter>Src\Draw\Drawers</Filter>
     </ClInclude>
   </ItemGroup>

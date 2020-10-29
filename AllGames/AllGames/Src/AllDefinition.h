@@ -42,7 +42,18 @@ enum KeyType
 	LEFT_KEY	= 0x4b,		//! 左矢印キー
 	RIGHT_KEY	= 0x4d,		//! 右矢印キー
 	UP_KEY		= 0x48,		//! 上矢印キー
-	DOWN_KEY	= 0x50		//! 下矢印キー
+	DOWN_KEY	= 0x50,		//! 下矢印キー
+
+	ONE_KEY		= 0x31,		//! 1キー
+	TWO_KEY		= 0x32,		//! 2キー
+	THREE_KEY	= 0x33,		//! 3キー
+	FOUR_KEY	= 0x34,		//! 4キー
+	FIVE_KEY	= 0x35,		//! 5キー
+
+	A_KEY		= 0x41,		//! Aキー
+	B_KEY		= 0x42,		//! Bキー
+	C_KEY		= 0x43,		//! Cキー
+	D_KEY		= 0x44		//! Dキー
 };
 
 
