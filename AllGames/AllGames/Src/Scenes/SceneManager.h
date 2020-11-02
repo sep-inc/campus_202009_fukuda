@@ -25,6 +25,8 @@ public:
 	*/
 	void Draw(DrawerBase* drawer_);
 
+	void Delete() { delete p_instance; }
+
 	
 private:
 	/**

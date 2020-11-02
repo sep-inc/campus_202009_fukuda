@@ -129,6 +129,7 @@
     <ClCompile Include="Src\Draw\Drawers\RunGameDrawer.cpp" />
     <ClCompile Include="Src\Draw\Drawers\SelectGameDrawer.cpp" />
     <ClCompile Include="Src\Draw\Drawers\ShogiGameDrawer.cpp" />
+    <ClCompile Include="Src\Draw\Drawers\TowerOfHanoiDrawer.cpp" />
     <ClCompile Include="Src\Draw\Drawers\TronDrawer.cpp" />
     <ClCompile Include="Src\Input\Input.cpp" />
     <ClCompile Include="Src\Main.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="Src\Draw\Drawers\RunGameDrawer.h" />
     <ClInclude Include="Src\Draw\Drawers\SelectGameDrawer.h" />
     <ClInclude Include="Src\Draw\Drawers\ShogiGameDrawer.h" />
+    <ClInclude Include="Src\Draw\Drawers\TowerOfHanoiDrawer.h" />
     <ClInclude Include="Src\Draw\Drawers\TronDrawer.h" />
     <ClInclude Include="Src\Input\Input.h" />
     <ClInclude Include="Src\Scenes\PacMenGameScene\PacMenGameDefinition.h" />
@@ -210,6 +212,7 @@
     <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayer1.h" />
     <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayer2.h" />
     <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayerBase.h" />
+    <ClInclude Include="Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiDefinition.h" />
     <ClInclude Include="Src\Scenes\TronGameScene\TronCharacter\TronCharacterBase.h" />
     <ClInclude Include="Src\Scenes\TronGameScene\TronCharacter\TronEnemy.h" />
     <ClInclude Include="Src\Scenes\TronGameScene\TronCharacter\TronPlayer.h" />

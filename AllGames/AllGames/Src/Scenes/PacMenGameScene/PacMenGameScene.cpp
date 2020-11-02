@@ -31,6 +31,8 @@ void PacMenGameScene::Update()
 		CreateObjects();
 
 		/* 初期化処理 */
+		m_item_delete_counter = 0;
+		m_result = PacMenResult::NONE;
 		m_p_game_map->Init();
 		m_p_player->Init(m_p_game_map);
 		for (int i = 0; i < PACMEN_MONSTER_NUM; i++) {
@@ -113,6 +115,8 @@ void PacMenGameScene::Draw(DrawerBase* drawer_)
 	for (int i = 0; i < PACMEN_MONSTER_NUM; i++) {
 		m_p_monsters[i]->Draw(drawer_);
 	}
+
+	SetResult(drawer_);
 }
 
 void PacMenGameScene::SetResult(DrawerBase* drawer_)

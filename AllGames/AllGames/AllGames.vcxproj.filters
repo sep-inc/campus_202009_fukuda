@@ -70,6 +70,9 @@
     <Filter Include="Src\Scenes\TronGameScene\TronCharacter">
       <UniqueIdentifier>{101526e5-77e0-4095-8035-fcf5dde9036c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Scenes\TowerOfHanoiGameScene">
+      <UniqueIdentifier>{d48b649e-e5df-4830-9011-96b9e3ad0c01}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Main.cpp">
@@ -200,6 +203,9 @@
     </ClCompile>
     <ClCompile Include="Src\Scenes\TronGameScene\TronGameScene.cpp">
       <Filter>Src\Scenes\TronGameScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\Drawers\TowerOfHanoiDrawer.cpp">
+      <Filter>Src\Draw\Drawers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -349,6 +355,12 @@
     </ClInclude>
     <ClInclude Include="Src\Scenes\TronGameScene\TronGameScene.h">
       <Filter>Src\Scenes\TronGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiDefinition.h">
+      <Filter>Src\Scenes\TowerOfHanoiGameScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\Drawers\TowerOfHanoiDrawer.h">
+      <Filter>Src\Draw\Drawers</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

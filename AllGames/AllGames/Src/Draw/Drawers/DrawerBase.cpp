@@ -25,6 +25,8 @@ void DrawerBase::Clear()
 {
 	// 描画用文字列クリア
 	m_draw_string.clear();
+	// リザルト用文字列クリア
+	m_result_string.clear();
 	// 描画バッファクリア
 	BufferClear();
 }

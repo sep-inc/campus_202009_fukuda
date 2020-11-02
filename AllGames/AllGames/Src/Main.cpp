@@ -1,38 +1,43 @@
-#include "Draw/DrawerManager.h"
+ï»¿#include "Draw/DrawerManager.h"
 #include "Scenes/SceneManager.h"
+#define _CRTDBG_MAP_ALLOC
 #include <cstdlib>
+#include <crtdbg.h>
 #include <csignal>
 
-//! Ctrl + C‚ÅƒvƒƒOƒ‰ƒ€‚ğI—¹‚·‚éŠÖ”
+
+//! Ctrl + Cã§ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’çµ‚äº†ã™ã‚‹é–¢æ•°
 void SignalHandle(int);
 
 
 int main() {
 	signal(SIGINT, SignalHandle);
-
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
 
 	while (true) {
-		/* Scene‚ÌXVˆ— */
+		/* Sceneã®æ›´æ–°å‡¦ç† */
 		SceneManager::Instance()->Update();
-
-		/* •`‰æˆ— */
-		// o—Í‰æ–Ê‚ÌƒNƒŠƒA
+	
+		/* æç”»å‡¦ç† */
+		// å‡ºåŠ›ç”»é¢ã®ã‚¯ãƒªã‚¢
 		system("cls");
-		// •`‰æî•ñ‚ÌƒNƒŠƒA
+		// æç”»æƒ…å ±ã®ã‚¯ãƒªã‚¢
 		DrawerManager::Instance()->Clear();
-		// •`‰æî•ñ‚ÌƒZƒbƒg
+		// æç”»æƒ…å ±ã®ã‚»ãƒƒãƒˆ
 		SceneManager::Instance()->Draw(DrawerManager::Instance()->GetDrawerInstance());
-		// •`‰æ
+		// æç”»
 		DrawerManager::Instance()->Draw();
 	}
 
+	SceneManager::Instance()->Delete();
+	_CrtDumpMemoryLeaks();
 	return 0;
 }
 
 
 /**
-* @brief Ctrl + c‚ÅƒvƒƒOƒ‰ƒ€‚ğI—¹‚·‚éŠÖ”
-* @return void –ß‚è’l‚È‚µ
+* @brief Ctrl + cã§ãƒ—ãƒ­ã‚°ãƒ©ãƒ ã‚’çµ‚äº†ã™ã‚‹é–¢æ•°
+* @return void æˆ»ã‚Šå€¤ãªã—
 */
 void SignalHandle(int) {
 	exit(0);

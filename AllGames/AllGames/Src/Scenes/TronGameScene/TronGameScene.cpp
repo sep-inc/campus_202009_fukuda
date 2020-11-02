@@ -82,6 +82,7 @@ void TronGameScene::Update()
 void TronGameScene::Draw(DrawerBase* drawer_)
 {
 	m_p_game_map->Draw(drawer_);
+	SetResult(drawer_);
 }
 
 void TronGameScene::Init()
@@ -94,13 +95,13 @@ void TronGameScene::SetResult(DrawerBase* drawer_)
 {
 	if (m_cannot_move_player == true &&
 		m_cannot_move_enemy == true) {
-		drawer_->SetResultString("引き分け");
+		drawer_->SetResultString("引き分け\n");
 	}
 	else if (m_cannot_move_enemy == true) {
-		drawer_->SetResultString("プレイヤーの勝利");
+		drawer_->SetResultString("プレイヤーの勝利\n");
 	}
 	else if (m_cannot_move_player == true) {
-		drawer_->SetResultString("エネミーの勝利");
+		drawer_->SetResultString("エネミーの勝利\n");
 	}
 }
 
