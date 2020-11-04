@@ -162,6 +162,8 @@
     <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayer1.cpp" />
     <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayer2.cpp" />
     <ClCompile Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayerBase.cpp" />
+    <ClCompile Include="Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiGameMap\TowerOfHanoiGameMap.cpp" />
+    <ClCompile Include="Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiPlayer\TowerOfHanoiPlayer.cpp" />
     <ClCompile Include="Src\Scenes\TronGameScene\TronCharacter\TronCharacterBase.cpp" />
     <ClCompile Include="Src\Scenes\TronGameScene\TronCharacter\TronEnemy.cpp" />
     <ClCompile Include="Src\Scenes\TronGameScene\TronCharacter\TronPlayer.cpp" />
@@ -213,6 +215,8 @@
     <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayer2.h" />
     <ClInclude Include="Src\Scenes\ShogiGameScene\ShogiPlayer\ShogiPlayerBase.h" />
     <ClInclude Include="Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiDefinition.h" />
+    <ClInclude Include="Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiGameMap\TowerOfHanoiGameMap.h" />
+    <ClInclude Include="Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiPlayer\TowerOfHanoiPlayer.h" />
     <ClInclude Include="Src\Scenes\TronGameScene\TronCharacter\TronCharacterBase.h" />
     <ClInclude Include="Src\Scenes\TronGameScene\TronCharacter\TronEnemy.h" />
     <ClInclude Include="Src\Scenes\TronGameScene\TronCharacter\TronPlayer.h" />

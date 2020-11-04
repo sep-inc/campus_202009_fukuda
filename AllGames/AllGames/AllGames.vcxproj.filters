@@ -73,6 +73,12 @@
     <Filter Include="Src\Scenes\TowerOfHanoiGameScene">
       <UniqueIdentifier>{d48b649e-e5df-4830-9011-96b9e3ad0c01}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiGameMap">
+      <UniqueIdentifier>{f996499c-4059-4473-b819-3db4eafb6ad3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiPlayer">
+      <UniqueIdentifier>{3fe8ac67-4db2-4ca6-8abf-d028c9bde192}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Src\Main.cpp">
@@ -206,6 +212,12 @@
     </ClCompile>
     <ClCompile Include="Src\Draw\Drawers\TowerOfHanoiDrawer.cpp">
       <Filter>Src\Draw\Drawers</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiPlayer\TowerOfHanoiPlayer.cpp">
+      <Filter>Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiPlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiGameMap\TowerOfHanoiGameMap.cpp">
+      <Filter>Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiGameMap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -361,6 +373,12 @@
     </ClInclude>
     <ClInclude Include="Src\Draw\Drawers\TowerOfHanoiDrawer.h">
       <Filter>Src\Draw\Drawers</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiPlayer\TowerOfHanoiPlayer.h">
+      <Filter>Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiPlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiGameMap\TowerOfHanoiGameMap.h">
+      <Filter>Src\Scenes\TowerOfHanoiGameScene\TowerOfHanoiGameMap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
