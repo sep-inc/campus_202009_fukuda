@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Src">
+      <UniqueIdentifier>{67e0bab0-b2c5-452f-b884-4d97a56d9083}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Utility">
+      <UniqueIdentifier>{94f95a10-169c-42c4-a75c-4668cbccb18a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Draw">
+      <UniqueIdentifier>{999371b9-712a-4390-8420-fb6de29b8963}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Input">
+      <UniqueIdentifier>{33abe192-ef47-4cad-9889-05ec09911242}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scene">
+      <UniqueIdentifier>{8166af36-791d-45f8-912f-f248628674ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scene\TetrisGameMap">
+      <UniqueIdentifier>{a71daf74-7f12-484d-8bd6-2d13fc872d41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scene\Tetrimino">
+      <UniqueIdentifier>{61236216-236f-46a7-b416-67e0a42fc6b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scene\Tetrimino\Tetriminos">
+      <UniqueIdentifier>{c759d7cd-a2cd-463b-a153-3743649d9f64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scene\Tetrimino\TetrisBlock">
+      <UniqueIdentifier>{3f0c841b-34c8-4912-9c85-f8bcf7abf7b0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Src\Main.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Input\Input.cpp">
+      <Filter>Src\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\DrawerBase.cpp">
+      <Filter>Src\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\DrawerManager.cpp">
+      <Filter>Src\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Draw\TetrisDrawer.cpp">
+      <Filter>Src\Draw</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\SceneBase.cpp">
+      <Filter>Src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\SceneManager.cpp">
+      <Filter>Src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\TetrisGameScene.cpp">
+      <Filter>Src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\TetrisGameMap\TetrisGameMap.cpp">
+      <Filter>Src\Scene\TetrisGameMap</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\Tetrimino\TetriminoBase.cpp">
+      <Filter>Src\Scene\Tetrimino</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\Tetrimino\Tetriminos\ITetrimino.cpp">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\Tetrimino\Tetriminos\OTetrimino.cpp">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\Tetrimino\Tetriminos\STetrimino.cpp">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\Tetrimino\Tetriminos\ZTetrimino.cpp">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\Tetrimino\Tetriminos\JTetrimino.cpp">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\Tetrimino\Tetriminos\LTetrimino.cpp">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\Tetrimino\Tetriminos\TTetrimino.cpp">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\Tetrimino\TetrisBlock\TetrisBlock.cpp">
+      <Filter>Src\Scene\Tetrimino\TetrisBlock</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\TetrisDefinition.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Utility\Utility.h">
+      <Filter>Src\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Input\Input.h">
+      <Filter>Src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\DrawerBase.h">
+      <Filter>Src\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\DrawerManager.h">
+      <Filter>Src\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Draw\TetrisDrawer.h">
+      <Filter>Src\Draw</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\SceneBase.h">
+      <Filter>Src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\SceneManager.h">
+      <Filter>Src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\TetrisGameScene.h">
+      <Filter>Src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\TetrisGameMap\TetrisGameMap.h">
+      <Filter>Src\Scene\TetrisGameMap</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\Tetrimino\TetriminoBase.h">
+      <Filter>Src\Scene\Tetrimino</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\Tetrimino\Tetriminos\ITetrimino.h">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\Tetrimino\Tetriminos\OTetrimino.h">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\Tetrimino\Tetriminos\STetrimino.h">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\Tetrimino\Tetriminos\ZTetrimino.h">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\Tetrimino\Tetriminos\JTetrimino.h">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\Tetrimino\Tetriminos\LTetrimino.h">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\Tetrimino\Tetriminos\TTetrimino.h">
+      <Filter>Src\Scene\Tetrimino\Tetriminos</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\Tetrimino\TetrisBlock\TetrisBlock.h">
+      <Filter>Src\Scene\Tetrimino\TetrisBlock</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
