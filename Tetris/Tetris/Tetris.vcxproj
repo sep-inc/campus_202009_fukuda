@@ -131,6 +131,7 @@
     <ClCompile Include="Src\Scene\SceneBase.cpp" />
     <ClCompile Include="Src\Scene\SceneManager.cpp" />
     <ClCompile Include="Src\Scene\Tetrimino\TetriminoBase.cpp" />
+    <ClCompile Include="Src\Scene\Tetrimino\TetriminoManager.cpp" />
     <ClCompile Include="Src\Scene\Tetrimino\Tetriminos\ITetrimino.cpp" />
     <ClCompile Include="Src\Scene\Tetrimino\Tetriminos\JTetrimino.cpp" />
     <ClCompile Include="Src\Scene\Tetrimino\Tetriminos\LTetrimino.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Src\Scene\SceneBase.h" />
     <ClInclude Include="Src\Scene\SceneManager.h" />
     <ClInclude Include="Src\Scene\Tetrimino\TetriminoBase.h" />
+    <ClInclude Include="Src\Scene\Tetrimino\TetriminoManager.h" />
     <ClInclude Include="Src\Scene\Tetrimino\Tetriminos\ITetrimino.h" />
     <ClInclude Include="Src\Scene\Tetrimino\Tetriminos\JTetrimino.h" />
     <ClInclude Include="Src\Scene\Tetrimino\Tetriminos\LTetrimino.h" />

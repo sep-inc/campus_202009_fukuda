@@ -26,11 +26,10 @@ public:
 
 
 protected:
-	Vec2_Float m_pos;	// 自身の座標（5×5マスの中心）
-	bool m_is_delete;	// デリートフラグ
+	Vec2_Float m_pos;	//! 自身の座標（5×5マスの中心）
+	bool m_is_delete;	//! デリートフラグ
 
 	int(*m_p_block_form)[TETRIMINO_WIDTH];		//! テトリミノの形情報
 };
 
 #endif
-

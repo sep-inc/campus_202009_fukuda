@@ -44,7 +44,6 @@ void TetrisGameScene::Update()
 		else {
 			m_step = TetrisGameSceneStep::STEP_INITIALIZE;
 		}
-
 		break;
 	}
 }
